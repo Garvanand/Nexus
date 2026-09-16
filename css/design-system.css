@@ -1,0 +1,781 @@
+/* ============================================================
+   NEXUS — THE LIFTING CLUB
+   Design System v2.0
+   
+   A recognizable visual identity. Not a template.
+   Editorial. Architectural. Restrained.
+   ============================================================ */
+
+/* --- Typefaces ---
+   Space Grotesk: Display / headings — geometric, architectural, editorial
+   Inter: Body / UI — clean, high legibility, professional
+   ------------------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+
+/* ============================================================
+   RESET — Zero-opinion foundation
+   ============================================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--ff-body);
+  background-color: var(--surface-primary);
+  color: var(--text-secondary);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+img { height: auto; }
+
+input, button, textarea, select { font: inherit; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol { list-style: none; }
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+
+/* ============================================================
+   DESIGN TOKENS
+   
+   Every value in the system references these tokens.
+   Change a token here → entire site updates.
+   ============================================================ */
+
+:root {
+
+  /* --------------------------------------------------------
+     COLOR — The Nexus Palette
+     Near-blacks, warm whites, concrete greys, restrained gold
+     -------------------------------------------------------- */
+
+  /* Surface colors (backgrounds) */
+  --surface-primary:     #0B0B0B;     /* deepest black — page bg */
+  --surface-elevated:    #121212;     /* raised elements, nav solid */
+  --surface-subtle:      #1A1A1A;     /* cards, panels, overlays */
+  --surface-muted:       #222222;     /* secondary panels */
+
+  /* Border / divider / structural */
+  --border-primary:      #2A2A2A;     /* primary dividers */
+  --border-subtle:       #1E1E1E;     /* faint lines */
+  --border-hover:        #3D3D3D;     /* hover borders */
+
+  /* Text hierarchy */
+  --text-primary:        #FAF9F6;     /* headings — soft white */
+  --text-secondary:      #D4D0C8;     /* body text — warm off-white */
+  --text-tertiary:       #8A8A8A;     /* captions, muted — concrete grey */
+  --text-muted:          #5A5A5A;     /* de-emphasized, placeholders */
+  --text-inverse:        #0B0B0B;     /* text on accent surfaces */
+
+  /* Accent — Nexus Yellow (RESTRAINED use only) */
+  --accent:              #C8B830;     /* primary accent — muted gold */
+  --accent-hover:        #D9CA3C;     /* hover state */
+  --accent-dim:          rgba(200, 184, 48, 0.10);  /* tint overlays */
+  --accent-glow:         rgba(200, 184, 48, 0.06);  /* very subtle glow */
+
+  /* Functional */
+  --overlay:             rgba(11, 11, 11, 0.92);
+  --overlay-light:       rgba(11, 11, 11, 0.60);
+
+
+  /* --------------------------------------------------------
+     TYPOGRAPHY — Editorial hierarchy
+     -------------------------------------------------------- */
+
+  --ff-display:  'Space Grotesk', sans-serif;
+  --ff-body:     'Inter', sans-serif;
+
+  /* Type scale — fluid, clamped */
+  --text-display:    clamp(3.5rem, 8vw, 7.5rem);    /* 56–120px — MASSIVE hero */
+  --text-hero:       clamp(2.5rem, 5.5vw, 5rem);    /* 40–80px — section heroes */
+  --text-section:    clamp(1.75rem, 3.5vw, 3rem);   /* 28–48px — section headings */
+  --text-subsection: clamp(1.25rem, 2vw, 1.625rem); /* 20–26px — subsections */
+  --text-body:       1rem;                            /* 16px — body */
+  --text-body-sm:    0.875rem;                        /* 14px — small body */
+  --text-caption:    0.8125rem;                       /* 13px — captions */
+  --text-eyebrow:    0.6875rem;                       /* 11px — eyebrow labels */
+  --text-stat:       clamp(2rem, 4vw, 3.5rem);       /* 32–56px — big numbers */
+  --text-cta:        0.75rem;                         /* 12px — button text */
+
+  /* Weights */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semi:     600;
+  --weight-bold:     700;
+
+  /* Tracking (letter-spacing) */
+  --tracking-tighter: -0.04em;   /* display headings */
+  --tracking-tight:   -0.025em;  /* section headings */
+  --tracking-normal:  0;         /* body text */
+  --tracking-wide:    0.06em;    /* labels */
+  --tracking-wider:   0.12em;    /* eyebrows, CTAs */
+  --tracking-widest:  0.18em;    /* ultra-spaced labels */
+
+  /* Leading (line-height) */
+  --leading-none:    0.9;    /* display — tight, dramatic */
+  --leading-tight:   1.1;    /* headings */
+  --leading-snug:    1.3;    /* subheadings */
+  --leading-normal:  1.65;   /* body text — generous for readability */
+  --leading-relaxed: 1.8;    /* long-form, captions */
+
+
+  /* --------------------------------------------------------
+     SPACING — Deliberate editorial rhythm
+     -------------------------------------------------------- */
+
+  --space-4:    0.25rem;    /* 4px */
+  --space-8:    0.5rem;     /* 8px */
+  --space-12:   0.75rem;    /* 12px */
+  --space-16:   1rem;       /* 16px */
+  --space-20:   1.25rem;    /* 20px */
+  --space-24:   1.5rem;     /* 24px */
+  --space-32:   2rem;       /* 32px */
+  --space-40:   2.5rem;     /* 40px */
+  --space-48:   3rem;       /* 48px */
+  --space-64:   4rem;       /* 64px */
+  --space-80:   5rem;       /* 80px */
+  --space-96:   6rem;       /* 96px */
+  --space-128:  8rem;       /* 128px */
+  --space-160:  10rem;      /* 160px */
+
+  /* Section spacing — controls vertical rhythm */
+  --section-gap: clamp(6rem, 12vh, 10rem);
+
+
+  /* --------------------------------------------------------
+     BORDER RADIUS — Architectural, not bubbly
+     -------------------------------------------------------- */
+
+  --radius-none: 0;
+  --radius-xs:   2px;     /* buttons, inputs */
+  --radius-sm:   3px;     /* cards, small elements */
+  --radius-md:   4px;     /* panels */
+
+
+  /* --------------------------------------------------------
+     MOTION — Premium, not performative
+     -------------------------------------------------------- */
+
+  --ease-out:      cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-expo:     cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --duration-fast:      180ms;
+  --duration-normal:    350ms;
+  --duration-slow:      600ms;
+  --duration-reveal:    800ms;
+  --duration-dramatic:  1200ms;
+
+
+  /* --------------------------------------------------------
+     LAYOUT — Content widths and constraints
+     -------------------------------------------------------- */
+
+  --container-max:    1340px;
+  --container-narrow: 900px;
+  --container-text:   640px;   /* max width for running text */
+  --container-pad:    clamp(1.25rem, 4vw, 3rem);
+  --nav-height:       72px;
+
+
+  /* --------------------------------------------------------
+     Z-INDEX — Controlled stacking
+     -------------------------------------------------------- */
+
+  --z-base:      1;
+  --z-above:     10;
+  --z-sticky:    100;
+  --z-nav:       500;
+  --z-overlay:   900;
+  --z-modal:     1000;
+}
+
+
+/* ============================================================
+   TYPOGRAPHY SYSTEM
+   
+   Named classes for every level of the hierarchy.
+   Each one is self-contained — apply to any element.
+   ============================================================ */
+
+/* Display — the biggest, boldest type on the page */
+.t-display {
+  font-family: var(--ff-display);
+  font-size: var(--text-display);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tighter);
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+/* Hero heading — large but not as extreme as display */
+.t-hero {
+  font-family: var(--ff-display);
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+
+/* Section heading — primary section titles */
+.t-section {
+  font-family: var(--ff-display);
+  font-size: var(--text-section);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+
+/* Subsection — secondary titles */
+.t-sub {
+  font-family: var(--ff-display);
+  font-size: var(--text-subsection);
+  font-weight: var(--weight-semi);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+
+/* Body — standard reading text */
+.t-body {
+  font-family: var(--ff-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
+
+/* Small body */
+.t-body-sm {
+  font-family: var(--ff-body);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--text-tertiary);
+}
+
+/* Caption — small descriptive text */
+.t-caption {
+  font-family: var(--ff-body);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--text-tertiary);
+}
+
+/* Eyebrow — small uppercase label above headings */
+.t-eyebrow {
+  font-family: var(--ff-display);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+/* Eyebrow accent variant */
+.t-eyebrow-accent {
+  font-family: var(--ff-display);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Stat — large numerical emphasis */
+.t-stat {
+  font-family: var(--ff-display);
+  font-size: var(--text-stat);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  letter-spacing: var(--tracking-tighter);
+  color: var(--accent);
+}
+
+/* CTA — button text treatment */
+.t-cta {
+  font-family: var(--ff-display);
+  font-size: var(--text-cta);
+  font-weight: var(--weight-semi);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   BUTTON SYSTEM
+   
+   Three tiers: primary, secondary, tertiary.
+   Plus icon-button for action pairs.
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  font-family: var(--ff-display);
+  font-size: var(--text-cta);
+  font-weight: var(--weight-semi);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  border-radius: var(--radius-xs);
+  transition:
+    background-color var(--duration-normal) var(--ease-out),
+    color var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out);
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* ---- PRIMARY: accent fill, dark text ---- */
+.btn-primary {
+  padding: 18px 44px;
+  background-color: var(--accent);
+  color: var(--text-inverse);
+  min-height: 54px;
+  border: 1px solid var(--accent);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  box-shadow: 0 0 0 1px var(--accent-dim);
+}
+
+/* ---- SECONDARY: transparent, subtle border ---- */
+.btn-secondary {
+  padding: 16px 36px;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-primary);
+  min-height: 50px;
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-tertiary);
+  color: var(--text-primary);
+}
+
+/* ---- TERTIARY: text-only with arrow ---- */
+.btn-tertiary {
+  padding: 8px 0;
+  background: transparent;
+  color: var(--text-tertiary);
+  font-size: var(--text-body-sm);
+  letter-spacing: var(--tracking-wide);
+  border: none;
+}
+
+.btn-tertiary .arrow {
+  display: inline-block;
+  transition: transform var(--duration-fast) var(--ease-out);
+  margin-left: var(--space-4);
+}
+
+.btn-tertiary:hover {
+  color: var(--text-primary);
+}
+
+.btn-tertiary:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ---- ICON BUTTON: for WhatsApp / Call / Directions pairs ---- */
+.btn-icon {
+  padding: 14px 24px;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-primary);
+  min-height: 48px;
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wide);
+}
+
+.btn-icon:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-icon svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   LAYOUT PRIMITIVES
+   ============================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.container--text {
+  max-width: var(--container-text);
+}
+
+.section {
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+
+
+/* ============================================================
+   SECTION LABEL — The editorial eyebrow + rule pattern
+   
+   ── THE SPACE
+   Used above every section heading for consistent rhythm.
+   ============================================================ */
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+
+.section-label__rule {
+  width: 32px;
+  height: 1px;
+  background-color: var(--border-primary);
+  flex-shrink: 0;
+}
+
+.section-label__text {
+  font-family: var(--ff-display);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+
+/* ============================================================
+   HORIZONTAL RULE — Structural rhythm
+   ============================================================ */
+
+.rule {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-primary);
+  border: none;
+}
+
+.rule--accent {
+  background-color: var(--accent);
+  height: 2px;
+  width: 48px;
+}
+
+
+/* ============================================================
+   IMAGE CONTAINER — Designed for real photo swaps
+   
+   Preserves aspect ratio. Graceful loading/error states.
+   Swap src without touching CSS.
+   ============================================================ */
+
+.img-frame {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--surface-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.img-frame--16x9  { aspect-ratio: 16 / 9; }
+.img-frame--4x3   { aspect-ratio: 4 / 3; }
+.img-frame--3x4   { aspect-ratio: 3 / 4; }
+.img-frame--1x1   { aspect-ratio: 1 / 1; }
+.img-frame--21x9  { aspect-ratio: 21 / 9; }
+.img-frame--9x16  { aspect-ratio: 9 / 16; }
+.img-frame--fill   { position: absolute; inset: 0; }
+
+/* Hover lift */
+.img-frame--hover:hover img {
+  transform: scale(1.04);
+}
+
+/* Loading shimmer */
+.img-frame--loading {
+  background: linear-gradient(
+    90deg,
+    var(--surface-subtle) 25%,
+    var(--surface-muted) 50%,
+    var(--surface-subtle) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Error fallback — dark solid, no broken icon */
+.img-frame--error img {
+  display: none;
+}
+
+
+/* ============================================================
+   ANIMATION KEYFRAMES
+   ============================================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes clipRevealUp {
+  from { clip-path: inset(100% 0 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes clipRevealLeft {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes slideOutRight {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+
+/* ============================================================
+   REVEAL SYSTEM — Intersection Observer driven
+   
+   .reveal            → single element fade up
+   .reveal-stagger    → children animate sequentially
+   .reveal-clip       → clip-path mask reveal
+   ============================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity var(--duration-reveal) var(--ease-expo),
+    transform var(--duration-reveal) var(--ease-expo);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-slow) var(--ease-expo),
+    transform var(--duration-slow) var(--ease-expo);
+}
+
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 80ms; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 160ms; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 240ms; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 320ms; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 400ms; }
+
+/* Clip-path mask reveal (for images) */
+.reveal-clip {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path var(--duration-dramatic) var(--ease-expo);
+}
+
+.reveal-clip.is-visible {
+  clip-path: inset(0 0 0 0);
+}
+
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--surface-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-primary); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+
+::selection {
+  background-color: var(--accent);
+  color: var(--text-inverse);
+}
+
+
+/* ============================================================
+   REDUCED MOTION — Accessibility
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-stagger > *,
+  .reveal-clip {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE TOKEN OVERRIDES
+   ============================================================ */
+
+@media (max-width: 767px) {
+  :root {
+    --nav-height: 60px;
+    --section-gap: clamp(3.5rem, 8vh, 5rem);
+  }
+
+  .btn-primary {
+    padding: 18px 32px;
+    min-height: 56px;
+    width: 100%;
+  }
+
+  .btn-secondary {
+    padding: 16px 28px;
+    min-height: 52px;
+  }
+
+  .btn-icon {
+    padding: 14px 20px;
+    flex: 1;
+  }
+
+  .section-label__rule {
+    width: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  :root {
+    --container-pad: 2.5rem;
+  }
+}
