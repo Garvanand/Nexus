@@ -4,6 +4,12 @@ import { BranchProvider } from '../context/BranchContext';
 import { Navbar } from '../components/Navbar';
 import { MobileStickyBar } from '../components/MobileStickyBar';
 import { Footer } from '../components/Footer';
+import dynamic from 'next/dynamic';
+
+const NexusCoach = dynamic(
+  () => import('../components/NexusCoach/NexusCoach').then((mod) => ({ default: mod.NexusCoach })),
+  { ssr: false }
+);
 
 export const metadata: Metadata = {
   title: 'NEXUS — The Lifting Club | Premium Gym in Greater Faridabad',
@@ -60,6 +66,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <MobileStickyBar />
+          <NexusCoach />
         </BranchProvider>
       </body>
     </html>

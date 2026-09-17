@@ -2215,3 +2215,794 @@ ul, ol {
   }
 }
 
+/* ============================================================
+   NEXUS COACH — AI CONCIERGE CHATBOT
+   Scoped, additive styles that do NOT modify any existing rule.
+   ============================================================ */
+
+/* --- Trigger Pill (Desktop & Mobile) --- */
+
+.nexus-coach-trigger {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 1rem 0.6rem 0.6rem;
+  background: var(--nexus-black);
+  border: 1px solid var(--nexus-border);
+  border-radius: 60px;
+  cursor: pointer;
+  font-family: var(--ff-display);
+  color: var(--nexus-off-white);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+  transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease, transform var(--duration-fast) ease;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.nexus-coach-trigger:hover {
+  border-color: var(--nexus-border-hover);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  transform: translateY(-1px);
+}
+
+.nexus-coach-trigger:focus-visible {
+  outline: 2px solid var(--nexus-yellow);
+  outline-offset: 3px;
+}
+
+.coach-trigger-monogram {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--nexus-off-white);
+  color: var(--nexus-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  flex-shrink: 0;
+}
+
+.coach-trigger-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  line-height: 1.2;
+}
+
+.coach-trigger-title {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--text-nano);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.coach-trigger-badge {
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  background: var(--nexus-yellow);
+  color: var(--nexus-black);
+  line-height: 1.4;
+}
+
+.coach-trigger-sub {
+  font-size: 0.575rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--nexus-grey-2);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.coach-trigger-arrow {
+  display: inline-block;
+  transition: transform var(--duration-fast) ease;
+}
+
+.nexus-coach-trigger:hover .coach-trigger-arrow {
+  transform: translateX(2px);
+}
+
+/* --- Mobile Trigger Adjustments --- */
+@media (max-width: 860px) {
+  .nexus-coach-trigger {
+    bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
+    right: 1rem;
+    padding: 0.5rem 0.85rem 0.5rem 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .coach-trigger-monogram {
+    width: 28px;
+    height: 28px;
+    font-size: 0.7rem;
+  }
+}
+
+/* --- Backdrop Overlay --- */
+
+.nexus-coach-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1099;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: coachFadeIn 0.2s ease forwards;
+}
+
+@keyframes coachFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- Floating Panel --- */
+
+.nexus-coach-panel {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1100;
+  width: 400px;
+  max-width: calc(100vw - 2rem);
+  height: 580px;
+  max-height: calc(100vh - 3rem);
+  display: flex;
+  flex-direction: column;
+  background: var(--nexus-black);
+  border: 1px solid var(--nexus-border);
+  border-radius: 16px;
+  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: coachPanelIn 0.3s var(--ease-editorial) forwards;
+}
+
+@keyframes coachPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* --- Panel Header --- */
+
+.coach-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--nexus-border);
+  flex-shrink: 0;
+  background: rgba(11, 11, 11, 0.98);
+}
+
+.coach-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.coach-header-monogram {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--nexus-off-white);
+  color: var(--nexus-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--ff-display);
+  flex-shrink: 0;
+}
+
+.coach-header-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.coach-header-title {
+  font-family: var(--ff-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--nexus-off-white);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.coach-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--nexus-grey-2);
+  padding: 0.12rem 0.35rem;
+  border: 1px solid var(--nexus-border);
+  border-radius: 20px;
+  line-height: 1.3;
+}
+
+.coach-status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--nexus-yellow);
+  animation: coachPulse 2.4s infinite ease-in-out;
+}
+
+@keyframes coachPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.coach-header-sub {
+  font-family: var(--ff-body);
+  font-size: 0.625rem;
+  font-weight: 400;
+  color: var(--nexus-grey-2);
+  margin: 0;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+}
+
+.coach-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.coach-header-icon-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--nexus-grey-2);
+  cursor: pointer;
+  transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.coach-header-icon-btn:hover {
+  background: var(--nexus-concrete);
+  color: var(--nexus-off-white);
+}
+
+.coach-header-icon-btn:focus-visible {
+  outline: 2px solid var(--nexus-yellow);
+  outline-offset: 1px;
+}
+
+/* --- Message Thread Body --- */
+
+.coach-panel-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--nexus-grey-3) transparent;
+}
+
+.coach-panel-body::-webkit-scrollbar {
+  width: 4px;
+}
+.coach-panel-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.coach-panel-body::-webkit-scrollbar-thumb {
+  background: var(--nexus-grey-3);
+  border-radius: 2px;
+}
+
+/* --- Individual Messages --- */
+
+.coach-msg {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+.coach-msg-user {
+  flex-direction: row-reverse;
+}
+
+.coach-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--nexus-concrete-light);
+  color: var(--nexus-off-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  font-family: var(--ff-display);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.coach-msg-bubble {
+  max-width: 88%;
+  border-radius: 12px;
+  padding: 0.65rem 0.85rem;
+  font-family: var(--ff-body);
+  font-size: 0.825rem;
+  line-height: 1.55;
+  color: var(--nexus-off-white);
+}
+
+.coach-msg-assistant .coach-msg-bubble {
+  background: var(--nexus-surface);
+  border: 1px solid var(--nexus-border);
+  border-top-left-radius: 4px;
+}
+
+.coach-msg-user .coach-msg-bubble {
+  background: var(--nexus-concrete-light);
+  border: 1px solid var(--nexus-border);
+  border-top-right-radius: 4px;
+}
+
+.coach-msg-welcome .coach-msg-bubble {
+  max-width: 100%;
+}
+
+.coach-user-text {
+  margin: 0;
+}
+
+/* --- Formatted Assistant Content --- */
+
+.coach-paragraph {
+  margin: 0 0 0.5rem 0;
+}
+.coach-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.coach-bullet-list {
+  margin: 0.35rem 0 0.5rem 0;
+  padding-left: 1.1rem;
+  list-style: none;
+}
+
+.coach-bullet-list li {
+  position: relative;
+  padding-left: 0;
+  margin-bottom: 0.3rem;
+}
+
+.coach-bullet-list li::before {
+  content: '—';
+  position: absolute;
+  left: -1.1rem;
+  color: var(--nexus-grey-2);
+  font-weight: 400;
+}
+
+.coach-msg-bubble strong {
+  font-weight: 600;
+  color: var(--nexus-off-white);
+}
+
+.coach-msg-bubble em {
+  font-style: italic;
+  color: var(--nexus-grey-1);
+}
+
+/* --- Welcome Text --- */
+
+.coach-welcome-text {
+  margin: 0 0 0.75rem 0;
+  white-space: pre-line;
+  font-size: 0.825rem;
+  line-height: 1.6;
+  color: var(--nexus-grey-1);
+}
+
+/* --- Quick Actions (Initial Grid) --- */
+
+.coach-quick-actions {
+  margin-top: 0.5rem;
+}
+
+.coach-quick-actions-label {
+  font-family: var(--ff-display);
+  font-size: 0.575rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--nexus-grey-2);
+  margin-bottom: 0.5rem;
+}
+
+.coach-quick-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.coach-quick-btn {
+  font-family: var(--ff-display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid var(--nexus-border);
+  background: var(--nexus-concrete);
+  color: var(--nexus-grey-1);
+  cursor: pointer;
+  transition: background var(--duration-fast) ease, border-color var(--duration-fast) ease, color var(--duration-fast) ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.coach-quick-btn:hover {
+  background: var(--nexus-concrete-light);
+  border-color: var(--nexus-border-hover);
+  color: var(--nexus-off-white);
+}
+
+.coach-quick-btn:focus-visible {
+  outline: 2px solid var(--nexus-yellow);
+  outline-offset: 1px;
+}
+
+/* --- Typing Indicator --- */
+
+.coach-typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.3rem 0;
+}
+
+.coach-typing-indicator span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--nexus-grey-2);
+  animation: coachTypingBounce 1.4s infinite ease-in-out both;
+}
+.coach-typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.coach-typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+.coach-typing-indicator span:nth-child(3) { animation-delay: 0s; }
+
+@keyframes coachTypingBounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* --- Contextual Action Chips (Post-Message CTAs) --- */
+
+.coach-msg-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+}
+
+.coach-chip-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--ff-display);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--nexus-border);
+  background: var(--nexus-concrete);
+  color: var(--nexus-grey-1);
+  cursor: pointer;
+  transition: background var(--duration-fast) ease, border-color var(--duration-fast) ease, color var(--duration-fast) ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.coach-chip-action:hover {
+  background: var(--nexus-concrete-light);
+  border-color: var(--nexus-border-hover);
+  color: var(--nexus-off-white);
+}
+
+.coach-chip-action:focus-visible {
+  outline: 2px solid var(--nexus-yellow);
+  outline-offset: 1px;
+}
+
+.coach-chip-whatsapp {
+  border-color: rgba(37, 211, 102, 0.3);
+  color: #25d366;
+}
+.coach-chip-whatsapp:hover {
+  border-color: rgba(37, 211, 102, 0.5);
+  background: rgba(37, 211, 102, 0.08);
+  color: #2de76e;
+}
+
+.coach-chip-link {
+  color: var(--nexus-yellow);
+  border-color: var(--nexus-yellow-muted);
+}
+.coach-chip-link:hover {
+  background: var(--nexus-yellow-muted);
+  border-color: rgba(229, 255, 0, 0.35);
+  color: var(--nexus-yellow);
+}
+
+.coach-chip-secondary {
+  color: var(--nexus-grey-2);
+}
+
+/* --- Error Card --- */
+
+.coach-error-card {
+  padding: 0.7rem 0.85rem;
+  background: rgba(220, 50, 50, 0.06);
+  border: 1px solid rgba(220, 50, 50, 0.2);
+  border-radius: 10px;
+}
+
+.coach-error-text {
+  font-family: var(--ff-body);
+  font-size: 0.78rem;
+  color: var(--nexus-grey-1);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.5;
+}
+
+.coach-error-actions {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+/* --- Follow-Up Ribbon --- */
+
+.coach-followup-ribbon {
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.5rem 1rem;
+  overflow-x: auto;
+  border-top: 1px solid var(--nexus-border);
+  flex-shrink: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.coach-followup-ribbon::-webkit-scrollbar {
+  display: none;
+}
+
+.coach-followup-pill {
+  font-family: var(--ff-display);
+  font-size: 0.575rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.55rem;
+  border-radius: 20px;
+  border: 1px solid var(--nexus-border);
+  background: transparent;
+  color: var(--nexus-grey-2);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background var(--duration-fast) ease, border-color var(--duration-fast) ease, color var(--duration-fast) ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.coach-followup-pill:hover {
+  background: var(--nexus-concrete);
+  border-color: var(--nexus-border-hover);
+  color: var(--nexus-off-white);
+}
+
+.coach-followup-pill:focus-visible {
+  outline: 2px solid var(--nexus-yellow);
+  outline-offset: 1px;
+}
+
+/* --- Composer (Input Footer) --- */
+
+.coach-panel-composer {
+  border-top: 1px solid var(--nexus-border);
+  padding: 0.6rem 0.75rem 0.6rem 0.75rem;
+  padding-bottom: calc(0.6rem + env(safe-area-inset-bottom, 0px));
+  flex-shrink: 0;
+  background: rgba(11, 11, 11, 0.98);
+}
+
+.coach-composer-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.45rem;
+  background: var(--nexus-surface);
+  border: 1px solid var(--nexus-border);
+  border-radius: 10px;
+  padding: 0.35rem 0.45rem 0.35rem 0.7rem;
+  transition: border-color var(--duration-fast) ease;
+}
+
+.coach-composer-form:focus-within {
+  border-color: var(--nexus-border-hover);
+}
+
+.coach-composer-textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--nexus-off-white);
+  font-family: var(--ff-body);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  padding: 0.3rem 0;
+  resize: none;
+  min-height: 20px;
+  max-height: 80px;
+}
+
+.coach-composer-textarea::placeholder {
+  color: var(--nexus-grey-3);
+  font-size: 0.78rem;
+}
+
+.coach-composer-send-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: none;
+  background: var(--nexus-off-white);
+  color: var(--nexus-black);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity var(--duration-fast) ease, transform var(--duration-fast) ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.coach-composer-send-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.coach-composer-send-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.coach-composer-send-btn:focus-visible {
+  outline: 2px solid var(--nexus-yellow);
+  outline-offset: 2px;
+}
+
+/* --- Spinner (in send btn) --- */
+
+.coach-spinner {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--nexus-grey-2);
+  border-top-color: var(--nexus-black);
+  border-radius: 50%;
+  animation: coachSpin 0.65s linear infinite;
+}
+
+@keyframes coachSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Disclaimer --- */
+
+.coach-composer-disclaimer {
+  font-family: var(--ff-body);
+  font-size: 0.55rem;
+  color: var(--nexus-grey-3);
+  text-align: center;
+  padding: 0.35rem 0.25rem 0;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================================
+   NEXUS COACH — MOBILE BOTTOM-SHEET LAYOUT
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .nexus-coach-panel {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: calc(85vh);
+    max-height: calc(100vh - env(safe-area-inset-top, 0px));
+    border-radius: 16px 16px 0 0;
+    animation: coachSheetUp 0.3s var(--ease-editorial) forwards;
+  }
+
+  @keyframes coachSheetUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (min-width: 641px) and (max-width: 860px) {
+  .nexus-coach-panel {
+    width: 380px;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* ============================================================
+   NEXUS COACH — REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .nexus-coach-panel,
+  .nexus-coach-backdrop,
+  .coach-typing-indicator span,
+  .coach-status-dot,
+  .coach-spinner {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .nexus-coach-panel {
+    opacity: 1;
+    transform: none;
+  }
+
+  .nexus-coach-backdrop {
+    opacity: 1;
+  }
+}
+
