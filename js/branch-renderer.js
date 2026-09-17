@@ -43,11 +43,16 @@
       const otherBranchId = branch.id === 'sector-85' ? 'sector-86' : 'sector-85';
       const otherBranch = window.NEXUS_BRANCHES[otherBranchId];
 
+      // Dynamic path calculation to support both /locations/ and /locations/sector-XX/
+      const isSubfolder = window.location.pathname.includes('sector-85') || window.location.pathname.includes('sector-86');
+      const rootPrefix = isSubfolder ? '../../' : '../';
+      const otherBranchLink = isSubfolder ? `../${otherBranch.slug}/index.html` : `./${otherBranch.slug}/index.html`;
+
       const html = `
         <!-- Fixed Branch Nav -->
         <header class="nav nav--solid" role="navigation">
           <div class="nav__inner">
-            <a href="../../index.html" class="nav__logo" aria-label="Nexus home">
+            <a href="${rootPrefix}index.html" class="nav__logo" aria-label="Nexus home">
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="50" cy="50" r="50" fill="#0B0B0B"/>
                 <circle cx="50" cy="50" r="49" stroke="#2A2A2A" stroke-width="1"/>
@@ -61,7 +66,7 @@
               <a href="#facilities" class="nav__link">Facilities</a>
               <a href="#gallery" class="nav__link">Gallery</a>
               <a href="#location" class="nav__link">Hours & Map</a>
-              <a href="../../index.html#branches" class="nav__link" style="color:var(--text-tertiary)">All Branches ↗</a>
+              <a href="${rootPrefix}index.html#branches" class="nav__link" style="color:var(--text-tertiary)">All Branches ↗</a>
             </div>
 
             <a href="https://wa.me/919582333003?text=${encodeURIComponent(branch.whatsappMessages.general)}"
@@ -72,7 +77,7 @@
         </header>
 
         <!-- Branch Hero -->
-        <section class="branch-hero" style="background-image: url('../../${branch.heroImage}');">
+        <section class="branch-hero" style="background-image: url('${rootPrefix}${branch.heroImage}');">
           <div class="branch-hero__overlay"></div>
           <div class="container branch-hero__content">
             <div class="branch-hero__badge">
@@ -173,9 +178,13 @@
             </div>
 
             <div class="branch-gallery-grid">
-              ${branch.gallery.map(img => `
+              ${branch.gallery.map((img, idx) => `
                 <div class="branch-gallery-item">
-                  <img src="../../${img.src}" alt="${img.alt}" loading="lazy">
+                  <img src="${rootPrefix}${img.src}" alt="${img.alt}" loading="lazy">
+                  <div class="branch-gallery-caption">
+                    <span class="branch-gallery-badge">NEXUS · ${branch.shortName.toUpperCase()} · 0${idx + 1}</span>
+                    <span class="branch-gallery-text">${img.alt}</span>
+                  </div>
                 </div>
               `).join('')}
             </div>
@@ -223,7 +232,7 @@
                 ${otherBranch.name} — ${otherBranch.tagline}
               </h3>
             </div>
-            <a href="../${otherBranch.slug}/index.html" class="btn btn-secondary">
+            <a href="${otherBranchLink}" class="btn btn-secondary">
               Explore ${otherBranch.shortName} →
             </a>
           </div>
@@ -244,8 +253,8 @@
                 </span>
               </div>
               <div style="display: flex; gap: var(--space-24);">
-                <a href="../../index.html" style="color: var(--text-tertiary); font-size: var(--text-body-sm);">Home</a>
-                <a href="../${otherBranch.slug}/index.html" style="color: var(--text-tertiary); font-size: var(--text-body-sm);">${otherBranch.shortName}</a>
+                <a href="${rootPrefix}index.html" style="color: var(--text-tertiary); font-size: var(--text-body-sm);">Home</a>
+                <a href="${otherBranchLink}" style="color: var(--text-tertiary); font-size: var(--text-body-sm);">${otherBranch.shortName}</a>
                 <a href="https://www.instagram.com/nexusliftingclub/" target="_blank" rel="noopener noreferrer" style="color: var(--text-tertiary); font-size: var(--text-body-sm);">Instagram</a>
               </div>
             </div>

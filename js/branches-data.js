@@ -27,38 +27,45 @@ const NEXUS_BRANCHES = {
       sunday: 'Sun: 7:00 AM – 2:00 PM',
       peak: 'Peak: 6:30 AM – 9:00 AM & 6:00 PM – 9:00 PM'
     },
-    heroImage: 'assets/images/space_lifting.jpg',
-    splitImage: 'assets/images/space_lifting.jpg',
+    heroImage: 'assets/images/photo8.webp',
+    splitImage: 'assets/images/photo10.webp',
     badge: 'Flagship Lifting Arena',
-    description: 'Our premier strength training club engineered for serious lifters, powerlifters, and athletes. Equipped with calibrated competition barbells, heavy-duty power cages, and vibration-dampening deadlift platforms.',
+    description: 'Our premier strength training club engineered for serious lifters, powerlifters, and athletes in Greater Faridabad. Equipped with Olympic deadlift platforms, competition barbells, Scandinavian Design machines, and panoramic daylight windows.',
     facilities: [
-      { name: 'Olympic Power Cages', desc: 'Heavy-gauge steel racks with safety straps and pull-up grips' },
-      { name: 'Calibrated Steel Plates', desc: 'Precision-tolerance weight discs for progressive overload' },
-      { name: 'Deadlift Platforms', desc: 'Dedicated drop platforms with high-density acoustic rubber' },
-      { name: 'Dumbbells Up To 50kg+', desc: 'Full commercial urethane dumbbell rack with minimal jumps' },
-      { name: 'Sled Sprint Track', desc: 'High-traction turf lane for sled pushes, drags, and carries' },
-      { name: 'Private Digital Lockers', desc: 'Keyless biometric and PIN lockers for member belongings' },
-      { name: 'Luxury Hotel Showers', desc: 'Private shower stalls with continuous hot water and grooming' }
+      { name: 'Olympic Deadlift Platform', desc: 'Acoustic rubber & hardwood drop platform with competition barbells' },
+      { name: 'Scandinavian Design Machines', desc: 'Precision selectorized pin-loaded stations along illuminated arched mirrors' },
+      { name: 'Olympic Flat & Incline Benches', desc: 'Heavy-gauge steel competition bench press stations overlooking skyline windows' },
+      { name: 'High-Output Cardio Grid', desc: 'Commercial treadmill banks, spin bikes, and metabolic conditioning zone' },
+      { name: 'Mirrored Movement Studio', desc: 'Sprung hardwood floor for calisthenics, mobility, and group sessions' },
+      { name: 'Custom Timber Member Lockers', desc: 'Spacious secure wooden lockers with cushioned bench seating & shoe storage' },
+      { name: 'Luxury Halo Vanity & Showers', desc: 'Circular backlit halo mirrors, metallic gold vessel basins, and private hot showers' },
+      { name: 'Outdoor Landscaped Terrace', desc: 'Fresh-air club balcony with lush plants and architectural dark stone facade' }
     ],
     highlights: [
       {
         title: 'Zero Gimmick Atmosphere',
-        desc: 'No crowded cardio circuits. Every square foot is optimized for athletic strength.'
+        desc: 'No crowded gimmicks. Every square foot is engineered for authentic athletic discipline and progressive overload.'
       },
       {
-        title: 'Competition Specs',
-        desc: 'Power bars, deadlift bars, and squat stands matching international lifting dimensions.'
+        title: 'Competition Specs & Platforms',
+        desc: 'Olympic wooden deadlift platforms, precision steel discs, and heavy-duty commercial racks.'
       },
       {
         title: 'Elite Coaching Cadre',
-        desc: 'Coaches specialized in biomechanics, powerlifting form, and injury prevention.'
+        desc: 'On-floor coaches specializing in biomechanics, compound bar path, and structured progression.'
       }
     ],
     gallery: [
-      { src: 'assets/images/space_lifting.jpg', alt: 'Sector 85 Main Lifting Arena Floor' },
-      { src: 'assets/images/training_strength.jpg', alt: 'Olympic Barbells and Plates at Sector 85' },
-      { src: 'assets/images/space_ambience.jpg', alt: 'Architectural Wood Slat Detailing' },
-      { src: 'assets/images/space_locker.jpg', alt: 'Private Member Lockers and Dressing Area' }
+      { src: 'assets/images/photo8.webp', alt: 'Nexus Sector 85 — Sunlit Strength Floor with Olympic Benches' },
+      { src: 'assets/images/photo10.webp', alt: 'Nexus Sector 85 — Olympic Deadlift Platform & Competition Bars' },
+      { src: 'assets/images/photo1.webp', alt: 'Nexus Sector 85 — Panoramic Training Arena & Cable Stations' },
+      { src: 'assets/images/photo9.webp', alt: 'Nexus Sector 85 — Scandinavian Design Machines & Cardio Grid' },
+      { src: 'assets/images/photo2.webp', alt: 'Nexus Sector 85 — Mirrored Group Movement & Calisthenics Studio' },
+      { src: 'assets/images/photo4.webp', alt: 'Nexus Sector 85 — Luxury Member Vanity with Halo Mirrors & Gold Basins' },
+      { src: 'assets/images/photo7.webp', alt: 'Nexus Sector 85 — Custom Timber Lockers & Dressing Lounge' },
+      { src: 'assets/images/photo6.webp', alt: 'Nexus Sector 85 — Grand Arrival Hallway with Wood Slat Paneling' },
+      { src: 'assets/images/photo5.webp', alt: 'Nexus Sector 85 — Outdoor Landscaped Club Terrace & Balcony' },
+      { src: 'assets/images/photo3.webp', alt: 'Nexus Sector 85 — Executive Grooming & Private Shower Suites' }
     ],
     whatsappMessages: {
       general: 'Hi Nexus! I am interested in Sector 85 membership details.',
@@ -114,9 +121,9 @@ const NEXUS_BRANCHES = {
     ],
     gallery: [
       { src: 'assets/images/space_cricket.jpg', alt: 'Rooftop Cricket Turf at Sunset' },
-      { src: 'assets/images/training_zumba.jpg', alt: 'High Energy Zumba Session' },
+      { src: 'assets/images/photo2.webp', alt: 'Acoustic Mirrored Movement Studio' },
       { src: 'assets/images/training_yoga.jpg', alt: 'Serene Mindfulness Yoga Studio' },
-      { src: 'assets/images/space_studio.jpg', alt: 'Mirrored Studio Interior' }
+      { src: 'assets/images/photo9.webp', alt: 'Cardio & Selectorized Conditioning Grid' }
     ],
     whatsappMessages: {
       general: 'Hi Nexus! I am interested in Sector 86 membership details.',

@@ -78,7 +78,7 @@
 
   // Active section spy
   function updateActiveSection() {
-    const sections = ['statement', 'branches', 'pillars', 'strength', 'amenities', 'instagram', 'visit'];
+    const sections = ['statement', 'branches', 'pillars', 'experience', 'instagram', 'visit'];
     const scrollY = window.scrollY + window.innerHeight / 3;
 
     let activeSection = null;

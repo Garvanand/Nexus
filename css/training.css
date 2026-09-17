@@ -1,0 +1,513 @@
+/**
+ * NEXUS — THE LIFTING CLUB
+ * Dedicated Training Page Styles (/training)
+ */
+
+/* ============================================================
+   1. TRAINING HERO
+   ============================================================ */
+.training-hero {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--space-96) + 40px) 0 var(--space-64) 0;
+  background-color: var(--surface-ground);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.training-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.training-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+  filter: saturate(0.9) brightness(0.8);
+}
+
+.training-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(11, 11, 11, 0.45) 0%,
+    rgba(11, 11, 11, 0.95) 100%
+  );
+  z-index: 2;
+}
+
+.training-hero__content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.training-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(200, 184, 48, 0.12);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-family: var(--ff-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  margin-bottom: var(--space-20);
+}
+
+.training-hero__badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+.training-hero__title {
+  font-family: var(--ff-display);
+  font-size: clamp(2.5rem, 6.5vw, 5.25rem);
+  font-weight: 800;
+  line-height: 1.02;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+  margin-bottom: var(--space-20);
+}
+
+.training-hero__lead {
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0 auto var(--space-36) auto;
+}
+
+.training-hero__actions {
+  display: flex;
+  gap: var(--space-16);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-48);
+}
+
+/* Quick Jump Zone Bar */
+.training-zone-bar {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  background-color: rgba(18, 18, 18, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.training-zone-pill {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-tertiary);
+  font-family: var(--ff-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.training-zone-pill:hover {
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+  background-color: var(--surface-card);
+}
+
+/* ============================================================
+   2. TRAINING ZONES SPREADS
+   ============================================================ */
+.training-zones-section {
+  padding: var(--space-96) 0;
+  background-color: var(--surface-primary);
+}
+
+.training-zone {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: var(--space-64);
+  align-items: center;
+  padding: var(--space-64) 0;
+  border-bottom: 1px solid var(--border-subtle);
+  scroll-margin-top: 100px;
+}
+
+.training-zone:last-child {
+  border-bottom: none;
+}
+
+.training-zone--reverse {
+  grid-template-columns: 1fr 1.15fr;
+}
+
+.training-zone--reverse .training-zone__visual {
+  order: 2;
+}
+
+.training-zone--reverse .training-zone__content {
+  order: 1;
+}
+
+@media (max-width: 991px) {
+  .training-zone,
+  .training-zone--reverse {
+    grid-template-columns: 1fr;
+    gap: var(--space-32);
+    padding: var(--space-48) 0;
+  }
+
+  .training-zone--reverse .training-zone__visual {
+    order: 1;
+  }
+
+  .training-zone--reverse .training-zone__content {
+    order: 2;
+  }
+}
+
+.training-zone__visual {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--surface-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.training-zone__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.training-zone:hover .training-zone__img {
+  transform: scale(1.05);
+}
+
+.training-zone__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 11, 11, 0.1) 0%,
+    rgba(11, 11, 11, 0.75) 100%
+  );
+}
+
+.training-zone__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: rgba(11, 11, 11, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--accent);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: var(--ff-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* Zone Content */
+.training-zone__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  margin-bottom: var(--space-16);
+}
+
+.training-zone__num {
+  font-family: var(--ff-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-widest);
+  color: var(--accent);
+}
+
+.training-zone__discipline {
+  font-family: var(--ff-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.training-zone__title {
+  font-family: var(--ff-display);
+  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-16);
+}
+
+.training-zone__desc {
+  font-size: 1.0625rem;
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  border-left: 2px solid var(--accent);
+  padding-left: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+
+.training-zone__highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  margin-bottom: var(--space-32);
+}
+
+@media (max-width: 600px) {
+  .training-zone__highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+.training-highlight-box {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-16);
+  border-radius: 4px;
+}
+
+.training-highlight-box__title {
+  font-family: var(--ff-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-wider);
+  margin-bottom: 4px;
+}
+
+.training-highlight-box__desc {
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  line-height: 1.45;
+}
+
+/* ============================================================
+   3. "FIND YOUR TRAINING STYLE" INTERACTIVE MODULE
+   ============================================================ */
+.style-finder-section {
+  padding: var(--space-96) 0;
+  background-color: var(--surface-elevated);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  scroll-margin-top: 80px;
+}
+
+.style-finder__header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto var(--space-48) auto;
+}
+
+.style-finder__goals-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-12);
+  margin-bottom: var(--space-40);
+}
+
+.style-goal-pill {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: var(--ff-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.style-goal-pill:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.style-goal-pill--active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--surface-ground);
+  box-shadow: 0 0 20px rgba(200, 184, 48, 0.4);
+}
+
+/* Recommendation Result Card */
+.style-result-card {
+  background-color: var(--surface-ground);
+  border: 1px solid rgba(200, 184, 48, 0.4);
+  border-radius: 6px;
+  padding: var(--space-48);
+  max-width: 920px;
+  margin: 0 auto;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+  transition: all var(--duration-medium) var(--ease-standard);
+}
+
+@media (max-width: 600px) {
+  .style-result-card {
+    padding: var(--space-28);
+  }
+}
+
+.style-result__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ff-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-12);
+}
+
+.style-result__title {
+  font-family: var(--ff-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-16);
+}
+
+.style-result__protocol {
+  font-size: 1.0625rem;
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  border-left: 2px solid var(--accent);
+  padding-left: var(--space-16);
+  margin-bottom: var(--space-32);
+}
+
+.style-result__meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-20);
+  margin-bottom: var(--space-40);
+}
+
+@media (max-width: 768px) {
+  .style-result__meta-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+}
+
+.style-meta-item {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-16);
+  border-radius: 4px;
+}
+
+.style-meta-item__label {
+  font-family: var(--ff-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.style-meta-item__val {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.style-result__actions {
+  display: flex;
+  gap: var(--space-16);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ============================================================
+   4. FINAL TRANSFORMATION CTA (PAGE FOOTER CTA)
+   ============================================================ */
+.training-cta-section {
+  padding: var(--space-96) 0;
+  background-color: var(--surface-ground);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.training-cta__inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.training-cta__title {
+  font-family: var(--ff-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+  margin-bottom: var(--space-20);
+}
+
+.training-cta__lead {
+  font-size: 1.125rem;
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-36);
+}
+
+.training-cta__actions {
+  display: flex;
+  gap: var(--space-16);
+  justify-content: center;
+  flex-wrap: wrap;
+}

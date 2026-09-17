@@ -13,7 +13,7 @@ const NEXUS_INSTAGRAM_POSTS = [
     category: 'Atmosphere',
     title: 'Heavy Deadlift Friday · Sector 85',
     caption: 'When the barbell bends, the discipline sharpens. Max effort pull sessions on the competition platform at Sector 85.',
-    poster: 'assets/images/reel_deadlift.jpg',
+    poster: 'assets/images/photo10.webp',
     permalink: 'https://www.instagram.com/reel/DO0EJ-oj-qV/',
     stats: {
       views: '18.4K',
@@ -29,7 +29,7 @@ const NEXUS_INSTAGRAM_POSTS = [
     category: 'Community',
     title: 'The Post-Session Energy Never Drops',
     caption: 'Lifting heavy weights creates unbreakable bonds. Saturday morning cohort locked in after an intense 90-minute session.',
-    poster: 'assets/images/reel_community.jpg',
+    poster: 'assets/images/photo8.webp',
     permalink: 'https://www.instagram.com/nexusliftingclub/',
     stats: {
       views: '24.9K',
@@ -61,7 +61,7 @@ const NEXUS_INSTAGRAM_POSTS = [
     category: 'Classes',
     title: 'Zumba Beats · High Cadence Studio',
     caption: 'Pure rhythm, acoustic concert sound, and 60 minutes of non-stop sweat in the mirrored studio at Sector 86.',
-    poster: 'assets/images/training_zumba.jpg',
+    poster: 'assets/images/photo2.webp',
     permalink: 'https://www.instagram.com/nexusliftingclub/',
     stats: {
       views: null,
@@ -77,7 +77,7 @@ const NEXUS_INSTAGRAM_POSTS = [
     category: 'Transformations',
     title: '6 Months of Consistency · Aryan’s Story',
     caption: '“I stopped looking for shortcuts and learned to love the barbell.” 18kg fat loss and +45kg on deadlift. Built with purpose.',
-    poster: 'assets/images/training_strength.jpg',
+    poster: 'assets/images/photo1.webp',
     permalink: 'https://www.instagram.com/nexusliftingclub/',
     stats: {
       views: null,
@@ -109,7 +109,7 @@ const NEXUS_INSTAGRAM_POSTS = [
     category: 'Facilities',
     title: 'Inside The Iron Floor · Olympic Rig Tour',
     caption: 'Heavy gauge steel, calibrated plates, precision bars, zero clutter. Built strictly for progressive overload.',
-    poster: 'assets/images/space_lifting.jpg',
+    poster: 'assets/images/photo9.webp',
     permalink: 'https://www.instagram.com/nexusliftingclub/',
     stats: {
       views: '16.2K',
@@ -125,7 +125,7 @@ const NEXUS_INSTAGRAM_POSTS = [
     category: 'Community',
     title: 'Members Club · Dressing & Lounge Walkthrough',
     caption: 'From private digital lockers to continuous hot water showers. Every detail designed to respect your daily routine.',
-    poster: 'assets/images/space_locker.jpg',
+    poster: 'assets/images/photo4.webp',
     permalink: 'https://www.instagram.com/nexusliftingclub/',
     stats: {
       views: null,

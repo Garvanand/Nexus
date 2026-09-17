@@ -13,15 +13,15 @@ const NEXUS_EXPERIENCES = {
     category: 'TRAIN',
     name: 'Strength & Lifting Arena',
     headline: 'HEAVY IRON. COMPETITION GRADE.',
-    oneLiner: 'Calibrated steel discs, Olympic drop platforms, and heavy-gauge power racks engineered for progressive overload without compromise.',
+    oneLiner: 'Calibrated steel discs, Olympic drop platforms, and Scandinavian Design machines engineered for progressive overload without compromise.',
     location: 'Sector 85 (Flagship Arena) & Sector 86',
-    image: 'assets/images/space_lifting.jpg',
+    image: 'assets/images/photo10.webp',
     specs: [
-      { label: 'Power Racks', val: 'Heavy-gauge commercial steel cages with safety straps' },
-      { label: 'Weight Discs', val: 'Calibrated competition bumper & steel plates' },
-      { label: 'Barbells', val: 'Olympic standard, power bars, deadlift bars, and EZ curl' },
+      { label: 'Deadlift Platform', val: 'Olympic wood & rubber drop bay with competition barbells' },
+      { label: 'Weight Discs', val: 'Calibrated competition bumper & steel discs' },
+      { label: 'Leg Press Station', val: 'Heavy plate-loaded 45° leg press & squat stations' },
+      { label: 'Selectorized Rigs', val: 'Scandinavian Design pin-loaded circuit along arched mirrors' },
       { label: 'Dumbbell Range', val: 'Commercial urethane pairs scaling to 50kg+' },
-      { label: 'Drop Platforms', val: 'Acoustic vibration-dampening high-density rubber' },
       { label: 'Conditioning', val: 'Turf sled track with push/pull prowler sleds' }
     ],
     whatsappMsg: 'Hi Nexus! I would like to inquire about the strength and lifting floor at Sector 85.'
@@ -35,7 +35,7 @@ const NEXUS_EXPERIENCES = {
     headline: 'RHYTHM WITHOUT RESTRAINT.',
     oneLiner: 'Shock-absorbent sprung hardwood flooring and concert-grade acoustics that turn high-calorie cardiovascular conditioning into pure euphoria.',
     location: 'Sector 86 Studio Arena',
-    image: 'assets/images/training_zumba.jpg',
+    image: 'assets/images/photo2.webp',
     specs: [
       { label: 'Floor System', val: 'Shock-absorbent sprung timber to protect joint health' },
       { label: 'Acoustics', val: 'Treated sound isolation with club-grade bass fidelity' },
@@ -108,16 +108,16 @@ const NEXUS_EXPERIENCES = {
     id: 'lockers',
     num: '06',
     category: 'COMFORT',
-    name: 'Private Digital Lockers',
+    name: 'Custom Timber Member Lockers',
     headline: 'ZERO FRICTION TRANSITIONS.',
-    oneLiner: 'Keyless biometric and digital PIN lockers providing seamless security for your personal gear, business bag, and devices while you train.',
+    oneLiner: 'Custom wooden member lockers, dedicated shoe compartments, and cushioned seating benches over pristine marble flooring.',
     location: 'Sector 85 & Sector 86',
-    image: 'assets/images/space_locker.jpg',
+    image: 'assets/images/photo7.webp',
     specs: [
-      { label: 'Access Control', val: 'Keyless digital code and biometric lock mechanisms' },
-      { label: 'Capacity', val: 'Spacious dimensions accommodating gym duffels and laptops' },
-      { label: 'Security', val: '24/7 access control monitored entry zone' },
-      { label: 'Dressing Zone', val: 'Architectural seating benches and full-length mirrors' }
+      { label: 'Cabinetry', val: 'Custom natural wood-grain lockers with secure locks' },
+      { label: 'Seating', val: 'Integrated cushioned bench seating for relaxed transitions' },
+      { label: 'Footwear', val: 'Individual ventilated shoe bays beneath lockers' },
+      { label: 'Environment', val: 'Pristine marble flooring with acoustic ceiling treatment' }
     ],
     whatsappMsg: 'Hi Nexus! Do you offer dedicated annual locker rentals at Sector 85 or 86?'
   },
@@ -126,16 +126,16 @@ const NEXUS_EXPERIENCES = {
     id: 'washrooms',
     num: '07',
     category: 'RECOVERY',
-    name: 'Hotel-Spec Showers & Washrooms',
+    name: 'Luxury Halo Vanity & Showers',
     headline: 'CLEANSE & RECHARGE.',
-    oneLiner: 'Continuous high-pressure hot water, individual privacy shower stalls, vanity grooming stations, and uncompromising hourly hygiene maintenance.',
+    oneLiner: 'Continuous high-pressure hot water, individual privacy shower stalls, circular glowing halo mirrors, and metallic gold vessel basins.',
     location: 'Sector 85 & Sector 86',
-    image: 'assets/images/space_ambience.jpg',
+    image: 'assets/images/photo4.webp',
     specs: [
-      { label: 'Water Supply', val: 'Continuous high-pressure hot water via dedicated boilers' },
-      { label: 'Privacy', val: 'Floor-to-ceiling private individual shower cubicles' },
-      { label: 'Hygiene Protocol', val: 'Hourly sanitization and dry-floor maintenance' },
-      { label: 'Grooming', val: 'Lit vanity mirrors, hair dryers, and grooming countertops' }
+      { label: 'Water Supply', val: 'Continuous high-pressure hot water via dedicated systems' },
+      { label: 'Vanity Mirrors', val: 'Dual circular halo backlit ambient vanity mirrors' },
+      { label: 'Vessel Basins', val: 'Custom metallic gold designer washbasins' },
+      { label: 'Hygiene Protocol', val: 'Continuous hourly inspection and hospital-grade sanitization' }
     ],
     whatsappMsg: 'Hi Nexus! Tell me more about the member shower and dressing facilities.'
   },
@@ -148,7 +148,7 @@ const NEXUS_EXPERIENCES = {
     headline: 'YOU DO NOT TRAIN ALONE.',
     oneLiner: 'An unpretentious cohort of serious lifters, everyday athletes, and driven beginners who respect consistency and foster camaraderie.',
     location: 'The Nexus Clubhouse (Both Locations)',
-    image: 'assets/images/reel_community.jpg',
+    image: 'assets/images/photo6.webp',
     specs: [
       { label: 'Vibe', val: 'Focused, supportive, and free of intimidation' },
       { label: 'Events', val: 'Intra-club mock meets, cricket tournaments, and fitness challenges' },
@@ -164,9 +164,9 @@ const NEXUS_EXPERIENCES = {
     category: 'COACHING',
     name: 'Elite Coaching & Mentorship',
     headline: 'PRECISION BIOMECHANICS.',
-    oneLiner: 'Certified strength and movement mentors who prioritize movement quality, bar velocity, and progressive overload over generic cookie-cutter routines.',
+    oneLiner: 'Certified strength and movement mentors on the floor who prioritize movement quality, bar velocity, and progressive overload.',
     location: 'Sector 85 & Sector 86',
-    image: 'assets/images/training_strength.jpg',
+    image: 'assets/images/photo9.webp',
     specs: [
       { label: 'Credentials', val: 'Certified strength & conditioning specialists (CSCS / ACE)' },
       { label: 'Approach', val: 'Individualized biomechanics assessment & periodization' },

@@ -1,0 +1,415 @@
+/* ============================================================
+   NEXUS — THE LIFTING CLUB
+   Facilities & Amenities Styles (/css/facilities.css)
+   
+   "EVERYTHING YOU NEED. IN ONE CLUB."
+   Asymmetric Masonry & Editorial Grid.
+   Image-Led & Typography-Led Cards.
+   ============================================================ */
+
+/* --- SECTION WRAPPER --- */
+.facilities-section {
+  position: relative;
+  background-color: #0E0E0E;
+  padding: var(--space-96) 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.facilities-section::before {
+  content: '';
+  position: absolute;
+  top: -180px;
+  left: 10%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(200, 184, 48, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- HEADER --- */
+.facilities-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto var(--space-44);
+  position: relative;
+  z-index: 1;
+}
+
+.facilities-title {
+  font-family: var(--ff-display);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-16);
+}
+
+.facilities-lead {
+  font-size: var(--text-body);
+  color: var(--text-tertiary);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: var(--leading-relaxed);
+}
+
+/* --- FILTER PILLS --- */
+.facilities-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-48);
+  position: relative;
+  z-index: 1;
+}
+
+.facilities-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border-primary);
+  background-color: var(--surface-card);
+  color: var(--text-secondary);
+  font-family: var(--ff-display);
+  font-size: 0.75rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+  user-select: none;
+}
+
+.facilities-pill:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+  background-color: #1C1C1C;
+}
+
+.facilities-pill--active {
+  border-color: var(--accent);
+  background-color: rgba(200, 184, 48, 0.12);
+  color: var(--accent);
+  box-shadow: 0 0 12px rgba(200, 184, 48, 0.2);
+}
+
+.facilities-pill__count {
+  font-size: 0.6875rem;
+  opacity: 0.75;
+  font-weight: var(--weight-normal);
+}
+
+/* --- ASYMMETRIC MASONRY GRID (12 Columns) --- */
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-24);
+  position: relative;
+  z-index: 1;
+}
+
+/* --- BASE CARD STYLING --- */
+.facility-card {
+  position: relative;
+  background-color: #131313;
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.facility-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65);
+}
+
+.facility-card--hidden {
+  display: none !important;
+}
+
+/* Column Spans on Desktop */
+.facility-card--large-image {
+  grid-column: span 8;
+}
+
+.facility-card--featured-banner {
+  grid-column: span 12;
+}
+
+.facility-card--medium-image {
+  grid-column: span 4;
+}
+
+.facility-card--compact-typography {
+  grid-column: span 6;
+}
+
+/* --- IMAGE-LED CARDS --- */
+.facility-card__visual {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #0A0A0A;
+}
+
+.facility-card--large-image .facility-card__visual {
+  aspect-ratio: 16 / 9;
+}
+
+.facility-card--featured-banner .facility-card__visual {
+  aspect-ratio: 21 / 9;
+  max-height: 420px;
+}
+
+.facility-card--medium-image .facility-card__visual {
+  aspect-ratio: 4 / 3;
+}
+
+.facility-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: grayscale(12%) contrast(105%);
+}
+
+.facility-card:hover .facility-card__img {
+  transform: scale(1.04);
+  filter: grayscale(0%) contrast(108%);
+}
+
+.facility-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 11, 11, 0.2) 0%, rgba(19, 19, 19, 0.95) 100%);
+  pointer-events: none;
+}
+
+.facility-card__badges {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.facility-card__badge-tag {
+  font-family: var(--ff-display);
+  font-size: 0.625rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--accent);
+  background-color: rgba(11, 11, 11, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 184, 48, 0.3);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.facility-card__badge-branch {
+  font-family: var(--ff-body);
+  font-size: 0.625rem;
+  font-weight: var(--weight-semi);
+  color: #FAF9F6;
+  background-color: rgba(24, 24, 24, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid #333333;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+/* Card Body */
+.facility-card__body {
+  padding: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.facility-card__category {
+  font-family: var(--ff-display);
+  font-size: 0.6875rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-8);
+}
+
+.facility-card__headline {
+  font-family: var(--ff-display);
+  font-size: 1.25rem;
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-10);
+}
+
+.facility-card--featured-banner .facility-card__headline {
+  font-size: clamp(1.375rem, 3vw, 1.875rem);
+}
+
+.facility-card__desc {
+  font-family: var(--ff-body);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-20);
+  flex: 1;
+}
+
+/* Specs List / Chips */
+.facility-card__specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin-bottom: var(--space-20);
+  padding-top: var(--space-14);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.facility-spec-chip {
+  background-color: #1A1A1A;
+  border: 1px solid #282828;
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-family: var(--ff-display);
+  font-size: 0.6875rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.facility-spec-chip::before {
+  content: '•';
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Card Footer Actions */
+.facility-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-16);
+  margin-top: auto;
+}
+
+.facility-card__notice {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+}
+
+.facility-card__cta {
+  font-family: var(--ff-display);
+  font-size: 0.75rem;
+  font-weight: var(--weight-semi);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform var(--duration-fast);
+}
+
+.facility-card:hover .facility-card__cta {
+  transform: translateX(4px);
+}
+
+/* --- TYPOGRAPHY-LED CARDS (Lockers & Washrooms) --- */
+.facility-card--compact-typography {
+  background: linear-gradient(135deg, #161616 0%, #111111 100%);
+  border: 1px solid #2E2E2E;
+  padding: var(--space-32);
+}
+
+.facility-card--compact-typography:hover {
+  border-color: #C8B830;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.75), 0 0 20px rgba(200, 184, 48, 0.08);
+}
+
+.facility-card--compact-typography .facility-card__body {
+  padding: 0;
+}
+
+.facility-card--compact-typography .facility-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-16);
+}
+
+.facility-card--compact-typography .facility-card__headline {
+  font-size: 1.5rem;
+  letter-spacing: var(--tracking-wide);
+  color: #FAF9F6;
+  margin-bottom: var(--space-12);
+}
+
+.facility-card--compact-typography .facility-card__desc {
+  font-size: 0.9375rem;
+  color: #B5B5B5;
+  margin-bottom: var(--space-24);
+}
+
+.facility-card--compact-typography .facility-card__specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  background-color: #181818;
+  border: 1px solid #242424;
+  border-radius: 3px;
+  padding: var(--space-14);
+  margin-bottom: var(--space-20);
+}
+
+/* --- MOBILE SPECIFIC TRANSFORMATION (<= 900px) --- */
+@media (max-width: 900px) {
+  .facilities-section {
+    padding: var(--space-64) 0;
+  }
+  .facilities-title {
+    font-size: 1.875rem;
+  }
+  .facilities-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-20);
+  }
+  .facility-card--large-image,
+  .facility-card--featured-banner,
+  .facility-card--medium-image,
+  .facility-card--compact-typography {
+    grid-column: span 1 !important;
+  }
+  .facility-card--featured-banner .facility-card__visual {
+    aspect-ratio: 16 / 10;
+    max-height: 280px;
+  }
+  .facility-card--compact-typography {
+    padding: var(--space-20);
+  }
+  .facility-card--compact-typography .facility-card__specs {
+    grid-template-columns: 1fr;
+  }
+}

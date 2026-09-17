@@ -1,0 +1,257 @@
+/* ============================================================
+   NEXUS — THE LIFTING CLUB
+   Smart WhatsApp CTA System Styles (/css/whatsapp-cta.css)
+   
+   Architectural. Subtle. High-Accessibility.
+   Dark Brutalist aesthetic matching Nexus Design System tokens.
+   ============================================================ */
+
+/* ============================================================
+   1. DESKTOP SUBTLE FLOATING PILL (>= 769px)
+   ============================================================ */
+.nexus-wa-pill {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 89;
+  display: block;
+  transform: translateY(0);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+  pointer-events: auto;
+}
+
+.nexus-wa-pill__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #121212;
+  border: 1px solid #282828;
+  border-radius: 999px;
+  padding: 10px 18px 10px 14px;
+  color: #FAF9F6;
+  text-decoration: none;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nexus-wa-pill__link:hover {
+  background-color: #181818;
+  border-color: #C8B830;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.8), 0 0 16px rgba(200, 184, 48, 0.2);
+  transform: translateY(-2px);
+}
+
+.nexus-wa-pill__link:focus-visible {
+  outline: 2px solid #C8B830;
+  outline-offset: 3px;
+}
+
+/* Pulsing Online Indicator Dot */
+.nexus-wa-pill__pulse {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+}
+
+.nexus-wa-pill__dot {
+  width: 7px;
+  height: 7px;
+  background-color: #C8B830;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(200, 184, 48, 0.8);
+}
+
+.nexus-wa-pill__pulse::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(200, 184, 48, 0.4);
+  border-radius: 50%;
+  animation: nexus-wa-pulse 2.2s infinite ease-out;
+}
+
+@keyframes nexus-wa-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* SVG Icon */
+.nexus-wa-pill__icon {
+  width: 18px;
+  height: 18px;
+  fill: #FAF9F6;
+  flex-shrink: 0;
+  transition: fill 0.2s ease, transform 0.2s ease;
+}
+
+.nexus-wa-pill__link:hover .nexus-wa-pill__icon {
+  fill: #C8B830;
+  transform: scale(1.06);
+}
+
+/* Text Label */
+.nexus-wa-pill__text {
+  font-family: var(--ff-display, 'Space Grotesk', -apple-system, sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #FAF9F6;
+  transition: color 0.2s ease;
+}
+
+.nexus-wa-pill__link:hover .nexus-wa-pill__text {
+  color: #FFFFFF;
+}
+
+/* Subtle Hint expanding on hover */
+.nexus-wa-pill__hint {
+  font-family: var(--ff-body, 'Inter', -apple-system, sans-serif);
+  font-size: 0.6875rem;
+  color: #888888;
+  max-width: 0;
+  opacity: 0;
+  margin-left: 0;
+  overflow: hidden;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  transition: max-width 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease,
+              margin-left 0.2s ease;
+}
+
+.nexus-wa-pill__link:hover .nexus-wa-pill__hint {
+  max-width: 120px;
+  opacity: 1;
+  margin-left: 4px;
+  color: #AAAAAA;
+}
+
+/* Hide desktop pill on mobile */
+@media (max-width: 768px) {
+  .nexus-wa-pill {
+    display: none !important;
+  }
+}
+
+
+/* ============================================================
+   2. MOBILE SLIM STICKY BOTTOM BAR (<= 768px)
+   ============================================================ */
+.sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 95;
+  background-color: rgba(11, 11, 11, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 16px;
+  padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
+  transform: translateY(105%);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.6);
+  pointer-events: auto;
+}
+
+.sticky-bar--visible {
+  transform: translateY(0);
+}
+
+.sticky-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.sticky-bar__btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px 16px;
+  border-radius: 3px;
+  font-family: var(--ff-display, 'Space Grotesk', -apple-system, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+.sticky-bar__btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* WhatsApp Primary Action Button */
+.sticky-bar__btn--whatsapp {
+  background-color: #C8B830;
+  color: #0B0B0B;
+  border: 1px solid #C8B830;
+  flex: 1.35;
+  box-shadow: 0 4px 14px rgba(200, 184, 48, 0.25);
+}
+
+.sticky-bar__btn--whatsapp:active {
+  background-color: #B5A528;
+  transform: scale(0.98);
+}
+
+/* Call Secondary Action Button */
+.sticky-bar__btn--call {
+  background-color: #1A1A1A;
+  color: #FAF9F6;
+  border: 1px solid #2E2E2E;
+  flex: 1;
+}
+
+.sticky-bar__btn--call:active {
+  background-color: #242424;
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .sticky-bar {
+    display: block;
+  }
+}
+
+/* Auto-hide sticky bar when modals or full-screen overlays are open */
+body.modal-open .sticky-bar,
+body.drawer-open .sticky-bar {
+  transform: translateY(115%) !important;
+  pointer-events: none !important;
+}
