@@ -21,8 +21,8 @@ export const LeadConversionForm: React.FC<{ initialStep?: number }> = ({
     'Kinetic Zumba',
     'Restorative Yoga',
     'Athletic Aerobics',
-    'Rooftop Cricket (Sec 86)',
-    'General Membership',
+    'Rooftop Cricket',
+    'General Enquiry',
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -44,7 +44,7 @@ export const LeadConversionForm: React.FC<{ initialStep?: number }> = ({
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-    }, 600);
+    }, 500);
   };
 
   const handleBranchToggle = (id: BranchId) => {
@@ -57,7 +57,7 @@ export const LeadConversionForm: React.FC<{ initialStep?: number }> = ({
       <div className="container final-cta-container">
         <div className="eyebrow eyebrow--yellow" style={{ marginBottom: '1.25rem' }}>
           <span className="eyebrow-line"></span>
-          <span>STEP ONTO THE FLOOR</span>
+          <span>START YOUR JOURNEY</span>
         </div>
 
         <h2 className="final-cta-title">
@@ -65,103 +65,81 @@ export const LeadConversionForm: React.FC<{ initialStep?: number }> = ({
         </h2>
 
         <p className="final-cta-desc">
-          Zero sign-up gimmicks. Experience the space, meet the coaches, and feel the standard firsthand across Sector 85 & 86.
+          Zero gimmicks. Select your ground, choose your discipline, and experience the standard firsthand.
         </p>
 
         {submitted ? (
-          <div
-            style={{
-              padding: '3rem 2rem',
-              backgroundColor: 'var(--nexus-surface)',
-              border: '1px solid var(--nexus-border)',
-              borderRadius: '2px',
-              textAlign: 'center',
-            }}
-          >
+          <div className="enquiry-confirmed-box">
             <div className="eyebrow eyebrow--yellow" style={{ marginBottom: '1rem' }}>
               ✓ INVITATION CONFIRMED
             </div>
-            <h3 style={{ fontFamily: 'var(--ff-display)', fontSize: '1.75rem', marginBottom: '1rem', color: 'var(--nexus-off-white)' }}>
+            <h3 className="enquiry-confirmed-box__title">
               WE’LL SEE YOU ON THE FLOOR, {name.toUpperCase()}.
             </h3>
-            <p style={{ color: 'var(--nexus-grey-2)', marginBottom: '2rem', maxWidth: '480px', margin: '0 auto 2rem' }}>
-              Our front desk at {selectedBranch === 'sector-85' ? 'Sector 85 Flagship' : 'Sector 86 Performance'} has received your request and will contact you via WhatsApp shortly.
+            <p className="enquiry-confirmed-box__desc">
+              Our front desk at {selectedBranch === 'sector-85' ? 'Sector 85 Flagship' : 'Sector 86 Performance'} has received your request and will connect with you via WhatsApp to coordinate your guest walkthrough.
             </p>
-            <a
-              href={getWhatsAppUrl(`Hi Nexus, I just requested a guest visit for ${selectedDiscipline} at ${selectedBranch === 'sector-85' ? 'Sector 85' : 'Sector 86'}.`)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              Open Direct WhatsApp Chat →
-            </a>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+              <a
+                href={getWhatsAppUrl(`Hi Nexus, I just submitted an enquiry for ${selectedDiscipline} at ${selectedBranch === 'sector-85' ? 'Sector 85' : 'Sector 86'}. Name: ${name}`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                Open WhatsApp Concierge Directly →
+              </a>
+              <button
+                type="button"
+                onClick={() => {
+                  setSubmitted(false);
+                  setName('');
+                  setPhone('');
+                }}
+                className="btn btn-secondary"
+              >
+                Submit Another Enquiry
+              </button>
+            </div>
           </div>
         ) : (
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              backgroundColor: 'var(--nexus-surface)',
-              border: '1px solid var(--nexus-border)',
-              padding: 'clamp(2rem, 4vw, 3.5rem)',
-              textAlign: 'left',
-            }}
-          >
-            {/* Branch Selection Toggle */}
-            <div style={{ marginBottom: '2rem' }}>
-              <label style={{ display: 'block', fontFamily: 'var(--ff-display)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--nexus-grey-2)', marginBottom: '0.75rem' }}>
+          <form onSubmit={handleSubmit} className="enquiry-form">
+            {/* Step 01: Choose Club */}
+            <div className="enquiry-step">
+              <label className="enquiry-step__label">
                 01 // SELECT DESTINATION
               </label>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div className="enquiry-branch-toggle">
                 <button
                   type="button"
                   onClick={() => handleBranchToggle('sector-85')}
-                  className="btn btn-secondary"
-                  style={{
-                    borderColor: selectedBranch === 'sector-85' ? 'var(--nexus-yellow)' : 'var(--nexus-border)',
-                    backgroundColor: selectedBranch === 'sector-85' ? 'rgba(229, 255, 0, 0.08)' : 'transparent',
-                    color: selectedBranch === 'sector-85' ? 'var(--nexus-off-white)' : 'var(--nexus-grey-2)',
-                  }}
+                  className={`btn-branch-opt ${selectedBranch === 'sector-85' ? 'btn-branch-opt--active' : ''}`}
                 >
-                  Sector 85 (Flagship)
+                  <span className="dot"></span>
+                  <span>Sector 85 (Flagship Arena)</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => handleBranchToggle('sector-86')}
-                  className="btn btn-secondary"
-                  style={{
-                    borderColor: selectedBranch === 'sector-86' ? 'var(--nexus-yellow)' : 'var(--nexus-border)',
-                    backgroundColor: selectedBranch === 'sector-86' ? 'rgba(229, 255, 0, 0.08)' : 'transparent',
-                    color: selectedBranch === 'sector-86' ? 'var(--nexus-off-white)' : 'var(--nexus-grey-2)',
-                  }}
+                  className={`btn-branch-opt ${selectedBranch === 'sector-86' ? 'btn-branch-opt--active' : ''}`}
                 >
-                  Sector 86 (Studios & Turf)
+                  <span className="dot"></span>
+                  <span>Sector 86 (Studios & Turf)</span>
                 </button>
               </div>
             </div>
 
-            {/* Discipline Selection */}
-            <div style={{ marginBottom: '2rem' }}>
-              <label style={{ display: 'block', fontFamily: 'var(--ff-display)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--nexus-grey-2)', marginBottom: '0.75rem' }}>
-                02 // PRIMARY DISCIPLINE
+            {/* Step 02: Select Discipline */}
+            <div className="enquiry-step">
+              <label className="enquiry-step__label">
+                02 // WHAT ARE YOU LOOKING FOR?
               </label>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <div className="enquiry-discipline-grid">
                 {disciplines.map((d) => (
                   <button
                     key={d}
                     type="button"
                     onClick={() => setSelectedDiscipline(d)}
-                    style={{
-                      padding: '0.45rem 0.9rem',
-                      fontFamily: 'var(--ff-display)',
-                      fontSize: '0.8125rem',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em',
-                      backgroundColor: selectedDiscipline === d ? 'var(--nexus-off-white)' : 'var(--nexus-concrete)',
-                      color: selectedDiscipline === d ? 'var(--nexus-black)' : 'var(--nexus-grey-2)',
-                      border: '1px solid',
-                      borderColor: selectedDiscipline === d ? 'var(--nexus-off-white)' : 'var(--nexus-border)',
-                      borderRadius: '2px',
-                    }}
+                    className={`btn-discipline-pill ${selectedDiscipline === d ? 'btn-discipline-pill--active' : ''}`}
                   >
                     {d}
                   </button>
@@ -169,52 +147,32 @@ export const LeadConversionForm: React.FC<{ initialStep?: number }> = ({
               </div>
             </div>
 
-            {/* Inputs */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.25rem', marginBottom: '2rem' }}>
-              <div>
-                <label style={{ display: 'block', fontFamily: 'var(--ff-display)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--nexus-grey-2)', marginBottom: '0.5rem' }}>
-                  Your Full Name
-                </label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="e.g. Arjun Mehta"
-                  required
-                  style={{
-                    width: '100%',
-                    padding: '0.9rem 1.25rem',
-                    backgroundColor: 'var(--nexus-black)',
-                    border: '1px solid var(--nexus-border)',
-                    color: 'var(--nexus-off-white)',
-                    fontSize: '0.95rem',
-                    outline: 'none',
-                    borderRadius: '2px',
-                  }}
-                />
-              </div>
-
-              <div>
-                <label style={{ display: 'block', fontFamily: 'var(--ff-display)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--nexus-grey-2)', marginBottom: '0.5rem' }}>
-                  Mobile / WhatsApp Number
-                </label>
-                <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="+91 98765 43210"
-                  required
-                  style={{
-                    width: '100%',
-                    padding: '0.9rem 1.25rem',
-                    backgroundColor: 'var(--nexus-black)',
-                    border: '1px solid var(--nexus-border)',
-                    color: 'var(--nexus-off-white)',
-                    fontSize: '0.95rem',
-                    outline: 'none',
-                    borderRadius: '2px',
-                  }}
-                />
+            {/* Step 03: Contact Details */}
+            <div className="enquiry-step">
+              <label className="enquiry-step__label">
+                03 // YOUR DETAILS
+              </label>
+              <div className="enquiry-inputs-grid">
+                <div>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Your Full Name"
+                    required
+                    className="enquiry-input"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="WhatsApp / Mobile Number"
+                    required
+                    className="enquiry-input"
+                  />
+                </div>
               </div>
             </div>
 
@@ -224,18 +182,19 @@ export const LeadConversionForm: React.FC<{ initialStep?: number }> = ({
               </p>
             )}
 
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem' }}>
+            {/* Form Actions */}
+            <div className="enquiry-form-actions">
               <button
                 type="submit"
                 disabled={loading}
                 className="btn btn-primary"
-                style={{ width: '100%', maxWidth: '300px' }}
+                style={{ width: '100%', maxWidth: '320px' }}
               >
-                {loading ? 'Confirming...' : 'Confirm Guest Pass →'}
+                {loading ? 'Submitting...' : 'Confirm Guest Pass →'}
               </button>
 
               <a
-                href={getWhatsAppUrl(`Hi Nexus, I'd like to book a tour directly.`)}
+                href={getWhatsAppUrl(`Hi Nexus, I'd like to book a club walkthrough for ${selectedDiscipline} at ${selectedBranch === 'sector-85' ? 'Sector 85' : 'Sector 86'}.`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-link"

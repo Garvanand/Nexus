@@ -19,15 +19,15 @@ export const Footer: React.FC = () => {
               THE LIFTING CLUB // GREATER FARIDABAD
             </div>
             <p className="footer-brand__desc">
-              Two premier fitness destinations engineered for progressive strength, studio movement, and rooftop recreation. Purpose-built without distractions.
+              Two fitness clubs in Greater Faridabad focused on strength training, group fitness studios, and rooftop sports. Built for consistent training.
             </p>
           </div>
 
           {/* Branch 85 */}
           <div>
-            <div className="footer-col__title">01 // SECTOR 85 FLAGSHIP</div>
+            <div className="footer-col__title">01 // SECTOR 85</div>
             <div className="footer-branch-item">
-              <div className="footer-branch-name">{branch85.name}</div>
+              <div className="footer-branch-name">Sector 85 Club</div>
               <div className="footer-branch-detail">
                 {branch85.address}
               </div>
@@ -47,9 +47,9 @@ export const Footer: React.FC = () => {
 
           {/* Branch 86 */}
           <div>
-            <div className="footer-col__title">02 // SECTOR 86 PERFORMANCE</div>
+            <div className="footer-col__title">02 // SECTOR 86</div>
             <div className="footer-branch-item">
-              <div className="footer-branch-name">{branch86.name}</div>
+              <div className="footer-branch-name">Sector 86 Club</div>
               <div className="footer-branch-detail">
                 {branch86.address}
               </div>
@@ -71,14 +71,14 @@ export const Footer: React.FC = () => {
         {/* Bottom bar */}
         <div className="footer-bottom">
           <div>
-            © {new Date().getFullYear()} NEXUS THE LIFTING CLUB. ALL RIGHTS RESERVED.
+            © {new Date().getFullYear()} NEXUS THE LIFTING CLUB. GREATER FARIDABAD, HARYANA.
           </div>
           <div style={{ display: 'flex', gap: '2rem' }}>
             <Link href="/training">Training</Link>
             <Link href="/classes">Classes</Link>
             <Link href="/locations">Locations</Link>
             <a
-              href="https://www.instagram.com/nexus_the_lifting_club/"
+              href="https://www.instagram.com/nexusliftingclub/"
               target="_blank"
               rel="noopener noreferrer"
             >

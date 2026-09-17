@@ -41,7 +41,7 @@ export const HydrationTool: React.FC = () => {
           Step 4: Athletic Daily Hydration Target &amp; Pacing
         </h3>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>
-          Calibrated fluid intake calculation accounting for bodyweight, heavy sweat rates in Greater Faridabad, and training environment.
+          Personalized fluid intake calculation accounting for bodyweight, heavy sweat rates in Greater Faridabad, and training environment.
         </p>
       </div>
 

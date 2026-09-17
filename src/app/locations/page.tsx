@@ -4,7 +4,7 @@ import { NEXUS_BRANCHES } from '../../data/branches';
 
 export const metadata = {
   title: 'Club Locations | NEXUS — The Lifting Club Greater Faridabad',
-  description: 'Explore Nexus branches in Greater Faridabad: Sector 85 Flagship (Heavy Iron & Olympic Platforms) and Sector 86 Performance Club (Rooftop Cricket Turf & Group Studios).',
+  description: 'Explore Nexus branches in Greater Faridabad: Sector 85 (Strength Training & Free Weights) and Sector 86 (Rooftop Cricket Turf & Group Studios).',
 };
 
 export default function LocationsHubPage() {
@@ -23,7 +23,7 @@ export default function LocationsHubPage() {
             NEXUS LOCATIONS.
           </h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.6 }}>
-            Two distinct environments engineered for serious progress. Choose between the pure barbell power of Sector 85 or the multi-discipline energy & rooftop sports of Sector 86.
+            Two distinct environments engineered for serious progress. Choose between the dedicated barbell strength floor of Sector 85 or the group studios & rooftop cricket turf of Sector 86.
           </p>
         </div>
       </section>
@@ -35,7 +35,7 @@ export default function LocationsHubPage() {
             {/* Sector 85 Card */}
             <article style={{ background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', borderRadius: '6px', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
               <div style={{ position: 'relative', height: '280px' }}>
-                <img src={branch85.heroImage} alt="Nexus Sector 85 Flagship" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src={branch85.heroImage} alt="Nexus Sector 85 Strength Gym" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(11,11,11,0.85) 100%)' }}></div>
                 <span style={{ position: 'absolute', top: '16px', left: '16px', background: 'rgba(11,11,11,0.85)', color: 'var(--accent)', border: '1px solid var(--accent)', padding: '4px 12px', borderRadius: '999px', fontSize: '0.6875rem', fontFamily: 'var(--ff-display)', fontWeight: 700, textTransform: 'uppercase' }}>
                   {branch85.badge}
@@ -44,7 +44,7 @@ export default function LocationsHubPage() {
 
               <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', flex: 1 }}>
                 <h2 style={{ fontFamily: 'var(--ff-display)', fontSize: '2rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '8px' }}>
-                  SECTOR 85 FLAGSHIP
+                  SECTOR 85 // STRENGTH GYM
                 </h2>
                 <div style={{ color: 'var(--text-tertiary)', fontSize: '0.875rem', marginBottom: '16px' }}>
                   📍 {branch85.address}
@@ -56,7 +56,7 @@ export default function LocationsHubPage() {
 
                 <div style={{ marginBottom: '24px' }}>
                   <div style={{ fontSize: '0.75rem', color: 'var(--accent)', fontFamily: 'var(--ff-display)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px' }}>
-                    Verified Key Capabilities
+                    Key Capabilities
                   </div>
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                     {branch85.highlights.map((h, i) => (
@@ -68,7 +68,7 @@ export default function LocationsHubPage() {
                 </div>
 
                 <div style={{ padding: '14px', background: 'rgba(255,255,255,0.03)', borderRadius: '4px', marginBottom: '28px', fontSize: '0.8125rem' }}>
-                  <strong style={{ color: 'var(--text-primary)', display: 'block', marginBottom: '2px' }}>Verified Operating Hours:</strong>
+                  <strong style={{ color: 'var(--text-primary)', display: 'block', marginBottom: '2px' }}>Operating Hours:</strong>
                   <span style={{ color: 'var(--text-secondary)' }}>Mon–Sat 6:00 AM – 10:00 PM · Sun 7:00 AM – 8:00 PM</span>
                 </div>
 
@@ -100,7 +100,7 @@ export default function LocationsHubPage() {
             {/* Sector 86 Card */}
             <article style={{ background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', borderRadius: '6px', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
               <div style={{ position: 'relative', height: '280px' }}>
-                <img src={branch86.heroImage} alt="Nexus Sector 86 Performance Club" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src={branch86.heroImage} alt="Nexus Sector 86 Studios & Turf" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(11,11,11,0.85) 100%)' }}></div>
                 <span style={{ position: 'absolute', top: '16px', left: '16px', background: 'rgba(11,11,11,0.85)', color: 'var(--accent)', border: '1px solid var(--accent)', padding: '4px 12px', borderRadius: '999px', fontSize: '0.6875rem', fontFamily: 'var(--ff-display)', fontWeight: 700, textTransform: 'uppercase' }}>
                   {branch86.badge}
@@ -109,7 +109,7 @@ export default function LocationsHubPage() {
 
               <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', flex: 1 }}>
                 <h2 style={{ fontFamily: 'var(--ff-display)', fontSize: '2rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '8px' }}>
-                  SECTOR 86 PERFORMANCE
+                  SECTOR 86 // STUDIOS & TURF
                 </h2>
                 <div style={{ color: 'var(--text-tertiary)', fontSize: '0.875rem', marginBottom: '16px' }}>
                   📍 {branch86.address}
@@ -121,7 +121,7 @@ export default function LocationsHubPage() {
 
                 <div style={{ marginBottom: '24px' }}>
                   <div style={{ fontSize: '0.75rem', color: 'var(--accent)', fontFamily: 'var(--ff-display)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px' }}>
-                    Verified Key Capabilities
+                    Key Capabilities
                   </div>
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                     {branch86.highlights.map((h, i) => (
@@ -133,7 +133,7 @@ export default function LocationsHubPage() {
                 </div>
 
                 <div style={{ padding: '14px', background: 'rgba(255,255,255,0.03)', borderRadius: '4px', marginBottom: '28px', fontSize: '0.8125rem' }}>
-                  <strong style={{ color: 'var(--text-primary)', display: 'block', marginBottom: '2px' }}>Verified Operating Hours:</strong>
+                  <strong style={{ color: 'var(--text-primary)', display: 'block', marginBottom: '2px' }}>Operating Hours:</strong>
                   <span style={{ color: 'var(--text-secondary)' }}>Mon–Sat 6:00 AM – 10:00 PM · Sun 7:00 AM – 8:00 PM</span>
                 </div>
 
@@ -180,43 +180,43 @@ export default function LocationsHubPage() {
               <thead>
                 <tr style={{ borderBottom: '2px solid var(--border-subtle)' }}>
                   <th style={{ padding: '16px', fontFamily: 'var(--ff-display)', fontSize: '0.875rem', textTransform: 'uppercase', color: 'var(--text-tertiary)' }}>Facility / Feature</th>
-                  <th style={{ padding: '16px', fontFamily: 'var(--ff-display)', fontSize: '0.875rem', textTransform: 'uppercase', color: 'var(--accent)' }}>Sector 85 Flagship</th>
-                  <th style={{ padding: '16px', fontFamily: 'var(--ff-display)', fontSize: '0.875rem', textTransform: 'uppercase', color: 'var(--accent)' }}>Sector 86 Performance</th>
+                  <th style={{ padding: '16px', fontFamily: 'var(--ff-display)', fontSize: '0.875rem', textTransform: 'uppercase', color: 'var(--accent)' }}>Sector 85 (Strength Gym)</th>
+                  <th style={{ padding: '16px', fontFamily: 'var(--ff-display)', fontSize: '0.875rem', textTransform: 'uppercase', color: 'var(--accent)' }}>Sector 86 (Studios & Turf)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
-                  <td style={{ padding: '14px 16px', color: 'var(--text-primary)', fontWeight: 600 }}>Olympic Weightlifting Platforms</td>
-                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ 4 Dedicated Shock Platforms</td>
-                  <td style={{ padding: '14px 16px', color: 'var(--text-secondary)' }}>✓ Full Drop Platform Bay</td>
+                  <td style={{ padding: '14px 16px', color: 'var(--text-primary)', fontWeight: 600 }}>Lifting Platforms & Power Cages</td>
+                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ Dedicated Lifting Bays</td>
+                  <td style={{ padding: '14px 16px', color: 'var(--text-secondary)' }}>✓ Barbell Lifting Area</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
-                  <td style={{ padding: '14px 16px', color: 'var(--text-primary)', fontWeight: 600 }}>Rooftop Cricket Turf (Floodlit)</td>
+                  <td style={{ padding: '14px 16px', color: 'var(--text-primary)', fontWeight: 600 }}>Rooftop Cricket Turf</td>
                   <td style={{ padding: '14px 16px', color: 'var(--text-tertiary)' }}>—</td>
-                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ Flagship Open Sky Arena</td>
+                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ Outdoor Rooftop Turf</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                   <td style={{ padding: '14px 16px', color: 'var(--text-primary)', fontWeight: 600 }}>Zumba & Dance Studio</td>
                   <td style={{ padding: '14px 16px', color: 'var(--text-tertiary)' }}>—</td>
-                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ Sprung Timber Studio</td>
+                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ Wooden Flooring Studio</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
-                  <td style={{ padding: '14px 16px', color: 'var(--text-primary)', fontWeight: 600 }}>Yoga & Mindfulness Sanctuary</td>
+                  <td style={{ padding: '14px 16px', color: 'var(--text-primary)', fontWeight: 600 }}>Yoga & Mobility Studio</td>
                   <td style={{ padding: '14px 16px', color: 'var(--text-tertiary)' }}>—</td>
-                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ Noise-Isolated Hall</td>
+                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ Dedicated Studio Space</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
-                  <td style={{ padding: '14px 16px', color: 'var(--text-primary)', fontWeight: 600 }}>Aerobics & Athletic HIIT</td>
+                  <td style={{ padding: '14px 16px', color: 'var(--text-primary)', fontWeight: 600 }}>Aerobics & HIIT Conditioning</td>
                   <td style={{ padding: '14px 16px', color: 'var(--text-tertiary)' }}>—</td>
-                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ Metabolic Hall</td>
+                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ Group Conditioning Studio</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                   <td style={{ padding: '14px 16px', color: 'var(--text-primary)', fontWeight: 600 }}>Personal Lockers & Showers</td>
-                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ Verified Private Stalls</td>
-                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ Verified Private Stalls</td>
+                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ Clean Changing Suites</td>
+                  <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>✓ Clean Changing Suites</td>
                 </tr>
                 <tr>
-                  <td style={{ padding: '14px 16px', color: 'var(--text-primary)', fontWeight: 600 }}>Verified Hours</td>
+                  <td style={{ padding: '14px 16px', color: 'var(--text-primary)', fontWeight: 600 }}>Operating Hours</td>
                   <td style={{ padding: '14px 16px', color: 'var(--text-secondary)' }}>Mon–Sat 6AM–10PM, Sun 7AM–8PM</td>
                   <td style={{ padding: '14px 16px', color: 'var(--text-secondary)' }}>Mon–Sat 6AM–10PM, Sun 7AM–8PM</td>
                 </tr>

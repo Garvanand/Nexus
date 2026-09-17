@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 /* ============================================================
    NEXUS — THE LIFTING CLUB
    Design System & Editorial Visual Architecture
@@ -57,7 +59,7 @@
   /* Spacing */
   --container-max: 1360px;
   --container-pad: clamp(1.25rem, 4vw, 3.5rem);
-  --section-pad: clamp(5rem, 10vw, 10rem);
+  --section-pad: clamp(5rem, 9vw, 9.5rem);
   --gap-grid: clamp(1.5rem, 3vw, 3rem);
 
   /* Motion */
@@ -589,29 +591,32 @@ ul, ol {
 }
 
 /* ============================================================
-   03. BRAND STATEMENT ("MORE THAN A GYM.")
+   03. BRAND STATEMENT (Asymmetric Editorial Split)
    ============================================================ */
 
 .statement-section {
   background-color: var(--nexus-black);
-  padding: clamp(6rem, 12vw, 11rem) 0;
 }
 
-.statement-layout {
+.statement-asymmetric {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3.5rem;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
 }
 
 @media (min-width: 960px) {
-  .statement-layout {
-    grid-template-columns: 1.2fr 1fr;
-    gap: 6rem;
-    align-items: flex-end;
+  .statement-asymmetric {
+    grid-template-columns: 1.15fr 0.85fr;
   }
 }
 
-.statement-headline {
+.statement-asymmetric__left {
+  display: flex;
+  flex-direction: column;
+}
+
+.statement-asymmetric__title {
   font-family: var(--ff-display);
   font-size: var(--text-h1);
   font-weight: 700;
@@ -619,148 +624,253 @@ ul, ol {
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--nexus-off-white);
+  margin-bottom: 2rem;
 }
 
-.statement-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.statement-paragraph {
+.statement-asymmetric__desc {
   font-size: var(--text-lead);
-  line-height: 1.7;
+  line-height: 1.65;
   color: var(--nexus-grey-1);
+  margin-bottom: 1.25rem;
 }
 
-.statement-meta {
-  display: flex;
-  gap: 2.5rem;
+.statement-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   border-top: 1px solid var(--nexus-border);
-  padding-top: 1.5rem;
-  margin-top: 1rem;
+  padding-top: 2rem;
 }
 
-.statement-stat-num {
+.statement-metric__num {
   font-family: var(--ff-display);
-  font-size: 2rem;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 700;
   color: var(--nexus-off-white);
   line-height: 1;
+  margin-bottom: 0.35rem;
 }
 
-.statement-stat-label {
-  font-size: var(--text-nano);
+.statement-metric__label {
   font-family: var(--ff-display);
+  font-size: var(--text-nano);
+  font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  color: var(--nexus-off-white);
+  margin-bottom: 0.2rem;
+}
+
+.statement-metric__sub {
+  font-size: var(--text-nano);
   color: var(--nexus-grey-2);
 }
 
+/* Framed Atmospheric Photo */
+.statement-asymmetric__right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statement-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--nexus-border);
+  background-color: var(--nexus-concrete);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.statement-frame__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.68) contrast(1.12);
+  transition: transform var(--duration-slow) var(--ease-editorial);
+}
+
+.statement-frame:hover .statement-frame__img {
+  transform: scale(1.03);
+}
+
+.statement-frame__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 11, 11, 0.85) 0%, transparent 50%);
+}
+
+.statement-frame__caption {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--ff-display);
+  font-size: var(--text-nano);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--nexus-grey-1);
+}
+
+.statement-frame__caption .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--nexus-yellow);
+}
+
 /* ============================================================
-   04. VISUAL TRAINING STORY (STRENGTH · MOVE · PLAY)
+   04. TRAINING DISCIPLINES ("TRAIN YOUR WAY." 4 CHAPTERS)
    ============================================================ */
 
-.story-section {
+.training-exp-section {
   background-color: var(--nexus-surface);
   border-top: 1px solid var(--nexus-border);
   border-bottom: 1px solid var(--nexus-border);
 }
 
-.story-header {
-  margin-bottom: clamp(3rem, 6vw, 5rem);
-}
-
-.story-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+.training-exp-header {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
 }
 
 @media (min-width: 860px) {
-  .story-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+  .training-exp-header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
   }
 }
 
-.story-card {
+.training-chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 1100px) {
+  .training-chapters-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.training-chapter-card {
   position: relative;
   background-color: var(--nexus-concrete);
   border: 1px solid var(--nexus-border);
+  aspect-ratio: 9 / 14;
   overflow: hidden;
-  height: clamp(480px, 60vh, 680px);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: clamp(2rem, 3.5vw, 3rem);
+  padding: clamp(1.5rem, 2.5vw, 2rem);
   transition: border-color var(--duration-normal) ease;
+  border-radius: 2px;
 }
 
-.story-card:hover {
+.training-chapter-card:hover {
   border-color: var(--nexus-border-hover);
 }
 
-.story-card__img-wrap {
+.training-chapter-card__bg {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
-.story-card__img {
+.training-chapter-card__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: brightness(0.55) contrast(1.1);
-  transition: transform var(--duration-slow) var(--ease-editorial), filter var(--duration-normal) ease;
+  transition: transform var(--duration-slow) var(--ease-editorial);
 }
 
-.story-card:hover .story-card__img {
+.training-chapter-card:hover .training-chapter-card__img {
   transform: scale(1.04);
-  filter: brightness(0.65) contrast(1.1);
 }
 
-.story-card__overlay {
+.training-chapter-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(11, 11, 11, 0.95) 0%, rgba(11, 11, 11, 0.5) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba(11, 11, 11, 0.98) 0%, rgba(11, 11, 11, 0.5) 45%, transparent 100%);
   z-index: 1;
 }
 
-.story-card__content {
+.training-chapter-card__content {
   position: relative;
   z-index: 2;
 }
 
-.story-card__num {
+.training-chapter-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.chapter-num {
   font-family: var(--ff-display);
   font-size: var(--text-nano);
   font-weight: 700;
   letter-spacing: 0.2em;
   color: var(--nexus-yellow);
-  margin-bottom: 0.75rem;
 }
 
-.story-card__title {
+.chapter-branch {
   font-family: var(--ff-display);
-  font-size: 2.25rem;
+  font-size: var(--text-nano);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--nexus-grey-2);
+}
+
+.training-chapter-card__title {
+  font-family: var(--ff-display);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--nexus-off-white);
-  line-height: 1;
-  margin-bottom: 0.85rem;
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
 }
 
-.story-card__desc {
-  font-size: var(--text-sm);
+.training-chapter-card__desc {
+  font-size: 0.8125rem;
   color: var(--nexus-grey-1);
-  line-height: 1.55;
-  max-width: 320px;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.training-chapter-card__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chapter-wa-link {
+  font-family: var(--ff-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--nexus-grey-2);
+  transition: color var(--duration-fast) ease;
+}
+
+.chapter-wa-link:hover {
+  color: var(--nexus-yellow);
 }
 
 /* ============================================================
-   05. TWO DESTINATIONS (Massive Side-by-Side Panels)
+   05. TWO DESTINATIONS (50/50 Massive Split-Screen Panels)
    ============================================================ */
 
 .destinations-section {
@@ -795,10 +905,15 @@ ul, ol {
   padding: clamp(2rem, 4vw, 3.5rem);
   overflow: hidden;
   transition: border-color var(--duration-normal) ease;
+  cursor: pointer;
 }
 
 .destination-panel:hover {
   border-color: var(--nexus-border-hover);
+}
+
+.destination-panel--active {
+  border-color: var(--nexus-yellow) !important;
 }
 
 .destination-panel__bg {
@@ -846,6 +961,13 @@ ul, ol {
   text-transform: uppercase;
   color: var(--nexus-off-white);
   margin-bottom: 1.25rem;
+}
+
+.destination-panel__badge .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--nexus-yellow);
 }
 
 .destination-panel__title {
@@ -898,58 +1020,177 @@ ul, ol {
 }
 
 /* ============================================================
-   06. EDITORIAL FACILITIES COLLAGE (No Icon Grid)
+   06. ROOFTOP CRICKET STANDOUT ("TRAIN HARD. PLAY HARDER.")
    ============================================================ */
 
-.facilities-section {
+.rooftop-cricket-section {
+  background-color: var(--nexus-black);
+}
+
+.rooftop-cricket-card {
+  position: relative;
+  background-color: var(--nexus-concrete);
+  border: 1px solid var(--nexus-border);
+  overflow: hidden;
+  min-height: clamp(480px, 60vh, 640px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(2.5rem, 5vw, 4.5rem);
+  border-radius: 2px;
+}
+
+.rooftop-cricket-card__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.rooftop-cricket-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: brightness(0.48) contrast(1.12);
+  transition: transform var(--duration-slow) var(--ease-editorial);
+}
+
+.rooftop-cricket-card:hover .rooftop-cricket-card__img {
+  transform: scale(1.02);
+}
+
+.rooftop-cricket-card__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(11, 11, 11, 0.98) 0%, rgba(11, 11, 11, 0.6) 50%, rgba(11, 11, 11, 0.4) 100%);
+  z-index: 1;
+}
+
+.rooftop-cricket-card__content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+.rooftop-cricket-card__title {
+  font-family: var(--ff-display);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--nexus-off-white);
+  margin-bottom: 1.25rem;
+}
+
+.rooftop-cricket-card__desc {
+  font-size: var(--text-lead);
+  color: var(--nexus-grey-1);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.rooftop-cricket-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.75rem;
+  margin-bottom: 2.5rem;
+  border-top: 1px solid var(--nexus-border);
+  padding-top: 1.5rem;
+}
+
+.rooftop-spec-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--nexus-grey-1);
+}
+
+.rooftop-spec-item .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--nexus-yellow);
+}
+
+.rooftop-cricket-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   07. EDITORIAL FACILITIES & AMENITIES COLLAGE
+   ============================================================ */
+
+.amenities-section {
   background-color: var(--nexus-surface);
   border-top: 1px solid var(--nexus-border);
   border-bottom: 1px solid var(--nexus-border);
 }
 
-.facilities-header {
-  margin-bottom: clamp(3rem, 6vw, 5rem);
+.amenities-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
 }
 
-.facilities-collage {
+@media (min-width: 860px) {
+  .amenities-header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.amenities-collage-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
 @media (min-width: 860px) {
-  .facilities-collage {
-    grid-template-columns: 1.5fr 1fr;
-    grid-template-rows: repeat(2, minmax(280px, auto));
+  .amenities-collage-grid {
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: repeat(2, minmax(260px, auto));
   }
 }
 
-.facility-block {
+.amenity-panel {
   position: relative;
   background-color: var(--nexus-concrete);
   border: 1px solid var(--nexus-border);
   overflow: hidden;
-  padding: 2.25rem;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 280px;
+  min-height: 260px;
+  border-radius: 2px;
 }
 
-.facility-block--featured {
-  min-height: 400px;
+.amenity-panel--featured {
+  min-height: 380px;
 }
 
 @media (min-width: 860px) {
-  .facility-block--featured {
+  .amenity-panel--featured {
     grid-row: span 2;
     min-height: 100%;
   }
 }
 
-.facility-block__img {
+.amenity-panel__bg {
   position: absolute;
   inset: 0;
+  z-index: 0;
+}
+
+.amenity-panel__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -957,41 +1198,60 @@ ul, ol {
   transition: transform var(--duration-slow) var(--ease-editorial);
 }
 
-.facility-block:hover .facility-block__img {
+.amenity-panel:hover .amenity-panel__img {
   transform: scale(1.03);
 }
 
-.facility-block__overlay {
+.amenity-panel__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(11, 11, 11, 0.95) 0%, rgba(11, 11, 11, 0.4) 60%, transparent 100%);
   z-index: 1;
 }
 
-.facility-block__content {
+.amenity-panel__content {
   position: relative;
   z-index: 2;
 }
 
-.facility-block__title {
+.amenity-panel__title {
   font-family: var(--ff-display);
-  font-size: 1.75rem;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--nexus-off-white);
-  line-height: 1.1;
+  line-height: 1.15;
   margin-bottom: 0.5rem;
 }
 
-.facility-block__desc {
-  font-size: var(--text-sm);
+.amenity-panel__desc {
+  font-size: 0.875rem;
   color: var(--nexus-grey-2);
   line-height: 1.5;
+  max-width: 480px;
+}
+
+.amenities-subbar {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  border-top: 1px solid var(--nexus-border);
+  padding-top: 2rem;
+}
+
+.amenities-subbar__text {
+  font-size: 0.8125rem;
+  color: var(--nexus-grey-2);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 /* ============================================================
-   07. INSTAGRAM / SOCIAL EDITORIAL
+   08. INSTAGRAM / SOCIAL EDITORIAL
    ============================================================ */
 
 .social-editorial-section {
@@ -1037,6 +1297,7 @@ ul, ol {
   justify-content: flex-end;
   padding: 1.5rem;
   transition: border-color var(--duration-normal) ease;
+  border-radius: 2px;
 }
 
 .social-item:hover {
@@ -1086,7 +1347,7 @@ ul, ol {
 }
 
 /* ============================================================
-   08. MEMBER PROOF & STANDARDS (Editorial Quotes)
+   09. MEMBER PROOF & STANDARDS (Editorial Quotes)
    ============================================================ */
 
 .proof-section {
@@ -1148,7 +1409,7 @@ ul, ol {
 }
 
 /* ============================================================
-   09. FINAL MINIMALIST CTA ("START YOUR TRANSFORMATION.")
+   10. FINAL MEMBERSHIP ENQUIRY (3-Step Conversion Form)
    ============================================================ */
 
 .final-cta-section {
@@ -1158,7 +1419,7 @@ ul, ol {
 }
 
 .final-cta-container {
-  max-width: 780px;
+  max-width: 820px;
   margin: 0 auto;
 }
 
@@ -1180,16 +1441,158 @@ ul, ol {
   line-height: 1.6;
 }
 
-.final-cta-actions {
-  display: flex;
+.enquiry-form {
+  background-color: var(--nexus-surface);
+  border: 1px solid var(--nexus-border);
+  padding: clamp(2rem, 4vw, 3.5rem);
+  text-align: left;
+  border-radius: 2px;
+}
+
+.enquiry-step {
+  margin-bottom: 2.25rem;
+}
+
+.enquiry-step__label {
+  display: block;
+  font-family: var(--ff-display);
+  font-size: var(--text-nano);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--nexus-grey-2);
+  margin-bottom: 0.85rem;
+}
+
+.enquiry-branch-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.btn-branch-opt {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 1.25rem;
+  gap: 0.5rem;
+  padding: 0.85rem 1.25rem;
+  font-family: var(--ff-display);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--nexus-border);
+  color: var(--nexus-grey-2);
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+  border-radius: 2px;
+}
+
+.btn-branch-opt .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--nexus-grey-3);
+}
+
+.btn-branch-opt--active {
+  border-color: var(--nexus-yellow);
+  background-color: rgba(229, 255, 0, 0.08);
+  color: var(--nexus-off-white);
+}
+
+.btn-branch-opt--active .dot {
+  background-color: var(--nexus-yellow);
+}
+
+.enquiry-discipline-grid {
+  display: flex;
   flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.btn-discipline-pill {
+  padding: 0.5rem 1rem;
+  font-family: var(--ff-display);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--nexus-concrete);
+  color: var(--nexus-grey-2);
+  border: 1px solid var(--nexus-border);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.btn-discipline-pill--active {
+  background-color: var(--nexus-off-white);
+  color: var(--nexus-black);
+  border-color: var(--nexus-off-white);
+  font-weight: 600;
+}
+
+.enquiry-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 680px) {
+  .enquiry-inputs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.enquiry-input {
+  width: 100%;
+  padding: 0.95rem 1.25rem;
+  background-color: var(--nexus-black);
+  border: 1px solid var(--nexus-border);
+  color: var(--nexus-off-white);
+  font-size: 0.95rem;
+  outline: none;
+  border-radius: 2px;
+  transition: border-color var(--duration-fast) ease;
+}
+
+.enquiry-input:focus {
+  border-color: var(--nexus-off-white);
+}
+
+.enquiry-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.enquiry-confirmed-box {
+  padding: 3.5rem 2rem;
+  background-color: var(--nexus-surface);
+  border: 1px solid var(--nexus-border);
+  border-radius: 2px;
+  text-align: center;
+}
+
+.enquiry-confirmed-box__title {
+  font-family: var(--ff-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  color: var(--nexus-off-white);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.enquiry-confirmed-box__desc {
+  color: var(--nexus-grey-2);
+  margin: 0 auto 2.5rem;
+  max-width: 520px;
+  line-height: 1.6;
 }
 
 /* ============================================================
-   10. ARCHITECTURAL FOOTER
+   11. ARCHITECTURAL FOOTER
    ============================================================ */
 
 .site-footer {
@@ -1281,7 +1684,7 @@ ul, ol {
 }
 
 /* ============================================================
-   11. MOBILE STICKY BOTTOM BAR
+   12. MOBILE STICKY BOTTOM BAR
    ============================================================ */
 
 .mobile-sticky-bar {
@@ -1289,12 +1692,13 @@ ul, ol {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 900;
-  background: rgba(11, 11, 11, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  z-index: 950;
+  background: rgba(11, 11, 11, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid var(--nexus-border);
   padding: 0.75rem var(--container-pad);
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -1309,5 +1713,505 @@ ul, ol {
 .mobile-sticky-bar .btn {
   flex: 1;
   padding: 0.75rem 1rem;
-  font-size: 0.75rem;
+  font-size: 0.78125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  min-height: 46px;
+  justify-content: center;
 }
+
+/* ============================================================
+   13. DEDICATED MOBILE POLISH PASS (<= 768px and <= 480px)
+   Strictly scoped to mobile; desktop/tablet remains untouched.
+   Targeting: 360px, 375px, 390px, 412px, 430px.
+   ============================================================ */
+
+@media (max-width: 859px) {
+  /* Prevent fixed mobile sticky bar from obscuring footer or bottom form controls */
+  body {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-pad: clamp(1rem, 4vw, 1.35rem);
+    --section-pad: clamp(3.5rem, 7.5vw, 4.75rem);
+    --text-hero: clamp(2.75rem, 11.5vw, 3.85rem);
+    --text-h1: clamp(2rem, 8vw, 2.75rem);
+    --text-h2: clamp(1.6rem, 6.5vw, 2.15rem);
+    --text-h3: clamp(1.2rem, 4.5vw, 1.5rem);
+    --text-lead: 0.9375rem;
+  }
+
+  /* --- Navigation & Header --- */
+  .site-header {
+    padding: 0.85rem 0;
+  }
+
+  .nav-hamburger {
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-drawer {
+    padding: 5.5rem var(--container-pad) calc(2.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .mobile-drawer__link {
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+  }
+
+  /* --- Hero Viewport --- */
+  .hero-editorial {
+    min-height: 100dvh;
+    padding-top: 84px;
+    padding-bottom: 2rem;
+  }
+
+  .hero-editorial__img {
+    object-position: center 25%;
+  }
+
+  .hero-editorial__title {
+    line-height: 0.92;
+    margin-bottom: 1.15rem;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-editorial__lead {
+    max-width: 100%;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-editorial__actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-editorial__actions .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    font-size: 0.8125rem;
+  }
+
+  .hero-editorial__meta {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.625rem;
+    padding-top: 1rem;
+  }
+
+  .hero-editorial__branches {
+    gap: 0.75rem;
+  }
+
+  /* --- Statement Section --- */
+  .statement-asymmetric {
+    gap: 2.25rem;
+  }
+
+  .statement-asymmetric__title {
+    font-size: clamp(2rem, 8vw, 2.6rem);
+    margin-bottom: 1.25rem;
+    line-height: 0.96;
+  }
+
+  .statement-asymmetric__desc {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  .statement-metrics {
+    gap: 0.75rem;
+    padding-top: 1.5rem;
+  }
+
+  .statement-metric__num {
+    font-size: 1.75rem;
+  }
+
+  .statement-metric__label {
+    font-size: 0.625rem;
+  }
+
+  .statement-frame {
+    aspect-ratio: 16 / 10;
+    min-height: 220px;
+    max-height: 300px;
+  }
+
+  /* --- Training Experience / Core Disciplines: Touch-Swipe Carousel --- */
+  .training-exp-header {
+    margin-bottom: 2rem;
+  }
+
+  .training-chapters-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-left: calc(-1 * var(--container-pad));
+    margin-right: calc(-1 * var(--container-pad));
+    padding-left: var(--container-pad);
+    padding-right: var(--container-pad);
+    scrollbar-width: none;
+  }
+
+  .training-chapters-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .training-chapter-card {
+    flex: 0 0 82vw;
+    max-width: 320px;
+    scroll-snap-align: start;
+    aspect-ratio: 9 / 13;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .training-chapter-card__img {
+    object-position: center 30%;
+  }
+
+  /* --- Two Destinations (BranchSelector) --- */
+  .destinations-header {
+    margin-bottom: 2rem;
+  }
+
+  .destinations-grid {
+    gap: 1.5rem;
+  }
+
+  .destination-panel {
+    min-height: 440px;
+    padding: 1.75rem 1.25rem;
+    cursor: default;
+  }
+
+  .destination-panel__title {
+    font-size: 1.75rem;
+  }
+
+  .destination-panel__location {
+    font-size: 0.8125rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .destination-panel__features {
+    gap: 0.4rem 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .destination-panel__actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .destination-panel__actions .btn {
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
+    font-size: 0.8125rem;
+  }
+
+  /* --- Rooftop Cricket Standout Feature --- */
+  .rooftop-cricket-card {
+    min-height: 440px;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .rooftop-cricket-card__img {
+    object-position: center 30%;
+  }
+
+  .rooftop-cricket-card__title {
+    font-size: clamp(2rem, 7vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .rooftop-cricket-card__desc {
+    font-size: 0.9375rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .rooftop-cricket-specs {
+    gap: 0.5rem 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .rooftop-cricket-card .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+
+  /* --- Facilities & Amenities Collage --- */
+  .amenities-header {
+    margin-bottom: 2rem;
+  }
+
+  .amenities-collage-grid {
+    gap: 1rem;
+  }
+
+  .amenity-panel {
+    min-height: 220px;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .amenity-panel--featured {
+    min-height: 280px;
+  }
+
+  .amenity-panel__title {
+    font-size: 1.35rem;
+  }
+
+  .amenity-panel__desc {
+    font-size: 0.8125rem;
+  }
+
+  .amenities-subbar {
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  /* --- Instagram Touch-Swipe Carousel --- */
+  .social-editorial__header {
+    margin-bottom: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .social-editorial__header .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .social-row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-left: calc(-1 * var(--container-pad));
+    margin-right: calc(-1 * var(--container-pad));
+    padding-left: var(--container-pad);
+    padding-right: var(--container-pad);
+    scrollbar-width: none;
+  }
+
+  .social-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .social-item {
+    flex: 0 0 76vw;
+    max-width: 290px;
+    scroll-snap-align: start;
+    aspect-ratio: 9 / 13;
+    padding: 1.25rem;
+  }
+
+  /* --- The Nexus Community --- */
+  .proof-grid {
+    gap: 1.75rem;
+  }
+
+  .proof-item {
+    padding-top: 1.5rem;
+  }
+
+  .proof-item > div:first-child {
+    height: 200px !important;
+  }
+
+  .proof-section .btn {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    min-height: 46px;
+  }
+
+  /* --- Lead Conversion Form (Mobile Optimized Inputs & Actions) --- */
+  .final-cta-container {
+    padding: 0;
+  }
+
+  .final-cta-title {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    line-height: 0.96;
+    margin-bottom: 1rem;
+  }
+
+  .final-cta-desc {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+
+  .enquiry-step {
+    margin-bottom: 1.75rem;
+  }
+
+  .enquiry-step__label {
+    font-size: 0.6875rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .btn-branch-opt {
+    min-height: 46px;
+    font-size: 0.78125rem;
+    padding: 0.75rem 0.85rem;
+    text-align: center;
+  }
+
+  .btn-discipline-pill {
+    min-height: 40px;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.75rem;
+  }
+
+  /* 16px minimum font-size eliminates iOS Safari automatic viewport zoom */
+  .enquiry-input {
+    font-size: 16px !important;
+    min-height: 48px;
+    padding: 0.85rem 1rem;
+  }
+
+  .enquiry-form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .enquiry-form-actions button {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 48px;
+    justify-content: center;
+  }
+
+  .enquiry-form-actions .btn-link {
+    text-align: center;
+    justify-content: center;
+    font-size: 0.8125rem;
+    padding: 0.5rem 0;
+  }
+
+  /* --- Footer Mobile --- */
+  .site-footer {
+    padding-top: 3.5rem;
+  }
+
+  .footer-top {
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-brand__name {
+    font-size: 1.75rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 0.6875rem;
+    text-align: center;
+  }
+
+  /* --- Subpages Mobile Refinement --- */
+  .training-page,
+  .classes-page,
+  .locations-hub-page,
+  .individual-branch-page,
+  .tools-page {
+    padding-top: 72px !important;
+  }
+
+  .training-hero,
+  .classes-page section:first-of-type,
+  .locations-hub-page section:first-of-type {
+    padding: 3.5rem 0 2rem 0 !important;
+  }
+
+  .training-hero h1,
+  .classes-page h1,
+  .locations-hub-page h1 {
+    font-size: clamp(2rem, 7.5vw, 2.75rem) !important;
+  }
+
+  .training-zones,
+  .training-style-quiz {
+    padding: 3rem 0 !important;
+  }
+
+  .training-style-quiz .btn-primary,
+  .training-style-quiz .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+  }
+
+  .class-card {
+    border-radius: 3px;
+  }
+
+  .class-card .btn {
+    width: 100% !important;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .locations-hub-page article {
+    padding-bottom: 1rem;
+  }
+
+  .locations-hub-page article .btn {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .individual-branch-page h1 {
+    font-size: clamp(2rem, 7.5vw, 3rem) !important;
+  }
+}
+
+/* --- Ultra-Compact Viewports (<= 430px) --- */
+@media (max-width: 430px) {
+  .enquiry-branch-toggle {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .statement-metrics {
+    gap: 0.5rem;
+  }
+
+  .statement-metric__num {
+    font-size: 1.5rem;
+  }
+
+  .nav-right .btn-primary {
+    padding: 0.5rem 0.85rem !important;
+    font-size: 0.6875rem !important;
+  }
+}
+

@@ -30,7 +30,7 @@ export function generateMetadata({ params }: PageProps) {
 
   return {
     title: `Nexus ${branch.name} | ${branch.locality}, Greater Faridabad`,
-    description: `${branch.description} Verified facilities, opening hours, and walkthrough booking at ${branch.address}.`,
+    description: `${branch.description} Club facilities, opening hours, and walkthrough enquiry at ${branch.address}.`,
   };
 }
 
@@ -94,7 +94,7 @@ export default function IndividualBranchPage({ params }: PageProps) {
           >
             <div>
               <span style={{ fontSize: '0.6875rem', color: 'var(--accent)', fontFamily: 'var(--ff-display)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                📍 Verified Location
+                📍 Club Location
               </span>
               <div style={{ fontSize: '0.875rem', color: 'var(--text-primary)', marginTop: '4px', fontWeight: 600 }}>
                 {branch.address}
@@ -106,7 +106,7 @@ export default function IndividualBranchPage({ params }: PageProps) {
 
             <div>
               <span style={{ fontSize: '0.6875rem', color: 'var(--accent)', fontFamily: 'var(--ff-display)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                🕒 Verified Operating Hours
+                🕒 Operating Hours
               </span>
               <div style={{ fontSize: '0.875rem', color: 'var(--text-primary)', marginTop: '4px', fontWeight: 600 }}>
                 Mon–Sat: 6:00 AM – 10:00 PM

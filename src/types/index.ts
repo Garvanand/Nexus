@@ -111,14 +111,17 @@ export interface InstagramPost {
   id: string;
   type: 'reel' | 'image' | 'carousel';
   caption: string;
-  excerpt: string;
-  category: string;
+  excerpt?: string;
+  category?: string;
   author: string;
   verified: boolean;
   mediaUrl: string;
   duration?: string;
-  engagement: { likes: string; comments: string };
+  engagement?: { likes: string; comments: string };
   instagramUrl: string;
+  thumbnail?: string;
+  label?: string;
+  url?: string;
 }
 
 /* ============================================================

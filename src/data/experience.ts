@@ -4,57 +4,57 @@ export const NEXUS_EXPERIENCES: ExperienceChapter[] = [
   {
     id: 'gym',
     num: '01',
-    name: 'Gym Arena',
-    category: 'TRAIN // STRENGTH ARENA',
-    headline: 'HEAVY IRON. COMPETITION GRADE.',
-    oneLiner: 'Calibrated steel discs, Olympic drop platforms, and heavy-gauge power cages engineered for progressive overload without compromise.',
+    name: 'Strength Floor',
+    category: 'TRAIN // STRENGTH GROUND',
+    headline: 'SERIOUS STRENGTH TRAINING.',
+    oneLiner: 'Heavy iron plates, dedicated lifting platforms, and sturdy power cages built for progressive overload without compromise.',
     image: '/assets/images/photo10.webp',
-    alt: 'Olympic Power Cages and Deadlift Platforms at Nexus Sector 85',
-    badge: 'Flagship Arena · Sector 85 & 86',
+    alt: 'Power Racks and Lifting Platforms at Nexus',
+    badge: 'Strength Ground · Sector 85 & 86',
     location: 'Available across Sector 85 and Sector 86',
     specs: [
-      { label: 'Drop Platforms', val: 'Full Olympic Spec Shock Timber' },
-      { label: 'Plates', val: 'Calibrated Cast Steel & Bumpers' },
-      { label: 'Dumbbell Array', val: 'Progressive up to 50kg+' },
-      { label: 'Power Cages', val: 'Reinforced J-Hooks & Spotter Arms' }
+      { label: 'Platforms', val: 'Solid Barbell Lifting Platforms' },
+      { label: 'Plates', val: 'Cast Iron Plates & Bumpers' },
+      { label: 'Dumbbells', val: 'Full Incremental Range' },
+      { label: 'Power Racks', val: 'Reinforced J-Hooks & Safety Spotters' }
     ],
-    whatsappMsg: 'Hi Nexus, I would like to know more about the strength floor and powerlifting platforms.'
+    whatsappMsg: 'Hi Nexus, I would like to know more about the strength floor and power cages.'
   },
   {
     id: 'zumba',
     num: '02',
-    name: 'Kinetic Studio',
-    category: 'MOVE // KINETIC STUDIO',
-    headline: 'RHYTHM WITHOUT RESTRAINT.',
-    oneLiner: 'Shock-absorbent sprung hardwood flooring and concert acoustics that turn high-calorie cardiovascular sweat into collective euphoria.',
+    name: 'Zumba Studio',
+    category: 'MOVE // GROUP STUDIO',
+    headline: 'RHYTHM AND ENERGY.',
+    oneLiner: 'Wooden studio flooring and energetic group sessions that make cardiovascular training engaging and consistent.',
     image: '/assets/images/photo2.webp',
-    alt: 'Acoustic Mirrored Movement & Dance Studio at Nexus',
-    badge: 'Studio Arena · Sector 86 & 85',
-    location: 'Available at Sector 86 & Sector 85',
+    alt: 'Mirrored Movement Studio at Nexus',
+    badge: 'Studio Wing · Sector 86',
+    location: 'Sector 86 Studios',
     specs: [
-      { label: 'Studio Floor', val: 'Sprung Hardwood Shock System' },
-      { label: 'Sound System', val: 'High-Fidelity Tuned Acoustic Array' },
-      { label: 'Cadence', val: '60-Minute Choreographed Batches' },
-      { label: 'Coaching', val: 'Licensed Zumba Specialists' }
+      { label: 'Studio Floor', val: 'Wooden Flooring' },
+      { label: 'Sound Setup', val: 'Dedicated Studio Audio' },
+      { label: 'Format', val: 'Coached Group Batches' },
+      { label: 'Instructors', val: 'Certified Zumba Coaches' }
     ],
     whatsappMsg: 'Hi Nexus, I would like to know about Zumba classes and batch schedules.'
   },
   {
     id: 'yoga',
     num: '03',
-    name: 'Sanctuary',
-    category: 'RECOVER // MINDFULNESS',
-    headline: 'BALANCE IN THE NOISE.',
-    oneLiner: 'Warm low-lux illumination, guided pranayama breathwork, and deep myofascial mobility designed to lower cortisol and restore spinal alignment.',
+    name: 'Yoga Studio',
+    category: 'RECOVER // MOBILITY',
+    headline: 'RECOVERY AND MOBILITY.',
+    oneLiner: 'Calm studio lighting, guided breathwork, and mobility flows designed to counteract heavy training and daily desk fatigue.',
     image: '/assets/images/photo2.webp',
-    alt: 'Serene Yoga Studio Sanctuary at Nexus',
-    badge: 'Mindfulness Sanctuary · Sector 86',
-    location: 'Sector 86 Performance Club',
+    alt: 'Yoga Studio at Nexus',
+    badge: 'Mobility Studio · Sector 86',
+    location: 'Sector 86 Studios',
     specs: [
-      { label: 'Illumination', val: 'Low-Lux Warm Luminescence' },
-      { label: 'Disciplines', val: 'Hatha, Vinyasa & Spinal Mobility' },
-      { label: 'Acoustics', val: 'Noise-Isolated Studio Zone' },
-      { label: 'Gear', val: 'Non-Slip Mats & Natural Cork Blocks' }
+      { label: 'Environment', val: 'Calm Studio Space' },
+      { label: 'Disciplines', val: 'Hatha, Vinyasa & Mobility' },
+      { label: 'Atmosphere', val: 'Dedicated Movement Studio' },
+      { label: 'Gear', val: 'Mats & Blocks Available' }
     ],
     whatsappMsg: 'Hi Nexus, I would like to know about Yoga sessions and mobility classes.'
   },
@@ -62,20 +62,20 @@ export const NEXUS_EXPERIENCES: ExperienceChapter[] = [
     id: 'aerobics',
     num: '04',
     name: 'Conditioning',
-    category: 'MOVE // ATHLETIC HIIT',
+    category: 'MOVE // CARDIO INTERVALS',
     headline: 'SWEAT WITH PURPOSE.',
-    oneLiner: 'Functional athletic circuits and high-tempo interval conditioning that elevate cardiovascular threshold alongside an accountability cohort.',
+    oneLiner: 'Functional interval workouts and high-tempo group conditioning that build stamina alongside an encouraging team.',
     image: '/assets/images/photo9.webp',
-    alt: 'Athletic Aerobics and Cardio Selectorized Grid at Nexus',
-    badge: 'Cardio Conditioning · Sector 86 & 85',
-    location: 'Available across both branches',
+    alt: 'Aerobics and Conditioning at Nexus',
+    badge: 'Cardio Conditioning · Sector 86',
+    location: 'Sector 86 Studios',
     specs: [
-      { label: 'Workout Style', val: 'Metabolic & Cardiovascular HIIT' },
-      { label: 'Intensity', val: 'Structured Heart Rate Zones' },
-      { label: 'Equipment', val: 'Plyo Boxes, Agility Ladders, Steps' },
-      { label: 'Atmosphere', val: 'Coached Group Accountability' }
+      { label: 'Format', val: 'Interval Conditioning Circuits' },
+      { label: 'Focus', val: 'Stamina & Agility' },
+      { label: 'Equipment', val: 'Steps & Conditioning Gear' },
+      { label: 'Atmosphere', val: 'Encouraging Group Environment' }
     ],
-    whatsappMsg: 'Hi Nexus, I would like to know about Aerobics and athletic conditioning batches.'
+    whatsappMsg: 'Hi Nexus, I would like to know about Aerobics and conditioning batches.'
   },
   {
     id: 'cricket',
@@ -83,36 +83,36 @@ export const NEXUS_EXPERIENCES: ExperienceChapter[] = [
     name: 'Rooftop Turf',
     category: 'PLAY // ROOFTOP TURF',
     headline: 'TRAIN HARD. SWITCH OFF. PLAY.',
-    oneLiner: 'Greater Faridabad’s only floodlit rooftop cricket arena situated atop Nexus Sector 86. The ultimate antidote to training fatigue.',
+    oneLiner: 'An outdoor synthetic cricket turf situated atop Nexus Sector 86. Train downstairs, bowl 6 overs with friends upstairs.',
     image: '/assets/images/space_cricket.jpg',
-    alt: 'Rooftop Cricket Turf Under Night Floodlights',
-    badge: 'Flagship Lifestyle Differentiator · Sector 86',
-    location: 'Sector 86 Performance Club (Open Sky Deck)',
+    alt: 'Rooftop Cricket Turf Under Evening Lights',
+    badge: 'Rooftop Deck · Sector 86',
+    location: 'Sector 86 (Rooftop Deck)',
     specs: [
-      { label: 'Turf Spec', val: 'High-Density All-Weather Synthetic' },
-      { label: 'Lighting', val: 'Calibrated Night Floodlights' },
-      { label: 'Safety Netting', val: 'Full High-Tension Perimeter Netting' },
-      { label: 'Access', val: 'Private Member Bookings & Intra-Club Friendlies' }
+      { label: 'Surface', val: 'All-Weather Synthetic Turf' },
+      { label: 'Lighting', val: 'Evening Floodlights' },
+      { label: 'Enclosure', val: 'Perimeter Safety Netting' },
+      { label: 'Access', val: 'Member Matches & Friendly Innings' }
     ],
-    whatsappMsg: 'Hi Nexus, I would like to inquire about booking the Rooftop Cricket Turf.',
+    whatsappMsg: 'Hi Nexus, I would like to enquire about the Rooftop Cricket Turf.',
     isCenterpiece: true
   },
   {
     id: 'lockers',
     num: '06',
     name: 'Lockers',
-    category: 'COMFORT // SECURITY',
-    headline: 'SECURED AT EVERY SECOND.',
-    oneLiner: 'Spacious personal storage lockers engineered for peace of mind while you focus purely on the barbell.',
+    category: 'COMFORT // STORAGE',
+    headline: 'SECURE PERSONAL STORAGE.',
+    oneLiner: 'Spacious personal storage lockers for peace of mind while you focus purely on your workout.',
     image: '/assets/images/photo7.webp',
-    alt: 'Executive Matte Charcoal Timber Lockers at Nexus Sector 85',
+    alt: 'Matte Charcoal Lockers at Nexus Sector 85',
     badge: 'Both Branches · Sector 85 & 86',
     location: 'Sector 85 & Sector 86',
     specs: [
-      { label: 'Lock Systems', val: 'Digital Pin / Personal Padlock Ready' },
-      { label: 'Capacity', val: 'Spacious Gym Bags & Work Apparel' },
-      { label: 'Cleanliness', val: 'Dedicated Facility Attendants' },
-      { label: 'Zones', val: 'Segregated Changing Lounges' }
+      { label: 'Lock Systems', val: 'Personal Padlock Ready' },
+      { label: 'Capacity', val: 'Spacious Gym Bag Storage' },
+      { label: 'Cleanliness', val: 'Daily Housekeeping' },
+      { label: 'Changing', val: 'Changing Rooms Available' }
     ],
     whatsappMsg: 'Hi Nexus, I would like to ask about member locker facilities.'
   },
@@ -121,56 +121,56 @@ export const NEXUS_EXPERIENCES: ExperienceChapter[] = [
     num: '07',
     name: 'Washrooms',
     category: 'HYGIENE // REFRESH',
-    headline: 'PRISTINE PRIVATE SUITES.',
-    oneLiner: 'Continuous sanitization routines, hot high-pressure rain showers, and well-lit executive grooming mirrors.',
+    headline: 'CLEAN PRIVATE SHOWERS.',
+    oneLiner: 'Regular daily cleaning, hot showers, and well-lit grooming mirrors.',
     image: '/assets/images/photo4.webp',
-    alt: 'Luxury Ambient Halo Vanity and Shower Suites at Nexus Sector 85',
+    alt: 'Clean Washrooms and Showers at Nexus Sector 85',
     badge: 'Both Branches · Sector 85 & 86',
     location: 'Sector 85 & Sector 86',
     specs: [
-      { label: 'Showers', val: 'High-Pressure Continuous Hot Water' },
-      { label: 'Hygiene Audit', val: 'Hourly Sanitation Inspections' },
-      { label: 'Grooming', val: 'Power Outlets & Luxury Halo Mirrors' },
-      { label: 'Privacy', val: 'Individual Enclosed Shower Stalls' }
+      { label: 'Showers', val: 'Hot Water Showers' },
+      { label: 'Maintenance', val: 'Cleaned Regularly Daily' },
+      { label: 'Grooming', val: 'Mirrors & Washbasins' },
+      { label: 'Privacy', val: 'Individual Enclosed Stalls' }
     ],
-    whatsappMsg: 'Hi Nexus, I would like details about club hygiene and changing amenities.'
+    whatsappMsg: 'Hi Nexus, I would like details about club amenities and showers.'
   },
   {
     id: 'community',
     num: '08',
     name: 'Community',
-    category: 'CULTURE // TRIBE',
+    category: 'CULTURE // MEMBERS',
     headline: 'THE POWER OF SHOWING UP.',
-    oneLiner: 'No ego, no judgment. An uplifting culture of lifters, athletes, and beginners who respect consistency above all.',
+    oneLiner: 'A disciplined, supportive atmosphere of lifters, fitness enthusiasts, and beginners who respect consistency.',
     image: '/assets/images/photo6.webp',
-    alt: 'Nexus Lifters Community and Equipment Layout',
+    alt: 'Nexus Member Community and Training Floor',
     badge: 'The Nexus Collective',
     location: 'Both Branches',
     specs: [
-      { label: 'Culture', val: 'Mutual Spotting & Work Ethic' },
-      { label: 'Events', val: 'Friendly Lift Meets & Workshops' },
-      { label: 'Atmosphere', val: 'Zero Influencer Distractions' },
-      { label: 'Cohorts', val: 'Morning, Evening & Weekend Squads' }
+      { label: 'Culture', val: 'Mutual Support & Discipline' },
+      { label: 'Atmosphere', val: 'No Intimidation' },
+      { label: 'Focus', val: 'Daily Consistency' },
+      { label: 'Hours', val: 'Morning & Evening Access' }
     ],
-    whatsappMsg: 'Hi Nexus, I would like to know more about the member community and culture.'
+    whatsappMsg: 'Hi Nexus, I would like to know more about membership and the club culture.'
   },
   {
     id: 'training',
     num: '09',
     name: 'Coaching',
-    category: 'COACHING // EVOLUTION',
-    headline: 'RESULTS ROOTED IN SCIENCE.',
-    oneLiner: 'Certified strength and conditioning specialists committed to bio-mechanics, injury-free movement, and steady progression.',
+    category: 'COACHING // GUIDANCE',
+    headline: 'EXPERIENCED COACHING.',
+    oneLiner: 'Knowledgeable trainers committed to proper form, safe progressions, and structured strength development.',
     image: '/assets/images/photo1.webp',
-    alt: 'Precision Free Weights and Technique Coaching at Nexus Sector 85',
-    badge: 'Certified Coaching Staff',
+    alt: 'Free Weights and Training Area at Nexus Sector 85',
+    badge: 'Club Trainers',
     location: 'Available across both branches',
     specs: [
-      { label: 'Staff Creds', val: 'Certified Strength & Exercise Science' },
-      { label: 'Specialties', val: 'Hypertrophy, Powerlifting & Fat Loss' },
-      { label: 'Assessments', val: 'Movement Screen & Spinal Mechanics' },
-      { label: 'Plans', val: 'Periodized Progressive Programs' }
+      { label: 'Focus', val: 'Strength & Progressive Overload' },
+      { label: 'Guidance', val: 'Compound Form & Technique' },
+      { label: 'Programs', val: 'Structured Training Routines' },
+      { label: 'Support', val: 'Coach Available on Floor' }
     ],
-    whatsappMsg: 'Hi Nexus, I would like to inquire about personal coaching and trainer availability.'
+    whatsappMsg: 'Hi Nexus, I would like to enquire about trainer guidance and personal coaching.'
   }
 ];

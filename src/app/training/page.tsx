@@ -16,17 +16,17 @@ const GOALS: StyleGoal[] = [
   {
     id: 'stronger',
     label: 'GET STRONGER',
-    title: 'Powerlifting & Progressive Compound Strength',
-    recommendation: 'Target Sector 85 or Sector 86 Strength Arena. Focus on progressive overload using calibrated steel plates, Olympic platforms, and power cages under coach guidance.',
-    zones: ['Olympic Lifting Bay', 'Power Cages', 'Free Weights Area'],
+    title: 'Compound Barbell Strength & Progression',
+    recommendation: 'Target Sector 85 or Sector 86 Strength Floor. Focus on progressive overload using heavy barbells, lifting platforms, and power cages under coach guidance.',
+    zones: ['Lifting Platforms', 'Power Cages', 'Free Weights Area'],
     whatsappText: 'Hi Nexus, my goal is to GET STRONGER. Please recommend the best training schedule and coach availability.'
   },
   {
     id: 'fat-loss',
     label: 'LOSE FAT',
     title: 'Metabolic Interval & Strength Fusion',
-    recommendation: 'Combine 3 days of compound resistance training with 2 high-intensity studio batches (Athletic Aerobics or Zumba) and post-lift turf conditioning.',
-    zones: ['Aerobics Studio', 'Sled Track', 'Strength Arena'],
+    recommendation: 'Combine 3 days of compound resistance training with 2 high-intensity studio batches (Athletic Aerobics or Zumba) and post-lift conditioning.',
+    zones: ['Aerobics Studio', 'Conditioning Track', 'Strength Floor'],
     whatsappText: 'Hi Nexus, my goal is FAT LOSS and conditioning. Please share recommended batches.'
   },
   {
@@ -34,7 +34,7 @@ const GOALS: StyleGoal[] = [
     label: 'IMPROVE FITNESS',
     title: 'Hybrid Athletic Conditioning',
     recommendation: 'A well-rounded weekly split: heavy iron twice a week, functional movement on turf track, and cardiovascular sessions in the studio.',
-    zones: ['Functional Turf', 'Cardio Grid', 'Zumba Studio'],
+    zones: ['Functional Turf', 'Cardio Line', 'Zumba Studio'],
     whatsappText: 'Hi Nexus, I want to IMPROVE OVERALL FITNESS. Please guide me on membership options.'
   },
   {
@@ -48,18 +48,18 @@ const GOALS: StyleGoal[] = [
   {
     id: 'move-better',
     label: 'MOVE BETTER',
-    title: 'Spinal Decompression & Active Mobility',
-    recommendation: 'Prioritize the Sector 86 Yoga & Mobility Sanctuary. Guided pranayama breathwork, hip mobility, and thoracic spine restoration designed to reverse desk stiffness.',
-    zones: ['Yoga & Flow Sanctuary', 'Mobility Bay'],
+    title: 'Spinal Mobility & Breathwork',
+    recommendation: 'Prioritize the Sector 86 Yoga & Mobility Studio. Guided breathwork, hip mobility, and thoracic spine restoration designed to reverse desk stiffness.',
+    zones: ['Yoga & Flow Studio', 'Mobility Bay'],
     whatsappText: 'Hi Nexus, my goal is to MOVE BETTER and fix posture/stiffness. Please share mobility class details.'
   },
   {
     id: 'group',
     label: 'TRAIN WITH A GROUP',
     title: 'High-Energy Studios & Rooftop Play',
-    recommendation: 'Sector 86 group classes: high-cadence Zumba, athletic aerobics circuits, and Friday night floodlit rooftop cricket matches with fellow members.',
+    recommendation: 'Sector 86 group classes: high-cadence Zumba, athletic aerobics circuits, and rooftop cricket matches with fellow members.',
     zones: ['Zumba Studio', 'Aerobics Hall', 'Rooftop Cricket Turf'],
-    whatsappText: 'Hi Nexus, I want to TRAIN WITH A GROUP. What classes and community leagues are active?'
+    whatsappText: 'Hi Nexus, I want to TRAIN WITH A GROUP. What classes and community sessions are active?'
   }
 ];
 
@@ -79,7 +79,7 @@ export default function TrainingPage() {
             TRAINING, WITHOUT<br />DISTRACTIONS.
           </h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.6 }}>
-            An uncompromising physical environment. No decorative clutter, no selfie-culture bottlenecks. Calibrated barbells, competition drop platforms, and evidence-based group conditioning.
+            An uncompromising physical environment. No decorative clutter, no distractions. Quality barbells, dedicated lifting platforms, and evidence-based group conditioning.
           </p>
         </div>
       </section>
@@ -104,10 +104,10 @@ export default function TrainingPage() {
               </div>
               <div style={{ padding: '24px' }}>
                 <h3 style={{ fontFamily: 'var(--ff-display)', fontSize: '1.25rem', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
-                  Olympic Lifting & Power Racks
+                  Lifting Platforms & Power Racks
                 </h3>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', lineHeight: 1.6, marginBottom: '16px' }}>
-                  Level shock-absorbent wooden drop platforms, competition calibrated cast steel discs, and reinforced cages built for heavy squats and deadlifts.
+                  Solid wooden lifting platforms, cast iron plates, and reinforced cages built for heavy squats, presses, and deadlifts.
                 </p>
                 <div style={{ fontSize: '0.75rem', color: 'var(--accent)', fontFamily: 'var(--ff-display)', fontWeight: 600 }}>
                   ✓ Available at Sector 85 & Sector 86
@@ -184,13 +184,13 @@ export default function TrainingPage() {
               </div>
               <div style={{ padding: '24px' }}>
                 <h3 style={{ fontFamily: 'var(--ff-display)', fontSize: '1.25rem', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
-                  Floodlit Sky Cricket Arena
+                  Rooftop Cricket Turf
                 </h3>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', lineHeight: 1.6, marginBottom: '16px' }}>
-                  Greater Faridabad’s exclusive outdoor synthetic cricket arena atop Sector 86. Train heavy downstairs, switch off and play 6-over night friendlies upstairs.
+                  An outdoor synthetic cricket turf atop Sector 86. Train downstairs, bowl 6 overs with friends upstairs under the evening sky.
                 </p>
                 <div style={{ fontSize: '0.75rem', color: 'var(--accent)', fontFamily: 'var(--ff-display)', fontWeight: 600 }}>
-                  ✓ Exclusive to Sector 86 Sky Deck
+                  ✓ Sector 86 Rooftop Deck
                 </div>
               </div>
             </div>

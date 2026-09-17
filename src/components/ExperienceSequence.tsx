@@ -112,7 +112,7 @@ export const ExperienceSequence: React.FC = () => {
                       <div className="exp-lifestyle-card">
                         <div className="exp-lifestyle-card__num">01 / ATMOSPHERE</div>
                         <h4 className="exp-lifestyle-card__title">Open Sky & Floodlights</h4>
-                        <p className="exp-lifestyle-card__desc">All-weather synthetic turf high above city noise, illuminated by calibrated night floodlights.</p>
+                        <p className="exp-lifestyle-card__desc">All-weather synthetic turf high above city noise, illuminated by evening floodlights.</p>
                       </div>
                       <div className="exp-lifestyle-card">
                         <div className="exp-lifestyle-card__num">02 / DECOMPRESSION</div>

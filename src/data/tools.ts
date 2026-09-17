@@ -4,78 +4,78 @@ export const NEXUS_GOALS: ToolGoal[] = [
   {
     id: 'strength',
     label: 'STRENGTH',
-    tagline: 'Pure force production & neuromuscular power',
+    tagline: 'Pure force production & progressive power',
     description:
-      'Engineered for lifters who prioritize calibrated barbell movements, raw mechanical tension, and measurable progressive overload on the platform.',
+      'Built for lifters who prioritize compound barbell movements, proper technique, and measurable progressive overload.',
     focusZones: [
-      'Calibrated Olympic Drop Platforms',
-      'Heavy-Gauge Power Cages & Squat Racks',
-      'Competition Steel Plates & Barbells'
+      'Dedicated Lifting Platforms',
+      'Heavy-Duty Power Cages & Squat Racks',
+      'Cast Iron Plates & Quality Barbells'
     ],
     recommendedBranch: 'sector-85',
     recommendedServices: [
-      'Barbell Compound Technique Screening',
+      'Barbell Compound Technique Guidance',
       'Linear Progression Strength Programming',
-      'Powerlifting Platform Access'
+      'Lifting Platform Access'
     ],
-    recommendedClasses: ['Strength & Power Foundations', 'Personal Coach Walkthrough'],
-    startingProtocol: '3 to 4 days/week: Squat, Bench, Deadlift, Overhead Press foundations with 72h recovery pacing.',
-    weeklyScheduleTemplate: 'Mon: Heavy Lower (Squat focus) · Wed: Upper Bench/Press · Fri: Platform Deadlift & Pulls · Sat: Accessory & Core',
-    coachArchetype: 'Strength & Powerlifting Specialist'
+    recommendedClasses: ['Strength Fundamentals', 'Coach Walkthrough'],
+    startingProtocol: '3 to 4 days/week: Squat, Bench, Deadlift, Overhead Press foundations with adequate recovery.',
+    weeklyScheduleTemplate: 'Mon: Lower (Squat focus) · Wed: Upper Bench/Press · Fri: Deadlift & Pulls · Sat: Accessory & Core',
+    coachArchetype: 'Strength Coach'
   },
   {
     id: 'fat-loss',
     label: 'FAT LOSS',
     tagline: 'High metabolic output & lean mass retention',
     description:
-      'Designed to maximize daily caloric expenditure and cardiovascular conditioning while preserving your hard-earned muscle tissue through structured resistance work.',
+      'Designed to maximize daily energy expenditure and cardiovascular conditioning while preserving muscle tissue through structured resistance work.',
     focusZones: [
-      'Turf Sled & Prowler Push Track',
-      'High-Output Curve Treadmills & Rowers',
-      'High-Cadence Studio Aerobics Hall'
+      'Conditioning & Turf Track',
+      'Cardio Machines & Treadmills',
+      'Group Studio Aerobics'
     ],
     recommendedBranch: 'both',
     recommendedServices: [
-      'Metabolic Conditioning Circuits',
-      'Progressive Resistance Deficit Preservation',
+      'Metabolic Conditioning Workouts',
+      'Progressive Resistance Training',
       'Studio Dance & Aerobic Batches'
     ],
-    recommendedClasses: ['Kinetic Zumba Dance Studio', 'Athletic Aerobics & Metabolic HIIT'],
-    startingProtocol: '3 strength resistance sessions + 2 high-energy studio or sled cardio intervals per week.',
-    weeklyScheduleTemplate: 'Mon: Full-Body Resistance · Tue: Kinetic Zumba Studio · Thu: Full-Body Compound · Fri: Sled & Metabolic HIIT · Sun: Recovery Walk',
-    coachArchetype: 'Metabolic Conditioning & Body Transformation Coach'
+    recommendedClasses: ['Zumba Dance Studio', 'Athletic Aerobics & HIIT'],
+    startingProtocol: '3 strength resistance sessions + 2 high-energy studio cardio sessions per week.',
+    weeklyScheduleTemplate: 'Mon: Full-Body Resistance · Tue: Zumba Studio · Thu: Full-Body Compound · Fri: Conditioning & Cardio · Sun: Active Recovery',
+    coachArchetype: 'Conditioning & Transformation Coach'
   },
   {
     id: 'muscle',
     label: 'MUSCLE',
     tagline: 'Hypertrophy, volume accumulation & shape',
     description:
-      'Engineered for aesthetics, symmetrical muscle growth, and progressive volume using heavy dumbbells, multi-cable stations, and full-range compound lifts.',
+      'Engineered for muscle development, symmetry, and progressive volume using dumbbells, cable stations, and compound lifts.',
     focusZones: [
-      'Calibrated Dumbbells Up to 50kg+',
+      'Full Dumbbell Selection',
       'Multi-Angle Adjustable Benches',
-      'Multi-Grip Dual Cable Cross Stations'
+      'Cable & Machine Stations'
     ],
     recommendedBranch: 'both',
     recommendedServices: [
-      'Hypertrophy Volume Periodization',
-      'Time-Under-Tension Coaching',
-      'Symmetry & Weak Point Analysis'
+      'Hypertrophy Volume Programming',
+      'Proper Lifting Form Guidance',
+      'Accessory & Isolation Work'
     ],
-    recommendedClasses: ['Strength Floor Coaching', 'Upper Body Hypertrophy Workshop'],
-    startingProtocol: '4 to 5 sessions/week on an Upper/Lower or Push/Pull/Legs rotation with controlled eccentric tempos.',
+    recommendedClasses: ['Strength Floor Guidance', 'Hypertrophy Coaching'],
+    startingProtocol: '4 to 5 sessions/week on an Upper/Lower or Push/Pull/Legs rotation with controlled tempos.',
     weeklyScheduleTemplate: 'Mon: Push (Chest/Shoulders/Triceps) · Tue: Pull (Back/Biceps) · Thu: Legs & Posterior · Fri: Upper Focus · Sat: Arm & Core Detailing',
-    coachArchetype: 'Physique & Functional Hypertrophy Coach'
+    coachArchetype: 'Physique & Strength Coach'
   },
   {
     id: 'fitness',
     label: 'FITNESS',
     tagline: 'Work capacity, stamina & multi-sport agility',
     description:
-      'A multi-discipline path blending gym resistance, dynamic studio movement, and Greater Faridabad’s only floodlit rooftop cricket arena for total athletic capability.',
+      'A multi-discipline path blending gym resistance, dynamic studio movement, and an outdoor rooftop cricket turf for complete athletic capability.',
     focusZones: [
-      'Floodlit All-Weather Rooftop Cricket Arena',
-      'Sprung-Floor Kinetic Dance Studio',
+      'Outdoor Rooftop Cricket Turf',
+      'Group Movement Studio',
       'Functional Conditioning Track'
     ],
     recommendedBranch: 'sector-86',

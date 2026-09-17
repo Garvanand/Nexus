@@ -4,88 +4,88 @@ import React from 'react';
 import Link from 'next/link';
 
 export const FacilitiesSection: React.FC = () => {
+  const amenities = [
+    {
+      title: 'STRENGTH & FREE WEIGHT FLOOR',
+      tag: 'BARBELLS & POWER RACKS',
+      desc: 'Dedicated lifting platforms, heavy-duty power racks, barbell stations, and free weights for compound and accessory strength training.',
+      image: '/assets/images/space_lifting.jpg',
+      branch: 'Sector 85 & Sector 86',
+      featured: true,
+    },
+    {
+      title: 'PERSONAL LOCKER SPACES',
+      tag: 'STORAGE',
+      desc: 'Spacious storage lockers and changing areas so you can store your belongings securely while training.',
+      image: '/assets/images/space_locker.jpg',
+      branch: 'Both Locations',
+      featured: false,
+    },
+    {
+      title: 'GROUP MOVEMENT STUDIO',
+      tag: 'CLASSES',
+      desc: 'Dedicated studio space for high-energy Zumba, athletic Aerobics, and restorative Yoga sessions.',
+      image: '/assets/images/space_studio.jpg',
+      branch: 'Sector 86',
+      featured: false,
+    },
+    {
+      title: 'CLEAN SHOWERS & CHANGING ROOMS',
+      tag: 'FACILITIES',
+      desc: 'Private shower stalls and maintained washrooms for freshening up before or after your workout.',
+      image: '/assets/images/photo4.webp',
+      branch: 'Both Locations',
+      featured: false,
+    },
+  ];
+
   return (
-    <section className="section facilities-section" id="experience" aria-label="Facilities & Experience">
+    <section className="section amenities-section" id="amenities" aria-label="Club Amenities">
       <div className="container">
-        <div className="facilities-header">
-          <div className="eyebrow" style={{ marginBottom: '1rem' }}>
-            <span className="eyebrow-line"></span>
-            <span>EXPERIENCE & ARCHITECTURE</span>
+        <div className="amenities-header">
+          <div>
+            <div className="eyebrow" style={{ marginBottom: '1rem' }}>
+              <span className="eyebrow-line"></span>
+              <span>FACILITIES & SPACES</span>
+            </div>
+            <h2 className="heading-section">
+              EVERYTHING YOU NEED.<br />ONE CLUB.
+            </h2>
           </div>
-          <h2 className="heading-section">
-            EVERYTHING YOU NEED.<br />ONE CLUB.
-          </h2>
-          <p className="text-lead" style={{ marginTop: '1rem' }}>
-            A curated ecosystem of physical disciplines under one membership. Built with uncompromising materials and spatial clarity.
+          <p className="text-lead">
+            Spaces designed for training consistency, group fitness, and everyday convenience across Greater Faridabad.
           </p>
         </div>
 
-        {/* Editorial Collage (No generic icon boxes) */}
-        <div className="facilities-collage">
-          {/* Dominant Feature: Barbell & Machine Floor */}
-          <div className="facility-block facility-block--featured">
-            <img
-              src="/assets/images/photo4.webp"
-              alt="Nexus Barbell & Heavy Strength Floor"
-              className="facility-block__img"
-            />
-            <div className="facility-block__overlay"></div>
-            <div className="facility-block__content">
-              <div className="eyebrow eyebrow--yellow" style={{ marginBottom: '0.5rem' }}>
-                SECTOR 85 & 86
+        {/* Spatial Editorial Collage */}
+        <div className="amenities-collage-grid">
+          {amenities.map((item) => (
+            <div
+              key={item.title}
+              className={`amenity-panel ${item.featured ? 'amenity-panel--featured' : ''}`}
+            >
+              <div className="amenity-panel__bg">
+                <img src={item.image} alt={item.title} className="amenity-panel__img" />
+                <div className="amenity-panel__overlay"></div>
               </div>
-              <h3 className="facility-block__title">STRENGTH FLOOR & POWER BAYS</h3>
-              <p className="facility-block__desc">
-                Heavy competition barbells, calibrated steel drop platforms, Scandinavian selectorized pin-loaded stations, and free weights up to 50kg+.
-              </p>
-            </div>
-          </div>
 
-          {/* Feature: Floodlit Rooftop Cricket Turf */}
-          <div className="facility-block">
-            <img
-              src="/assets/images/space_cricket.jpg"
-              alt="Open Air Rooftop Cricket Arena Sector 86"
-              className="facility-block__img"
-            />
-            <div className="facility-block__overlay"></div>
-            <div className="facility-block__content">
-              <div className="eyebrow eyebrow--yellow" style={{ marginBottom: '0.5rem' }}>
-                SECTOR 86 EXCLUSIVE
+              <div className="amenity-panel__content">
+                <div className="eyebrow eyebrow--yellow" style={{ marginBottom: '0.5rem' }}>
+                  {item.branch} // {item.tag}
+                </div>
+                <h3 className="amenity-panel__title">{item.title}</h3>
+                <p className="amenity-panel__desc">{item.desc}</p>
               </div>
-              <h3 className="facility-block__title">ROOFTOP CRICKET ARENA</h3>
-              <p className="facility-block__desc">
-                Greater Faridabad’s only open-air floodlit rooftop cricket arena for match play and explosive conditioning.
-              </p>
             </div>
-          </div>
-
-          {/* Feature: Group Kinetic Studios */}
-          <div className="facility-block">
-            <img
-              src="/assets/images/space_studio.jpg"
-              alt="Acoustic Sprung Movement Studio"
-              className="facility-block__img"
-            />
-            <div className="facility-block__overlay"></div>
-            <div className="facility-block__content">
-              <div className="eyebrow" style={{ marginBottom: '0.5rem' }}>
-                STUDIO DISCIPLINE
-              </div>
-              <h3 className="facility-block__title">GROUP MOVEMENT SANCTUARY</h3>
-              <p className="facility-block__desc">
-                Sprung timber hardwood flooring with concert-grade acoustics for high-energy Zumba, Aerobics, and restorative Yoga.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
 
-        <div style={{ marginTop: '3.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem', borderTop: '1px solid var(--nexus-border)', paddingTop: '2rem' }}>
-          <span style={{ fontSize: '0.875rem', color: 'var(--nexus-grey-2)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-            Executive Rain Showers · Biometric Access · Secure Timber Lockers
+        <div className="amenities-subbar">
+          <span className="amenities-subbar__text">
+            Changing Rooms · Storage Lockers · Drinking Water · Open 7 Days a Week
           </span>
-          <Link href="/classes" className="btn-link">
-            Explore All Classes & Schedules →
+          <Link href="/locations" className="btn-link">
+            View Location Details →
           </Link>
         </div>
       </div>

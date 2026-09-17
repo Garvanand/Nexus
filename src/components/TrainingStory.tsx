@@ -6,23 +6,23 @@ import Link from 'next/link';
 export const TrainingStory: React.FC = () => {
   const stories = [
     {
-      num: '01 // DISCIPLINE',
+      num: '01 // STRENGTH',
       title: 'STRENGTH',
-      desc: 'Progressive overload on competition barbells, calibrated steel discs, heavy dumbbells to 50kg+, and Olympic drop platforms.',
+      desc: 'Built around serious resistance training, quality barbells, dumbbells, and lifting platforms without clutter.',
       image: '/assets/images/photo1.webp',
       link: '/training',
     },
     {
-      num: '02 // CADENCE',
+      num: '02 // MOVEMENT',
       title: 'MOVE',
-      desc: 'Acoustically tuned group studios with sprung timber hardwood floors for high-energy Zumba, athletic Aerobics, and restorative Yoga.',
+      desc: 'Dedicated group movement studios with wooden flooring for high-energy Zumba, athletic Aerobics, and restorative Yoga.',
       image: '/assets/images/photo9.webp',
       link: '/classes',
     },
     {
-      num: '03 // RECREATION',
+      num: '03 // PLAY',
       title: 'PLAY',
-      desc: 'Greater Faridabad’s premier open-air rooftop floodlit cricket turf arena at Sector 86. Train hard under the sky.',
+      desc: 'An outdoor rooftop cricket turf atop Sector 86. Switch off from routine, compete, and play under the open sky.',
       image: '/assets/images/space_cricket.jpg',
       link: '/locations/sector-86',
     },

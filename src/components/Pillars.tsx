@@ -18,12 +18,11 @@ export const Pillars: React.FC = () => {
             <span className="pillar-card__num">01</span>
             <h3 className="pillar-card__title">STRENGTH</h3>
             <p className="pillar-card__desc">
-              Progressive overload on competition barbells, calibrated steel discs, and heavy dumbbells. Rooted in biomechanics.
+              Progressive overload on quality barbells, cast iron plates, and heavy dumbbells. Rooted in biomechanics.
             </p>
-            <ul className="pillar-card__list">
-              <li>Olympic Drop Platforms</li>
-              <li>Heavy-Gauge Power Racks</li>
-              <li>Calibrated Steel & Dumbbells to 50kg+</li>
+            <ul className="pillars__list">
+              <li>Heavy-Gauge Power Racks & Lifting Bays</li>
+              <li>Free-Weight Dumbbell Selection</li>
             </ul>
           </div>
 

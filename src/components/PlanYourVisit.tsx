@@ -22,11 +22,11 @@ export const PlanYourVisit: React.FC<PlanYourVisitProps> = ({ branch }) => {
   ];
 
   const focusOptions = branch.id === 'sector-86'
-    ? ['Rooftop Cricket Turf', 'Zumba Dance Studio', 'Yoga & Mobility', 'Strength & Iron Floor', 'Full Club Tour']
-    : ['Olympic Drop Platforms', 'Power Racks & Heavy Iron', 'Sled & Turf Track', 'Personal Training Consult', 'Full Facility Tour'];
+    ? ['Rooftop Cricket Turf', 'Zumba Dance Studio', 'Yoga & Mobility', 'Strength & Free Weights', 'Full Club Tour']
+    : ['Strength Lifting Bay', 'Power Racks & Free Weights', 'Cardio & Machines', 'Coaching Consult', 'Full Facility Tour'];
 
   const whatsappMessage = encodeURIComponent(
-    `Hi Nexus! I would like to plan a visit to ${branch.name}. Day: ${selectedDay}, Preferred Time: ${selectedTime}, Focus: ${selectedFocus}. Please confirm coach/concierge availability.`
+    `Hi Nexus! I would like to plan a visit to ${branch.name}. Day: ${selectedDay}, Preferred Time: ${selectedTime}, Focus: ${selectedFocus}. Please confirm coach availability.`
   );
 
   return (
@@ -34,13 +34,13 @@ export const PlanYourVisit: React.FC<PlanYourVisitProps> = ({ branch }) => {
       <div className="container" style={{ maxWidth: '960px' }}>
         <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <span style={{ fontSize: '0.6875rem', color: 'var(--accent)', fontFamily: 'var(--ff-display)', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-            VIP ACCESS // ZERO PRESSURE WALKTHROUGH
+            CLUB WALKTHROUGH // VISIT NEXUS
           </span>
           <h2 style={{ fontFamily: 'var(--ff-display)', fontSize: 'clamp(1.875rem, 4vw, 2.75rem)', fontWeight: 800, textTransform: 'uppercase', margin: '8px 0 12px 0' }}>
             PLAN YOUR VISIT TO {branch.shortName.toUpperCase()}
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', maxWidth: '640px', margin: '0 auto', lineHeight: 1.6 }}>
-            Tour the floor, inspect calibrated equipment, and discuss your training goals with a senior coach before joining. No sales pressure.
+            Tour the floor, check out the equipment, and discuss your training goals before joining. No sales pressure.
           </p>
         </div>
 

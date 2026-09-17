@@ -35,7 +35,7 @@ export default function ClassesPage() {
             CLASSES AT NEXUS.
           </h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.6 }}>
-            Sprung hardwood flooring, tuned acoustic arrays, and licensed coaching. Small cohorts that hold each other accountable without ego.
+            Wooden studio flooring, quality sound, and experienced coaching. Group sessions that build consistency without ego.
           </p>
 
           {/* Editorial Filters */}
@@ -205,7 +205,7 @@ export default function ClassesPage() {
                       className="btn btn-primary"
                       style={{ flex: 1, minWidth: '130px', textAlign: 'center' }}
                     >
-                      Book / Inquire →
+                      Enquire Batches →
                     </a>
                   </div>
                 </div>

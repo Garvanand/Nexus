@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
 
         {/* Very Short Editorial Subtext */}
         <p className="hero-editorial__lead">
-          Strength · Movement · Community across Greater Faridabad. Two purposeful flagship facilities engineered for progressive physical development.
+          Strength · Movement · Community across Greater Faridabad. Two dedicated training facilities for barbell lifting, group fitness, and rooftop cricket.
         </p>
 
         {/* Disciplined Actions */}

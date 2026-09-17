@@ -8,10 +8,10 @@ import { Footer } from '../components/Footer';
 export const metadata: Metadata = {
   title: 'NEXUS — The Lifting Club | Premium Gym in Greater Faridabad',
   description:
-    'Greater Faridabad’s premier lifting club across Sector 85 & Sector 86. Heavy iron, calibrated Olympic drop platforms, shock-absorbent group studios, and floodlit rooftop cricket arena.',
+    'Nexus — The Lifting Club across Sector 85 & Sector 86, Greater Faridabad. Purpose-built strength training, group movement studios, and outdoor rooftop cricket turf.',
   keywords: [
     'gym faridabad',
-    'powerlifting faridabad',
+    'strength training faridabad',
     'nexus the lifting club',
     'gym sector 85 faridabad',
     'gym sector 86 faridabad',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'NEXUS — The Lifting Club | Premium Gym in Greater Faridabad',
     description:
-      'Calibrated Olympic drop platforms, heavy-gauge power racks, sprung group studios, and rooftop cricket turf across Sector 85 and Sector 86.',
+      'Strength training gym, movement studios, and outdoor rooftop cricket turf across Sector 85 and Sector 86, Greater Faridabad.',
     url: 'https://nexusliftingclub.com',
     siteName: 'NEXUS — The Lifting Club',
     type: 'website',

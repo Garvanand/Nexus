@@ -5,7 +5,7 @@ import { NexusTools } from '../../components/NexusTools';
 export const metadata: Metadata = {
   title: 'NEXUS TOOLS — Athletic Fitness Calculators & Goal Selector',
   description:
-    'Calibrated fitness calculators: What Are You Training For goal matcher, Mifflin-St Jeor daily calories & macro breakdown, athletic BMI context, hydration target, and beginner starter guide.',
+    'Evidence-based fitness calculators: What Are You Training For goal matcher, Mifflin-St Jeor daily calories & macro breakdown, athletic BMI context, hydration target, and beginner starter guide.',
   keywords: [
     'gym calorie calculator',
     'macro calculator faridabad',
