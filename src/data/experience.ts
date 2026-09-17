@@ -46,7 +46,7 @@ export const NEXUS_EXPERIENCES: ExperienceChapter[] = [
     category: 'RECOVER // MINDFULNESS',
     headline: 'BALANCE IN THE NOISE.',
     oneLiner: 'Warm low-lux illumination, guided pranayama breathwork, and deep myofascial mobility designed to lower cortisol and restore spinal alignment.',
-    image: '/assets/images/training_yoga.jpg',
+    image: '/assets/images/photo2.webp',
     alt: 'Serene Yoga Studio Sanctuary at Nexus',
     badge: 'Mindfulness Sanctuary · Sector 86',
     location: 'Sector 86 Performance Club',

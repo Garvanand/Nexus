@@ -4,578 +4,247 @@ import React, { useState } from 'react';
 import { useBranch } from '../context/BranchContext';
 import { BranchId } from '../types';
 
-interface FormData {
-  branch: BranchId;
-  interest: string;
-  name: string;
-  phone: string;
-  contactMethod: 'whatsapp' | 'call';
-}
-
-interface InterestOption {
-  id: string;
-  name: string;
-  tag: string;
-  desc: string;
-}
-
-const INTEREST_OPTIONS: InterestOption[] = [
-  {
-    id: 'gym',
-    name: 'Gym',
-    tag: 'Floor',
-    desc: 'Cardio machines, resistance machines & free weights.'
-  },
-  {
-    id: 'strength',
-    name: 'Strength Training',
-    tag: 'Barbell',
-    desc: 'Squat, bench, deadlift & progressive overload.'
-  },
-  {
-    id: 'zumba',
-    name: 'Zumba',
-    tag: 'Studio',
-    desc: 'High-cadence dance cardio & music flow.'
-  },
-  {
-    id: 'yoga',
-    name: 'Yoga',
-    tag: 'Mobility',
-    desc: 'Restorative mobility & spinal decompression.'
-  },
-  {
-    id: 'aerobics',
-    name: 'Aerobics',
-    tag: 'Conditioning',
-    desc: 'Athletic HIIT intervals & metabolic burn.'
-  },
-  {
-    id: 'general',
-    name: 'General enquiry',
-    tag: 'Consultation',
-    desc: 'Club tour, personal training & memberships.'
-  }
-];
-
 export const LeadConversionForm: React.FC<{ initialStep?: number }> = ({
-  initialStep = 1
+  initialStep = 1,
 }) => {
   const { branchId, setBranch, getWhatsAppUrl } = useBranch();
-  const [currentStep, setCurrentStep] = useState<number>(initialStep);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [submitted, setSubmitted] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string>('');
-  const [honeypot, setHoneypot] = useState<string>('');
+  const [selectedBranch, setSelectedBranch] = useState<BranchId>(branchId || 'sector-85');
+  const [selectedDiscipline, setSelectedDiscipline] = useState<string>('Strength & Iron');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
-  const [formData, setFormData] = useState<FormData>({
-    branch: branchId || 'sector-85',
-    interest: 'Strength Training',
-    name: '',
-    phone: '',
-    contactMethod: 'whatsapp'
-  });
-
-  const handleBranchSelect = (selected: BranchId) => {
-    setFormData((prev) => ({ ...prev, branch: selected }));
-    setBranch(selected);
-  };
-
-  const handleInterestSelect = (interestName: string) => {
-    setFormData((prev) => ({ ...prev, interest: interestName }));
-  };
+  const disciplines = [
+    'Strength & Iron',
+    'Kinetic Zumba',
+    'Restorative Yoga',
+    'Athletic Aerobics',
+    'Rooftop Cricket (Sec 86)',
+    'General Membership',
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setErrorMessage('');
+    setError('');
 
-    // Spam honeypot detection
-    if (honeypot.trim().length > 0) {
-      // Quietly reject bot
-      setSubmitted(true);
+    if (!name.trim()) {
+      setError('Please provide your full name.');
       return;
     }
 
-    if (!formData.name.trim()) {
-      setErrorMessage('Please enter your full name.');
-      return;
-    }
-
-    const cleanedPhone = formData.phone.replace(/[^0-9]/g, '');
-    if (cleanedPhone.length < 10) {
-      setErrorMessage('Please enter a valid 10-digit mobile number.');
+    const cleanPhone = phone.replace(/[^0-9]/g, '');
+    if (cleanPhone.length < 10) {
+      setError('Please provide a valid 10-digit mobile number.');
       return;
     }
 
     setLoading(true);
-
-    // Simulate backend CRM / webhook submission
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-    }, 850);
+    }, 600);
   };
 
-  const resetForm = () => {
-    setSubmitted(false);
-    setCurrentStep(1);
-    setErrorMessage('');
-    setFormData({
-      branch: branchId || 'sector-85',
-      interest: 'Strength Training',
-      name: '',
-      phone: '',
-      contactMethod: 'whatsapp'
-    });
+  const handleBranchToggle = (id: BranchId) => {
+    setSelectedBranch(id);
+    setBranch(id);
   };
-
-  const branchDisplay =
-    formData.branch === 'sector-85'
-      ? 'Sector 85 (Flagship Arena)'
-      : 'Sector 86 (Studios & Turf)';
-
-  const whatsappInquiryUrl = getWhatsAppUrl(
-    `Hi Nexus! I'm interested in ${formData.interest} at ${
-      formData.branch === 'sector-85' ? 'Sector 85' : 'Sector 86'
-    }. Please share membership details.`
-  );
 
   return (
-    <section className="lead-section" id="visit" aria-label="Start Your Journey">
-      <div className="container">
-        <div className="lead-card" id="lead-funnel">
-          {/* Header */}
-          <div className="lead-header">
-            <div className="lead-badge">
-              <span className="dot"></span> Membership Consultation · Greater Faridabad
+    <section className="section final-cta-section" id="join" aria-label="Join Nexus">
+      <div className="container final-cta-container">
+        <div className="eyebrow eyebrow--yellow" style={{ marginBottom: '1.25rem' }}>
+          <span className="eyebrow-line"></span>
+          <span>STEP ONTO THE FLOOR</span>
+        </div>
+
+        <h2 className="final-cta-title">
+          START YOUR<br />TRANSFORMATION.
+        </h2>
+
+        <p className="final-cta-desc">
+          Zero sign-up gimmicks. Experience the space, meet the coaches, and feel the standard firsthand across Sector 85 & 86.
+        </p>
+
+        {submitted ? (
+          <div
+            style={{
+              padding: '3rem 2rem',
+              backgroundColor: 'var(--nexus-surface)',
+              border: '1px solid var(--nexus-border)',
+              borderRadius: '2px',
+              textAlign: 'center',
+            }}
+          >
+            <div className="eyebrow eyebrow--yellow" style={{ marginBottom: '1rem' }}>
+              ✓ INVITATION CONFIRMED
             </div>
-            <h2 className="lead-title">START YOUR NEXUS JOURNEY.</h2>
-            <p className="lead-subtitle">
-              Two clubs in Greater Faridabad. One uncompromising standard. Select your branch and training focus below to receive verified details and tailored membership options directly from our team.
+            <h3 style={{ fontFamily: 'var(--ff-display)', fontSize: '1.75rem', marginBottom: '1rem', color: 'var(--nexus-off-white)' }}>
+              WE’LL SEE YOU ON THE FLOOR, {name.toUpperCase()}.
+            </h3>
+            <p style={{ color: 'var(--nexus-grey-2)', marginBottom: '2rem', maxWidth: '480px', margin: '0 auto 2rem' }}>
+              Our front desk at {selectedBranch === 'sector-85' ? 'Sector 85 Flagship' : 'Sector 86 Performance'} has received your request and will contact you via WhatsApp shortly.
             </p>
+            <a
+              href={getWhatsAppUrl(`Hi Nexus, I just requested a guest visit for ${selectedDiscipline} at ${selectedBranch === 'sector-85' ? 'Sector 85' : 'Sector 86'}.`)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              Open Direct WhatsApp Chat →
+            </a>
           </div>
-
-          {/* Progress Indicator */}
-          {!submitted && (
-            <div className="lead-progress">
-              <div className="lead-progress__label">
-                Step <span className="lead-progress__current">0{currentStep}</span> of 03
-              </div>
-              <div className="lead-progress__bars" aria-hidden="true">
-                <div
-                  className={`lead-progress__bar ${
-                    currentStep >= 1 ? 'lead-progress__bar--active' : ''
-                  }`}
-                ></div>
-                <div
-                  className={`lead-progress__bar ${
-                    currentStep >= 2 ? 'lead-progress__bar--active' : ''
-                  }`}
-                ></div>
-                <div
-                  className={`lead-progress__bar ${
-                    currentStep >= 3 ? 'lead-progress__bar--active' : ''
-                  }`}
-                ></div>
-              </div>
-            </div>
-          )}
-
-          {/* Error Banner */}
-          {errorMessage && (
-            <div
-              className="lead-error-banner"
-              style={{ display: 'block', marginBottom: '24px' }}
-              role="alert"
-            >
-              ⚠️ {errorMessage}
-            </div>
-          )}
-
-          {/* Form Steps */}
-          {!submitted ? (
-            <div id="lead-steps-wrapper">
-              <form id="lead-form" onSubmit={handleSubmit} noValidate>
-                {/* Honeypot Spam Trap */}
-                <input
-                  type="text"
-                  name="website_hp"
-                  className="lead-hp-trap"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  aria-hidden="true"
-                  value={honeypot}
-                  onChange={(e) => setHoneypot(e.target.value)}
-                />
-
-                {/* STEP 1: CHOOSE YOUR BRANCH */}
-                {currentStep === 1 && (
-                  <div className="lead-step lead-step--active" data-step="1">
-                    <div className="lead-step__heading">
-                      <span>1. Choose Your Branch</span>
-                      <span className="lead-step__subhead">Select location</span>
-                    </div>
-
-                    <div className="lead-branches" role="radiogroup" aria-label="Choose your preferred branch">
-                      {/* Sector 85 Card */}
-                      <div
-                        className={`lead-branch-card ${
-                          formData.branch === 'sector-85' ? 'lead-branch-card--active' : ''
-                        }`}
-                        role="radio"
-                        aria-checked={formData.branch === 'sector-85'}
-                        tabIndex={0}
-                        onClick={() => handleBranchSelect('sector-85')}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            handleBranchSelect('sector-85');
-                          }
-                        }}
-                      >
-                        <div className="lead-branch-card__header">
-                          <span className="lead-branch-card__sector">Sector 85</span>
-                          <span className="lead-branch-card__badge">Flagship Arena</span>
-                        </div>
-                        <p className="lead-branch-card__desc">
-                          Olympic Power Racks, calibrated steel plates, competition benches, and heavy sled tracks.
-                        </p>
-                        <div className="lead-branch-card__footer">
-                          <span>Lifting Arena</span>
-                          <span className="lead-branch-card__check">
-                            {formData.branch === 'sector-85' ? '✓' : ''}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Sector 86 Card */}
-                      <div
-                        className={`lead-branch-card ${
-                          formData.branch === 'sector-86' ? 'lead-branch-card--active' : ''
-                        }`}
-                        role="radio"
-                        aria-checked={formData.branch === 'sector-86'}
-                        tabIndex={0}
-                        onClick={() => handleBranchSelect('sector-86')}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            handleBranchSelect('sector-86');
-                          }
-                        }}
-                      >
-                        <div className="lead-branch-card__header">
-                          <span className="lead-branch-card__sector">Sector 86</span>
-                          <span className="lead-branch-card__badge">Studios &amp; Turf</span>
-                        </div>
-                        <p className="lead-branch-card__desc">
-                          Acoustic mirrored studios for Zumba, Yoga, Aerobics, and Open-Air Rooftop Cricket Turf.
-                        </p>
-                        <div className="lead-branch-card__footer">
-                          <span>Studios + Rooftop Turf</span>
-                          <span className="lead-branch-card__check">
-                            {formData.branch === 'sector-86' ? '✓' : ''}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="lead-nav-actions">
-                      <div></div>
-                      <div className="lead-btn-group">
-                        <a
-                          href={whatsappInquiryUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="lead-btn-whatsapp"
-                        >
-                          WhatsApp Nexus
-                        </a>
-                        <button
-                          type="button"
-                          className="btn btn-primary"
-                          onClick={() => setCurrentStep(2)}
-                        >
-                          Next: Training Interest →
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* STEP 2: WHAT ARE YOU INTERESTED IN? */}
-                {currentStep === 2 && (
-                  <div className="lead-step lead-step--active" data-step="2">
-                    <div className="lead-step__heading">
-                      <span>2. What Are You Interested In?</span>
-                      <span className="lead-step__subhead">Select primary focus</span>
-                    </div>
-
-                    <div className="lead-interests" role="radiogroup" aria-label="Select training focus">
-                      {INTEREST_OPTIONS.map((opt) => {
-                        const isSelected = formData.interest === opt.name;
-                        return (
-                          <div
-                            key={opt.id}
-                            className={`lead-interest-tile ${
-                              isSelected ? 'lead-interest-tile--active' : ''
-                            }`}
-                            role="radio"
-                            aria-checked={isSelected}
-                            tabIndex={0}
-                            onClick={() => handleInterestSelect(opt.name)}
-                            onKeyDown={(e) => {
-                              if (e.key === 'Enter' || e.key === ' ') {
-                                handleInterestSelect(opt.name);
-                              }
-                            }}
-                          >
-                            <div className="lead-interest-tile__top">
-                              <span className="lead-interest-tile__tag">{opt.tag}</span>
-                            </div>
-                            <div className="lead-interest-tile__name">{opt.name}</div>
-                            <div className="lead-interest-tile__desc">{opt.desc}</div>
-                          </div>
-                        );
-                      })}
-                    </div>
-
-                    <div className="lead-nav-actions">
-                      <button
-                        type="button"
-                        className="lead-btn-back"
-                        onClick={() => setCurrentStep(1)}
-                      >
-                        ← Back to Branch
-                      </button>
-                      <div className="lead-btn-group">
-                        <a
-                          href={whatsappInquiryUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="lead-btn-whatsapp"
-                        >
-                          WhatsApp Nexus
-                        </a>
-                        <button
-                          type="button"
-                          className="btn btn-primary"
-                          onClick={() => setCurrentStep(3)}
-                        >
-                          Next: Your Details →
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* STEP 3: YOUR DETAILS */}
-                {currentStep === 3 && (
-                  <div className="lead-step lead-step--active" data-step="3">
-                    <div className="lead-step__heading">
-                      <span>3. Your Details</span>
-                      <span className="lead-step__subhead">Direct front-desk consultation</span>
-                    </div>
-
-                    {/* Summary Bar */}
-                    <div className="lead-summary-bar">
-                      <div className="lead-summary-bar__info">
-                        <span style={{ color: 'var(--text-tertiary)', fontSize: '0.8125rem' }}>
-                          Selected:
-                        </span>
-                        <span className="lead-summary-pill">
-                          {formData.branch === 'sector-85' ? 'Sector 85' : 'Sector 86'}
-                        </span>
-                        <span className="lead-summary-pill">{formData.interest}</span>
-                      </div>
-                      <button
-                        type="button"
-                        className="lead-summary-bar__edit"
-                        onClick={() => setCurrentStep(1)}
-                      >
-                        Change ✎
-                      </button>
-                    </div>
-
-                    <div className="lead-form-grid">
-                      {/* Name Field */}
-                      <div className="lead-field">
-                        <label htmlFor="lead-name" className="lead-field__label">
-                          Your Full Name <span className="lead-field__label-req">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          id="lead-name"
-                          className="lead-input"
-                          placeholder="e.g. Vikram Sharma"
-                          autoComplete="name"
-                          value={formData.name}
-                          onChange={(e) =>
-                            setFormData((prev) => ({ ...prev, name: e.target.value }))
-                          }
-                          required
-                        />
-                      </div>
-
-                      {/* Phone Field */}
-                      <div className="lead-field">
-                        <label htmlFor="lead-phone" className="lead-field__label">
-                          Mobile Number <span className="lead-field__label-req">*</span>
-                        </label>
-                        <div className="lead-phone-group">
-                          <span className="lead-phone-prefix">🇮🇳 +91</span>
-                          <input
-                            type="tel"
-                            id="lead-phone"
-                            className="lead-phone-input"
-                            placeholder="98765 43210"
-                            maxLength={15}
-                            autoComplete="tel"
-                            value={formData.phone}
-                            onChange={(e) =>
-                              setFormData((prev) => ({ ...prev, phone: e.target.value }))
-                            }
-                            required
-                          />
-                        </div>
-                      </div>
-
-                      {/* Preferred Contact Method */}
-                      <div className="lead-field">
-                        <label className="lead-field__label">Preferred Contact Method</label>
-                        <div
-                          className="lead-contact-methods"
-                          role="group"
-                          aria-label="Preferred Contact Method"
-                        >
-                          <button
-                            type="button"
-                            className={`lead-contact-btn ${
-                              formData.contactMethod === 'whatsapp'
-                                ? 'lead-contact-btn--active'
-                                : ''
-                            }`}
-                            onClick={() =>
-                              setFormData((prev) => ({ ...prev, contactMethod: 'whatsapp' }))
-                            }
-                          >
-                            <span>💬 WhatsApp (Recommended)</span>
-                          </button>
-                          <button
-                            type="button"
-                            className={`lead-contact-btn ${
-                              formData.contactMethod === 'call'
-                                ? 'lead-contact-btn--active'
-                                : ''
-                            }`}
-                            onClick={() =>
-                              setFormData((prev) => ({ ...prev, contactMethod: 'call' }))
-                            }
-                          >
-                            <span>📞 Phone Call</span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="lead-nav-actions">
-                      <button
-                        type="button"
-                        className="lead-btn-back"
-                        onClick={() => setCurrentStep(2)}
-                      >
-                        ← Back to Interest
-                      </button>
-                      <div className="lead-btn-group">
-                        <a
-                          href={whatsappInquiryUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="lead-btn-whatsapp"
-                        >
-                          WhatsApp Nexus
-                        </a>
-                        <button
-                          type="submit"
-                          className={`lead-btn-submit ${loading ? 'lead-btn-submit--loading' : ''}`}
-                          disabled={loading}
-                        >
-                          <span className="lead-spinner"></span>
-                          <span>{loading ? 'Submitting...' : 'Get Membership Details'}</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </form>
-            </div>
-          ) : (
-            /* SUCCESS STATE VIEW */
-            <div
-              className="lead-state-view lead-state-view--active"
-              role="status"
-              aria-live="polite"
-            >
-              <div className="lead-success-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="32"
-                  height="32"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              backgroundColor: 'var(--nexus-surface)',
+              border: '1px solid var(--nexus-border)',
+              padding: 'clamp(2rem, 4vw, 3.5rem)',
+              textAlign: 'left',
+            }}
+          >
+            {/* Branch Selection Toggle */}
+            <div style={{ marginBottom: '2rem' }}>
+              <label style={{ display: 'block', fontFamily: 'var(--ff-display)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--nexus-grey-2)', marginBottom: '0.75rem' }}>
+                01 // SELECT DESTINATION
+              </label>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <button
+                  type="button"
+                  onClick={() => handleBranchToggle('sector-85')}
+                  className="btn btn-secondary"
+                  style={{
+                    borderColor: selectedBranch === 'sector-85' ? 'var(--nexus-yellow)' : 'var(--nexus-border)',
+                    backgroundColor: selectedBranch === 'sector-85' ? 'rgba(229, 255, 0, 0.08)' : 'transparent',
+                    color: selectedBranch === 'sector-85' ? 'var(--nexus-off-white)' : 'var(--nexus-grey-2)',
+                  }}
                 >
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </div>
-              <h3 className="lead-success-title">YOU'RE IN.</h3>
-              <p className="lead-success-lead">
-                Welcome, <strong>{formData.name}</strong>. Your inquiry for{' '}
-                <strong>{formData.interest}</strong> at <strong>{branchDisplay}</strong> has been
-                registered. Your Nexus team will reach out shortly via{' '}
-                {formData.contactMethod === 'whatsapp' ? 'WhatsApp' : 'phone call'}.
-              </p>
-
-              <div className="lead-success-card">
-                <div className="lead-success-row">
-                  <span className="lead-success-label">Selected Branch</span>
-                  <span className="lead-success-val">{branchDisplay}</span>
-                </div>
-                <div className="lead-success-row">
-                  <span className="lead-success-label">Training Interest</span>
-                  <span className="lead-success-val">{formData.interest}</span>
-                </div>
-                <div className="lead-success-row">
-                  <span className="lead-success-label">Contact Method</span>
-                  <span className="lead-success-val">
-                    {formData.contactMethod === 'whatsapp' ? 'WhatsApp Message' : 'Phone Call'}
-                  </span>
-                </div>
-                <div className="lead-success-row">
-                  <span className="lead-success-label">Phone</span>
-                  <span className="lead-success-val">{formData.phone}</span>
-                </div>
-              </div>
-
-              <div className="lead-success-actions">
-                <a
-                  href={`https://wa.me/919582333003?text=${encodeURIComponent(
-                    `Hi Nexus! I just submitted my details online. My name is ${formData.name}, interested in ${formData.interest} at ${branchDisplay}.`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary"
-                  style={{ padding: '16px 32px', fontSize: '0.875rem' }}
+                  Sector 85 (Flagship)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleBranchToggle('sector-86')}
+                  className="btn btn-secondary"
+                  style={{
+                    borderColor: selectedBranch === 'sector-86' ? 'var(--nexus-yellow)' : 'var(--nexus-border)',
+                    backgroundColor: selectedBranch === 'sector-86' ? 'rgba(229, 255, 0, 0.08)' : 'transparent',
+                    color: selectedBranch === 'sector-86' ? 'var(--nexus-off-white)' : 'var(--nexus-grey-2)',
+                  }}
                 >
-                  Connect On WhatsApp Right Now →
-                </a>
-                <button type="button" className="lead-reset-link" onClick={resetForm}>
-                  Submit another inquiry or change details
+                  Sector 86 (Studios & Turf)
                 </button>
               </div>
             </div>
-          )}
-        </div>
+
+            {/* Discipline Selection */}
+            <div style={{ marginBottom: '2rem' }}>
+              <label style={{ display: 'block', fontFamily: 'var(--ff-display)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--nexus-grey-2)', marginBottom: '0.75rem' }}>
+                02 // PRIMARY DISCIPLINE
+              </label>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                {disciplines.map((d) => (
+                  <button
+                    key={d}
+                    type="button"
+                    onClick={() => setSelectedDiscipline(d)}
+                    style={{
+                      padding: '0.45rem 0.9rem',
+                      fontFamily: 'var(--ff-display)',
+                      fontSize: '0.8125rem',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                      backgroundColor: selectedDiscipline === d ? 'var(--nexus-off-white)' : 'var(--nexus-concrete)',
+                      color: selectedDiscipline === d ? 'var(--nexus-black)' : 'var(--nexus-grey-2)',
+                      border: '1px solid',
+                      borderColor: selectedDiscipline === d ? 'var(--nexus-off-white)' : 'var(--nexus-border)',
+                      borderRadius: '2px',
+                    }}
+                  >
+                    {d}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Inputs */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.25rem', marginBottom: '2rem' }}>
+              <div>
+                <label style={{ display: 'block', fontFamily: 'var(--ff-display)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--nexus-grey-2)', marginBottom: '0.5rem' }}>
+                  Your Full Name
+                </label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="e.g. Arjun Mehta"
+                  required
+                  style={{
+                    width: '100%',
+                    padding: '0.9rem 1.25rem',
+                    backgroundColor: 'var(--nexus-black)',
+                    border: '1px solid var(--nexus-border)',
+                    color: 'var(--nexus-off-white)',
+                    fontSize: '0.95rem',
+                    outline: 'none',
+                    borderRadius: '2px',
+                  }}
+                />
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontFamily: 'var(--ff-display)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--nexus-grey-2)', marginBottom: '0.5rem' }}>
+                  Mobile / WhatsApp Number
+                </label>
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="+91 98765 43210"
+                  required
+                  style={{
+                    width: '100%',
+                    padding: '0.9rem 1.25rem',
+                    backgroundColor: 'var(--nexus-black)',
+                    border: '1px solid var(--nexus-border)',
+                    color: 'var(--nexus-off-white)',
+                    fontSize: '0.95rem',
+                    outline: 'none',
+                    borderRadius: '2px',
+                  }}
+                />
+              </div>
+            </div>
+
+            {error && (
+              <p style={{ color: '#FF5555', fontSize: '0.85rem', marginBottom: '1.5rem' }}>
+                {error}
+              </p>
+            )}
+
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem' }}>
+              <button
+                type="submit"
+                disabled={loading}
+                className="btn btn-primary"
+                style={{ width: '100%', maxWidth: '300px' }}
+              >
+                {loading ? 'Confirming...' : 'Confirm Guest Pass →'}
+              </button>
+
+              <a
+                href={getWhatsAppUrl(`Hi Nexus, I'd like to book a tour directly.`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-link"
+              >
+                Or Chat with Front Desk on WhatsApp ↗
+              </a>
+            </div>
+          </form>
+        )}
       </div>
     </section>
   );

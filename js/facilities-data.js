@@ -90,7 +90,7 @@
       branch: 'Sector 86 Sanctuary',
       badge: 'Quiet Acoustic Sanctuary',
       layoutStyle: 'medium-image', // spans 4 columns
-      photo: 'assets/images/training_yoga.jpg',
+      photo: 'assets/images/photo2.webp',
       specs: [
         'Acoustic Sound Isolation',
         'Natural Cork Mats & Props',

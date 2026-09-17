@@ -59,7 +59,7 @@ export const NEXUS_INSTAGRAM_POSTS: InstagramPost[] = [
     category: 'RECOVERY // YOGA',
     author: '@nexusliftingclub',
     verified: true,
-    mediaUrl: '/assets/images/training_yoga.jpg',
+    mediaUrl: '/assets/images/photo2.webp',
     duration: '0:45',
     engagement: { likes: '1.5k', comments: '52' },
     instagramUrl: 'https://www.instagram.com/nexusliftingclub/'

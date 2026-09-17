@@ -93,7 +93,7 @@ const NEXUS_INSTAGRAM_POSTS = [
     category: 'Classes',
     title: 'Mindfulness Flow & Spinal Decompression',
     caption: 'Because true strength requires restoration. Master instructors guiding vinyasa mobility and deep breathwork at dawn.',
-    poster: 'assets/images/training_yoga.jpg',
+    poster: 'assets/images/photo2.webp',
     permalink: 'https://www.instagram.com/nexusliftingclub/',
     stats: {
       views: null,

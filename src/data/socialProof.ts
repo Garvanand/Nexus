@@ -43,7 +43,7 @@ export const NEXUS_SOCIAL_PROOF: SocialProofItem[] = [
     headline: 'FIXED MY POSTURE AFTER 9 YEARS AT A DESK.',
     quote: 'I used to believe gym meant just lifting dumb-bells until exhausted. The Mobility & Yoga sessions at Sector 86 taught me breathwork and opened my thoracic spine. I no longer wake up with a stiff neck.',
     story: 'Neha balanced corporate tech lead responsibilities with morning mobility work. By combining light resistance training with guided pranayama and spinal decompression, she reversed long-term forward head posture.',
-    photo: '/assets/images/training_yoga.jpg',
+    photo: '/assets/images/photo2.webp',
     discipline: 'Mobility & Guided Hatha Flow',
     branch: 'Sector 86 Performance Club',
     tenure: 'Member for 8 Months',

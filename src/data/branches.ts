@@ -125,8 +125,8 @@ export const NEXUS_BRANCHES: Record<'sector-85' | 'sector-86', Branch> = {
     gallery: [
       { src: '/assets/images/space_cricket.jpg', caption: 'Floodlit Rooftop Cricket Turf under open stars', tag: 'Rooftop Turf' },
       { src: '/assets/images/photo2.webp', caption: 'Acoustic Mirrored Movement & Dance Studio', tag: 'Studios' },
-      { src: '/assets/images/training_yoga.jpg', caption: 'Mindfulness & Spinal Mobility Sanctuary', tag: 'Yoga' },
-      { src: '/assets/images/training_aerobics.jpg', caption: 'Athletic Aerobics & Metabolic HIIT Circuits', tag: 'Cardio Hall' }
+      { src: '/assets/images/photo2.webp', caption: 'Mindfulness & Spinal Mobility Sanctuary', tag: 'Yoga' },
+      { src: '/assets/images/photo9.webp', caption: 'Athletic Aerobics & Metabolic HIIT Circuits', tag: 'Cardio Hall' }
     ]
   }
 };

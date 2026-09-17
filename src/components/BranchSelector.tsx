@@ -2,128 +2,138 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useBranch } from '../context/BranchContext';
 import { NEXUS_BRANCHES } from '../data/branches';
+import { useBranch } from '../context/BranchContext';
 
 export const BranchSelector: React.FC = () => {
-  const { setBranch, branchId } = useBranch();
+  const { branchId, setBranch, getWhatsAppUrl } = useBranch();
   const branch85 = NEXUS_BRANCHES['sector-85'];
   const branch86 = NEXUS_BRANCHES['sector-86'];
 
   return (
-    <section className="branches-section" id="branches" aria-label="Branch Locations">
+    <section className="section destinations-section" id="locations" aria-label="Nexus Locations">
       <div className="container">
-        <div className="branches-header">
-          <span className="branches-eyebrow">TWO FLAGSHIP CLUBS // GREATER FARIDABAD</span>
-          <h2 className="branches-title">CHOOSE YOUR GROUND.</h2>
-          <p className="branches-subtitle">
-            Two distinct environments engineered for serious progress. Experience pure barbell strength at Sector 85, or combine heavy lifting, group studios, and rooftop cricket at Sector 86.
+        <div className="destinations-header">
+          <div className="eyebrow" style={{ marginBottom: '1rem' }}>
+            <span className="eyebrow-line"></span>
+            <span>TWO FLAGSHIP DESTINATIONS // GREATER FARIDABAD</span>
+          </div>
+          <h2 className="heading-section">
+            CHOOSE YOUR GROUND.
+          </h2>
+          <p className="text-lead" style={{ marginTop: '1rem' }}>
+            Two distinct training environments engineered for serious progress. Experience pure barbell strength at Sector 85, or combine heavy lifting, group studios, and rooftop cricket at Sector 86.
           </p>
         </div>
 
-        {/* Editorial Split Screen Selector */}
-        <div className="branches-split">
-          {/* Sector 85 Panel */}
+        <div className="destinations-grid">
+          {/* Sector 85 Flagship */}
           <div
-            className={`branch-panel ${branchId === 'sector-85' ? 'branch-panel--active' : ''}`}
-            onMouseEnter={() => setBranch('sector-85')}
+            className="destination-panel"
+            style={{
+              borderColor: branchId === 'sector-85' ? 'var(--nexus-yellow)' : undefined,
+            }}
           >
-            <div className="branch-panel__bg">
-              <img src={branch85.heroImage} alt="Nexus Sector 85 Flagship" className="branch-panel__img" />
-              <div className="branch-panel__overlay"></div>
+            <div className="destination-panel__bg">
+              <img
+                src={branch85.heroImage}
+                alt="Nexus Sector 85 Flagship Arena"
+                className="destination-panel__img"
+              />
+              <div className="destination-panel__overlay"></div>
             </div>
 
-            <div className="branch-panel__content">
-              <div className="branch-panel__badge">{branch85.badge}</div>
-              <h3 className="branch-panel__name">
-                SECTOR 85<br /><span>FLAGSHIP</span>
-              </h3>
-              <p className="branch-panel__locality">Greater Faridabad · Haryana 121002</p>
+            <div className="destination-panel__content">
+              <div className="destination-panel__badge">
+                <span className="dot" style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--nexus-yellow)' }}></span>
+                <span>FLAGSHIP LIFTING ARENA</span>
+              </div>
 
-              <div className="branch-panel__facilities">
-                {branch85.highlights.map((h, i) => (
-                  <span key={i} className="branch-spec-tag">
-                    <span className="dot"></span> {h}
+              <h3 className="destination-panel__title">SECTOR 85</h3>
+              <p className="destination-panel__location">
+                Sector 85, Greater Faridabad · Mon–Sat 6AM–10PM, Sun 7AM–8PM
+              </p>
+
+              <div className="destination-panel__features">
+                {branch85.highlights.slice(0, 3).map((item) => (
+                  <span key={item} className="destination-feature">
+                    <span className="dot"></span>
+                    <span>{item}</span>
                   </span>
                 ))}
               </div>
 
-              <div className="branch-panel__hours">
-                <span className="hours-label">Operating Hours:</span> Mon–Sat 6AM–10PM · Sun 7AM–8PM
-              </div>
-
-              <div className="branch-panel__actions">
-                <Link href="/locations/sector-85" className="btn btn-primary">
+              <div className="destination-panel__actions">
+                <Link
+                  href="/locations/sector-85"
+                  className="btn btn-primary"
+                  onClick={() => setBranch('sector-85')}
+                >
                   Explore Sector 85 →
                 </Link>
                 <a
-                  href={`https://wa.me/919582333003?text=${encodeURIComponent(branch85.contact.whatsappMessage)}`}
+                  href={getWhatsAppUrl("Hi Nexus, I'd like to enquire about membership at the Sector 85 Flagship club.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-secondary"
                 >
-                  WhatsApp
-                </a>
-                <a
-                  href={branch85.directions.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-tertiary"
-                >
-                  Directions ↗
+                  WhatsApp Club
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Sector 86 Panel */}
+          {/* Sector 86 Performance */}
           <div
-            className={`branch-panel ${branchId === 'sector-86' ? 'branch-panel--active' : ''}`}
-            onMouseEnter={() => setBranch('sector-86')}
+            className="destination-panel"
+            style={{
+              borderColor: branchId === 'sector-86' ? 'var(--nexus-yellow)' : undefined,
+            }}
           >
-            <div className="branch-panel__bg">
-              <img src={branch86.heroImage} alt="Nexus Sector 86 Performance Club" className="branch-panel__img" />
-              <div className="branch-panel__overlay"></div>
+            <div className="destination-panel__bg">
+              <img
+                src={branch86.heroImage}
+                alt="Nexus Sector 86 Performance Club"
+                className="destination-panel__img"
+              />
+              <div className="destination-panel__overlay"></div>
             </div>
 
-            <div className="branch-panel__content">
-              <div className="branch-panel__badge">{branch86.badge}</div>
-              <h3 className="branch-panel__name">
-                SECTOR 86<br /><span>PERFORMANCE</span>
-              </h3>
-              <p className="branch-panel__locality">Greater Faridabad · Haryana 121002</p>
+            <div className="destination-panel__content">
+              <div className="destination-panel__badge">
+                <span className="dot" style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--nexus-yellow)' }}></span>
+                <span>PERFORMANCE & ROOFTOP TURF</span>
+              </div>
 
-              <div className="branch-panel__facilities">
-                {branch86.highlights.map((h, i) => (
-                  <span key={i} className="branch-spec-tag">
-                    <span className="dot"></span> {h}
+              <h3 className="destination-panel__title">SECTOR 86</h3>
+              <p className="destination-panel__location">
+                Sector 86, Greater Faridabad · Mon–Sat 6AM–10PM, Sun 7AM–8PM
+              </p>
+
+              <div className="destination-panel__features">
+                {branch86.highlights.slice(0, 3).map((item) => (
+                  <span key={item} className="destination-feature">
+                    <span className="dot"></span>
+                    <span>{item}</span>
                   </span>
                 ))}
               </div>
 
-              <div className="branch-panel__hours">
-                <span className="hours-label">Operating Hours:</span> Mon–Sat 6AM–10PM · Sun 7AM–8PM
-              </div>
-
-              <div className="branch-panel__actions">
-                <Link href="/locations/sector-86" className="btn btn-primary">
+              <div className="destination-panel__actions">
+                <Link
+                  href="/locations/sector-86"
+                  className="btn btn-primary"
+                  onClick={() => setBranch('sector-86')}
+                >
                   Explore Sector 86 →
                 </Link>
                 <a
-                  href={`https://wa.me/919582333003?text=${encodeURIComponent(branch86.contact.whatsappMessage)}`}
+                  href={getWhatsAppUrl("Hi Nexus, I'd like to enquire about membership at the Sector 86 Performance club.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-secondary"
                 >
-                  WhatsApp
-                </a>
-                <a
-                  href={branch86.directions.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-tertiary"
-                >
-                  Directions ↗
+                  WhatsApp Club
                 </a>
               </div>
             </div>

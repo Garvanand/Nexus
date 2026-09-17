@@ -122,7 +122,7 @@ const NEXUS_BRANCHES = {
     gallery: [
       { src: 'assets/images/space_cricket.jpg', alt: 'Rooftop Cricket Turf at Sunset' },
       { src: 'assets/images/photo2.webp', alt: 'Acoustic Mirrored Movement Studio' },
-      { src: 'assets/images/training_yoga.jpg', alt: 'Serene Mindfulness Yoga Studio' },
+      { src: 'assets/images/photo2.webp', alt: 'Serene Mindfulness Yoga Studio' },
       { src: 'assets/images/photo9.webp', alt: 'Cardio & Selectorized Conditioning Grid' }
     ],
     whatsappMessages: {

@@ -54,7 +54,7 @@ const NEXUS_EXPERIENCES = {
     headline: 'BALANCE IN THE NOISE.',
     oneLiner: 'Warm low-lux illumination, guided pranayama breathwork, and deep myofascial mobility designed to lower cortisol and restore spinal alignment.',
     location: 'Sector 86 Studio Arena',
-    image: 'assets/images/training_yoga.jpg',
+    image: 'assets/images/photo2.webp',
     specs: [
       { label: 'Atmosphere', val: 'Acoustically insulated calm zone with warm recessed light' },
       { label: 'Practices', val: 'Vinyasa Flow, Hatha Yoga, Deep Mobility, and Yin' },
@@ -73,7 +73,7 @@ const NEXUS_EXPERIENCES = {
     headline: 'SWEAT WITH PURPOSE.',
     oneLiner: 'Functional athletic circuits and high-tempo interval conditioning that elevate cardiovascular threshold alongside an accountability cohort.',
     location: 'Sector 86 Studio Arena',
-    image: 'assets/images/training_aerobics.jpg',
+    image: 'assets/images/photo9.webp',
     specs: [
       { label: 'Discipline', val: 'High-Intensity Interval Training & Athletic Step Aerobics' },
       { label: 'Metabolic Goal', val: 'Elevated EPOC calorie burn and aerobic capacity' },

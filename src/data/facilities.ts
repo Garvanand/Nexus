@@ -97,7 +97,7 @@ export const NEXUS_FACILITIES: Facility[] = [
     category: 'studios',
     categoryLabel: 'Group Studios',
     layout: 'medium-image',
-    image: '/assets/images/training_yoga.jpg',
+    image: '/assets/images/photo2.webp',
     tag: 'STUDIO 02',
     badge: 'Sector 86 Studio Hub',
     lead: 'A low-lux, acoustically isolated environment dedicated to pranayama breathwork, spine decompression, and active mobility.',

@@ -1,109 +1,80 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { NEXUS_INSTAGRAM_POSTS } from '../data/instagram';
+import React from 'react';
 
 export const InstagramCarousel: React.FC = () => {
-  const scrollerRef = useRef<HTMLDivElement>(null);
-
-  const scrollByAmount = (direction: 'left' | 'right') => {
-    if (!scrollerRef.current) return;
-    const offset = direction === 'left' ? -380 : 380;
-    scrollerRef.current.scrollBy({ left: offset, behavior: 'smooth' });
-  };
+  const socialPosts = [
+    {
+      id: 'post-1',
+      type: 'REEL // LIFTING',
+      caption: 'Heavy pulls on calibrated steel. Sector 85 power bays.',
+      image: '/assets/images/reel_deadlift.jpg',
+      url: 'https://www.instagram.com/nexus_the_lifting_club/',
+    },
+    {
+      id: 'post-2',
+      type: 'COMMUNITY // SATURDAY',
+      caption: 'Post-session brotherhood. Building strength together.',
+      image: '/assets/images/reel_community.jpg',
+      url: 'https://www.instagram.com/nexus_the_lifting_club/',
+    },
+    {
+      id: 'post-3',
+      type: 'RECREATION // CRICKET',
+      caption: 'Night lights under the Greater Faridabad sky at Sector 86.',
+      image: '/assets/images/space_cricket.jpg',
+      url: 'https://www.instagram.com/nexus_the_lifting_club/',
+    },
+    {
+      id: 'post-4',
+      type: 'DISCIPLINE // MORNING',
+      caption: '6:00 AM cadence. The floor belongs to those who show up.',
+      image: '/assets/images/photo6.webp',
+      url: 'https://www.instagram.com/nexus_the_lifting_club/',
+    },
+  ];
 
   return (
-    <section className="ig-section" id="instagram" aria-label="Instagram Feed">
+    <section className="section social-editorial-section" id="social" aria-label="Social Feed">
       <div className="container">
-        <div className="ig-header">
+        <div className="social-editorial__header">
           <div>
-            <div className="ig-header__eyebrow">
-              <span className="ig-dot"></span> LIVE DISPATCHES // DAILY CULTURE
+            <div className="eyebrow" style={{ marginBottom: '1rem' }}>
+              <span className="eyebrow-line"></span>
+              <span>LIVE ATMOSPHERE</span>
             </div>
-            <h2 className="ig-header__title">
-              THE CLUB IN REAL TIME.
+            <h2 className="heading-section">
+              THIS IS WHAT NEXUS FEELS LIKE.
             </h2>
           </div>
 
-          <div className="ig-header__actions">
+          <a
+            href="https://www.instagram.com/nexus_the_lifting_club/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary"
+          >
+            Follow @nexus_the_lifting_club ↗
+          </a>
+        </div>
+
+        {/* High-Impact Portrait Editorial Row */}
+        <div className="social-row">
+          {socialPosts.map((post) => (
             <a
-              href="https://www.instagram.com/nexusliftingclub/"
+              key={post.id}
+              href={post.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="ig-channel-btn"
+              className="social-item"
             >
-              <span>@nexusliftingclub</span>
-              <span className="arrow">↗</span>
+              <img src={post.image} alt={post.caption} className="social-item__img" />
+              <div className="social-item__overlay"></div>
+              <div className="social-item__meta">
+                <div className="social-item__handle">{post.type}</div>
+                <p className="social-item__caption">{post.caption}</p>
+              </div>
             </a>
-
-            <div className="ig-nav-buttons">
-              <button
-                type="button"
-                className="ig-nav-btn"
-                aria-label="Scroll left"
-                onClick={() => scrollByAmount('left')}
-              >
-                ←
-              </button>
-              <button
-                type="button"
-                className="ig-nav-btn"
-                aria-label="Scroll right"
-                onClick={() => scrollByAmount('right')}
-              >
-                →
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="ig-carousel-container">
-        <div className="ig-carousel" ref={scrollerRef}>
-          {NEXUS_INSTAGRAM_POSTS.map((post) => (
-            <article key={post.id} className="ig-card">
-              <div className="ig-card__visual">
-                <img src={post.mediaUrl} alt={post.caption} className="ig-card__img" loading="lazy" />
-                <div className="ig-card__overlay"></div>
-
-                <div className="ig-card__badges">
-                  <span className="ig-card__category">{post.category}</span>
-                  {post.type === 'reel' && (
-                    <span className="ig-card__type-pill">
-                      ▶ Reel {post.duration}
-                    </span>
-                  )}
-                  {post.type === 'carousel' && (
-                    <span className="ig-card__type-pill">
-                      ☷ Carousel
-                    </span>
-                  )}
-                </div>
-
-                <div className="ig-card__stats">
-                  <span>♥ {post.engagement.likes}</span>
-                  <span>💬 {post.engagement.comments}</span>
-                </div>
-              </div>
-
-              <div className="ig-card__body">
-                <div className="ig-card__meta">
-                  <span className="ig-card__author">{post.author}</span>
-                  <span className="ig-card__verified">✓</span>
-                </div>
-
-                <p className="ig-card__caption">{post.caption}</p>
-
-                <a
-                  href={post.instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ig-card__link"
-                >
-                  View On Instagram ↗
-                </a>
-              </div>
-            </article>
           ))}
         </div>
       </div>
